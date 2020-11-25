@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Radartech sondage frontend`,
+    title: `Métiers techniques de l'État: sondage`,
     description: ``,
     author: ``,
   },

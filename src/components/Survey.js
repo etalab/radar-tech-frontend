@@ -119,14 +119,14 @@ class SurveyComponent extends React.Component {
     Survey.StylesManager.applyTheme('bootstrap')
 
     return (
-      <main>
+      <section>
         <Survey.Survey
           model={model}
           onComplete={this.onComplete}
           onUpdatePanelCssClasses={this.onUpdatePanelCssClasses}
           onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />
-      </main>
+      </section>
     )
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "radartech-sondage-frontend",
+  "name": "Radartech sondage frontend",
   "private": true,
   "description": "Une simple page pour passer un sondage, utilisant Gatsby, React, et SurveyJS",
   "version": "0.1.0",
@@ -20,7 +20,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
-    "survey-react": "^1.8.14"
+    "survey-react": "^1.8.14",
+    "template.data.gouv.fr": "^1.3.2"
   },
   "devDependencies": {
     "prettier": "2.1.2"
