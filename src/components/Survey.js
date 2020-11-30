@@ -16,6 +16,7 @@ class SurveyComponent extends React.Component {
             type: 'radiogroup',
             name: 'demo_genre',
             title: 'À quel genre vous identifiez-vous ?',
+            // isRequired: true,
             choices: [
               'Homme',
               'Femme',
@@ -88,6 +89,17 @@ class SurveyComponent extends React.Component {
               },
             ],
           },
+          // {
+          //   type: 'text',
+          //   name: 'email',
+          //   title: 'Please enter your e-mail',
+          //   isRequired: true,
+          //   validators: [
+          //     {
+          //       type: 'email',
+          //     },
+          //   ],
+          // },
         ],
       },
     ],
