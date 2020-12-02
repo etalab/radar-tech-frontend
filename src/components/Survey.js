@@ -119,12 +119,14 @@ class SurveyComponent extends React.Component {
   // voir src/components/validators.js
   onServerValidateQuestions(survey, options) {
     schema
-      .isValid(options.data, { strict: true, stripUnknown: true })
+      .validate(options.data, { strict: true, stripUnknown: true })
       .catch(err => console.log(err))
       .then(valid => {
-        if (valid === false) {
-          alert("Le formulaire ne valide pas. A-t'il dévié de la DB?")
-        } else if (valid === true) options.complete()
+        if (!valid) {
+          alert(
+            "Le formulaire ne valide pas. A-t'il dévié de la DB? Voir devtools"
+          )
+        } else options.complete()
       })
   }
 
