@@ -3,7 +3,7 @@ import * as Survey from 'survey-react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './Survey.scss'
 
-import { schema } from './validators.js'
+import { schema } from './utils/validators.js'
 
 class SurveyComponent extends React.Component {
   survey = {
@@ -113,16 +113,23 @@ class SurveyComponent extends React.Component {
   }
 
   // cette fonction est appellée à la fin du questionnaire,
-  // c.a.d quand les résultats composés par le lecteur valident.
+  // mais avant que les résultats composés par le lecteur valident.
   // pour éviter de changer la structure du questionnaire-test,
   // nous contraignons ce dernier à un schéma.
   // voir src/components/validators.js
-  onComplete(survey, options) {
+  onServerValidateQuestions(survey, options) {
     schema
-      .validate(survey.data, { strict: true, stripUnknown: true })
+      .isValid(options.data, { strict: true, stripUnknown: true })
+      .catch(err => console.log(err))
       .then(valid => {
-        console.log(valid)
+        if (valid === false) {
+          alert("Le formulaire ne valide pas. A-t'il dévié de la DB?")
+        } else if (valid === true) options.complete()
       })
+  }
+
+  onComplete(survey, options) {
+    console.log(survey.data)
   }
 
   onUpdatePanelCssClasses = (survey, options) => {
@@ -135,10 +142,7 @@ class SurveyComponent extends React.Component {
   }
 
   render() {
-    //Create the model and pass it into react Survey component
-    //You may create survey model outside the render function and use it in your Survey or component
-    //The most model properties are reactive, on their change the component will change UI when needed.
-    var model = new Survey.Model(this.survey)
+    const model = new Survey.Model(this.survey)
     Survey.StylesManager.applyTheme('bootstrap')
 
     return (
@@ -146,6 +150,7 @@ class SurveyComponent extends React.Component {
         <Survey.Survey
           model={model}
           onComplete={this.onComplete}
+          onServerValidateQuestions={this.onServerValidateQuestions}
           onUpdatePanelCssClasses={this.onUpdatePanelCssClasses}
           onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />
