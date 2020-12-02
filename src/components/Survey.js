@@ -3,6 +3,8 @@ import * as Survey from 'survey-react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './Survey.scss'
 
+import { schema } from './validators.js'
+
 class SurveyComponent extends React.Component {
   survey = {
     title: 'Sondage type',
@@ -16,7 +18,7 @@ class SurveyComponent extends React.Component {
             type: 'radiogroup',
             name: 'demo_genre',
             title: 'À quel genre vous identifiez-vous ?',
-            // isRequired: true,
+            isRequired: true,
             choices: [
               'Homme',
               'Femme',
@@ -110,8 +112,17 @@ class SurveyComponent extends React.Component {
     Survey.StylesManager.applyTheme('bootstrap')
   }
 
+  // cette fonction est appellée à la fin du questionnaire,
+  // c.a.d quand les résultats composés par le lecteur valident.
+  // pour éviter de changer la structure du questionnaire-test,
+  // nous contraignons ce dernier à un schéma.
+  // voir src/components/validators.js
   onComplete(survey, options) {
-    console.log('Survey results: ' + JSON.stringify(survey.data))
+    schema
+      .validate(survey.data, { strict: true, stripUnknown: true })
+      .then(valid => {
+        console.log(valid)
+      })
   }
 
   onUpdatePanelCssClasses = (survey, options) => {
