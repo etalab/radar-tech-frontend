@@ -1,7 +1,5 @@
 import React from 'react'
 import * as Survey from 'survey-react'
-import 'bootstrap/dist/css/bootstrap.css'
-import './Survey.scss'
 
 import { schema } from './utils/validators.js'
 
@@ -108,9 +106,9 @@ class SurveyComponent extends React.Component {
     showQuestionNumbers: 'off',
   }
 
-  componentWillMount() {
-    Survey.StylesManager.applyTheme('bootstrap')
-  }
+  // componentWillMount() {
+  //   Survey.StylesManager.applyTheme('bootstrap')
+  // }
 
   // cette fonction est appellée à la fin du questionnaire,
   // mais avant que les résultats composés par le lecteur valident.
@@ -140,12 +138,13 @@ class SurveyComponent extends React.Component {
   }
 
   onUpdateQuestionCssClasses = (survey, options) => {
-    options.cssClasses.header = options.cssClasses.titleLeftRoot + ' mono'
+    options.cssClasses.header =
+      options.cssClasses.titleLeftRoot + ' mono rf-text--lead'
+    options.cssClasses.title = options.cssClasses.title + ' rf-text'
   }
 
   render() {
     const model = new Survey.Model(this.survey)
-    Survey.StylesManager.applyTheme('bootstrap')
 
     return (
       <section>

@@ -1,17 +1,13 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
+import GouvHeader from './gouvHeader'
+
+// inclut le design systeme de l'Etat
+// https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476
+import './design-systeme/css/all.min.css'
 import './layout.css'
-import 'template.data.gouv.fr/dist/main.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,12 +22,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <GouvHeader siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
           margin: `0 auto`,
+          marginTop: `50px`,
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
         }}
       >
         <main>{children}</main>
