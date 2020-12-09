@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import header from '@gouvfr/header';
+type Props = {
+  readonly siteTitle: string;
+};
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle }: Props) => (
   <header className="rf-header">
     <div className="rf-container">
       <div className="rf-header__body">
         <div className="rf-header__brand">
-          <div className="rf-logo" href="#" title="République française">
+          <div className="rf-logo" title="République française">
             <span className="rf-logo__title">
               République
               <br />
@@ -18,7 +20,7 @@ const Header = ({ siteTitle }) => (
         </div>
         <div className="rf-header__navbar">
           <div className="rf-service">
-            <div className="rf-service__title" href="#" title={siteTitle}>
+            <div className="rf-service__title" title={siteTitle}>
               {siteTitle}
             </div>
             <p className="rf-service__tagline">tagline tagline tagline</p>
