@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import { Link } from 'gatsby';
 
 type Props = {
