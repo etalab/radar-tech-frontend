@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import header from '@gouvfr/header'
+import header from '@gouvfr/header';
 
 const Header = ({ siteTitle }) => (
   <header className="rf-header">
@@ -50,6 +50,6 @@ const Header = ({ siteTitle }) => (
       </div>
     </div>
   </header>
-)
+);
 
-export default Header
+export default Header;

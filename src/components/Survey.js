@@ -1,7 +1,7 @@
-import React from 'react'
-import * as Survey from 'survey-react'
+import React from 'react';
+import * as Survey from 'survey-react';
 
-import { schema } from './utils/validators.js'
+import { schema } from './utils/validators.js';
 
 class SurveyComponent extends React.Component {
   survey = {
@@ -104,7 +104,7 @@ class SurveyComponent extends React.Component {
       },
     ],
     showQuestionNumbers: 'off',
-  }
+  };
 
   // componentWillMount() {
   //   Survey.StylesManager.applyTheme('bootstrap')
@@ -123,28 +123,28 @@ class SurveyComponent extends React.Component {
         if (!valid) {
           alert(
             "Le formulaire ne valide pas. A-t'il dévié de la DB? Voir devtools"
-          )
-        } else options.complete()
-      })
+          );
+        } else options.complete();
+      });
   }
 
   onComplete(survey, options) {
-    console.log(survey.data)
+    console.log(survey.data);
   }
 
   onUpdatePanelCssClasses = (survey, options) => {
     options.cssClasses.panel.container =
-      options.cssClasses.panel.container + ' blue-border'
-  }
+      options.cssClasses.panel.container + ' blue-border';
+  };
 
   onUpdateQuestionCssClasses = (survey, options) => {
     options.cssClasses.header =
-      options.cssClasses.titleLeftRoot + ' mono rf-text--lead'
-    options.cssClasses.title = options.cssClasses.title + ' rf-text'
-  }
+      options.cssClasses.titleLeftRoot + ' mono rf-text--lead';
+    options.cssClasses.title = options.cssClasses.title + ' rf-text';
+  };
 
   render() {
-    const model = new Survey.Model(this.survey)
+    const model = new Survey.Model(this.survey);
 
     return (
       <section>
@@ -156,7 +156,7 @@ class SurveyComponent extends React.Component {
           onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />
       </section>
-    )
+    );
   }
 }
-export { SurveyComponent }
+export { SurveyComponent };
