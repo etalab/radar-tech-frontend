@@ -1,27 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 
 import header from '@gouvfr/header'
 
-const GouvHeader = ({ siteTitle }) => (
+const Header = ({ siteTitle }) => (
   <header className="rf-header">
     <div className="rf-container">
       <div className="rf-header__body">
         <div className="rf-header__brand">
-          <a className="rf-logo" href="#" title="République française">
+          <div className="rf-logo" href="#" title="République française">
             <span className="rf-logo__title">
               République
               <br />
               française
             </span>
-          </a>
+          </div>
         </div>
         <div className="rf-header__navbar">
           <div className="rf-service">
-            <a className="rf-service__title" href="#" title={siteTitle}>
+            <div className="rf-service__title" href="#" title={siteTitle}>
               {siteTitle}
-            </a>
+            </div>
             <p className="rf-service__tagline">tagline tagline tagline</p>
           </div>
         </div>
@@ -53,4 +52,4 @@ const GouvHeader = ({ siteTitle }) => (
   </header>
 )
 
-export default GouvHeader
+export default Header
