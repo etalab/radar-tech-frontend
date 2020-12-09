@@ -37,5 +37,13 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'radarTechTest',
+        fieldName: 'radarTechTest',
+        url: 'http://fast-snow-hulu.app.etalab.studio/graphql',
+      },
+    },
   ],
-}
+};
