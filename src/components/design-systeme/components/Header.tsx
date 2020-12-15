@@ -2,10 +2,10 @@ import React, { FC, ReactElement } from 'react';
 import { Link } from 'gatsby';
 
 type Props = {
-  readonly siteTitle: string;
+  siteTitle: string;
 };
 
-const Header = ({ siteTitle }: Props) => (
+const GouvHeader = (props: Props) => (
   <header className="rf-header">
     <div className="rf-container">
       <div className="rf-header__body">
@@ -20,8 +20,8 @@ const Header = ({ siteTitle }: Props) => (
         </div>
         <div className="rf-header__navbar">
           <div className="rf-service">
-            <div className="rf-service__title" title={siteTitle}>
-              {siteTitle}
+            <div className="rf-service__title" title={props.siteTitle}>
+              {props.siteTitle}
             </div>
             <p className="rf-service__tagline">tagline tagline tagline</p>
           </div>
@@ -53,5 +53,7 @@ const Header = ({ siteTitle }: Props) => (
     </div>
   </header>
 );
+
+const Header = props => <GouvHeader siteTitle={props.siteTitle} />;
 
 export default Header;
