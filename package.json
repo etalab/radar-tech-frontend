@@ -7,6 +7,9 @@
   "dependencies": {
     "@gouvfr/header": "^0.3.1",
     "bootstrap": "^4.5.3",
+    "d3-collection": "^1.0.7",
+    "d3-jetpack": "^2.1.1",
+    "d3-selection": "^2.0.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
