@@ -20,16 +20,16 @@ const ResultatsPage = () => {
     query myQuery {
       radarTechTest {
         answer {
-          gender
-          age
+          demo_genre
+          demo_age
         }
       }
     }
   `);
 
   const data = radarTechTest.answer;
-  const gender_keyed = groupBy(data, 'gender');
-  const age_keyed = groupBy(data, 'age');
+  const gender_keyed = groupBy(data, 'demo_genre');
+  const age_keyed = groupBy(data, 'demo_age');
 
   return (
     <Layout>
