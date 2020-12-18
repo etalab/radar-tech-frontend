@@ -7,7 +7,7 @@ import Header from './design-systeme/components/Header.js';
 // inclut le design systeme de l'Etat
 // https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476
 import './design-systeme/css/all.min.css';
-import './layout.css';
+import './css/layout.css';
 
 const Layout = ({ children }) => {
   return (

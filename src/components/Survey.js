@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Survey from 'survey-react';
+import './css/survey.scss';
 
 import { schema } from './utils/validators.js';
 
@@ -105,10 +106,6 @@ class SurveyComponent extends React.Component {
     ],
     showQuestionNumbers: 'off',
   };
-
-  // componentWillMount() {
-  //   Survey.StylesManager.applyTheme('bootstrap')
-  // }
 
   // cette fonction est appellée à la fin du questionnaire,
   // mais avant que les résultats composés par le lecteur valident.
