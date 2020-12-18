@@ -129,7 +129,26 @@ class SurveyComponent extends React.Component {
   }
 
   onComplete(survey, options) {
-    console.log(survey.data);
+    console.log(`Data a POSTer: `, survey.data);
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(survey.data),
+    };
+
+    fetch('https://reqbin.com/echo/post/json', requestOptions)
+      .then(async response => {
+        const data = await response.json();
+
+        if (!response.ok) {
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
   }
 
   onUpdatePanelCssClasses = (survey, options) => {
