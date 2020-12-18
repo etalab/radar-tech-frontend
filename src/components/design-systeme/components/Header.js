@@ -31,14 +31,6 @@ const Header = () => {
               <ul className="rf-shortcuts__list">
                 <li className="rf-shortcuts__item">
                   <Link
-                    to="/resultats/"
-                    className="rf-link rf-fi-lock-line rf-link--icon-left"
-                  >
-                    Résultats
-                  </Link>
-                </li>
-                <li className="rf-shortcuts__item">
-                  <Link
                     to="/using-typescript/"
                     className="rf-link rf-fi-lock-line rf-link--icon-left"
                   >
