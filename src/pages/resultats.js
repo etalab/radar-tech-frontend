@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import ChartTemplate from '../components/ChartTemplate';
 
 import { useStaticQuery, graphql } from 'gatsby';
 const d3 = Object.assign({}, require('d3-collection'));
@@ -38,6 +39,8 @@ const ResultatsPage = () => {
       <p>
         <b>{data.length}</b> résultats dans la DB.
       </p>
+
+      <ChartTemplate />
 
       <h4>Gender</h4>
       <ul>
