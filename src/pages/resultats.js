@@ -34,7 +34,6 @@ const ResultatsPage = () => {
       radarTechTest {
         answer {
           demo_genre
-          demo_age
         }
       }
     }
@@ -42,7 +41,6 @@ const ResultatsPage = () => {
 
   const data = radarTechTest.answer;
   const gender_keyed = groupBy(data, 'demo_genre');
-  const age_keyed = groupBy(data, 'demo_age');
 
   return (
     <Layout>
@@ -67,28 +65,10 @@ const ResultatsPage = () => {
       </ul>
 
       <h4>Responsive chart template type Basile</h4>
-      <ResponsiveChartTemplate />
+      <ResponsiveChartTemplate data={gender_keyed} />
 
       <h4>Pie chart type Semiotic</h4>
       <SemioticPieChart data={gender_keyed} dynamicColumnWidth={'pct'} />
-
-      {/* <h4>Gender</h4>
-      <ul>
-        {gender_keyed.map((e, i) => (
-          <li key={i}>
-            {e.value.n} identifiant comme {e.key}s ({e.value.pct}%)
-          </li>
-        ))}
-      </ul>
-
-      <h4>Age</h4>
-      <ul>
-        {age_keyed.map((e, i) => (
-          <li key={i}>
-            {e.value.n} entre {e.key} ans ({e.value.pct}%)
-          </li>
-        ))}
-      </ul> */}
     </Layout>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import * as selection from 'd3-selection';
 const d3 = { ...selection };
 
@@ -19,7 +20,7 @@ const useResizeObserver = ref => {
   return dimensions;
 };
 
-function ResponsiveChartTemplate() {
+function ResponsiveChartTemplate(props) {
   const svgRef = useRef();
   const markerRef = useRef();
   const wrapperRef = useRef();
@@ -45,15 +46,40 @@ function ResponsiveChartTemplate() {
       ref={wrapperRef}
       style={{
         width: `100%`,
-        height: `100px`,
+        height: `200px`,
       }}
       className="chartTemplate"
     >
       <svg ref={svgRef}>
         <text ref={markerRef} transform={`translate(10,40)`}></text>
       </svg>
+
+      <div style={{ display: `flex`, flexDirection: `row` }}>
+        {props.data.map(e => (
+          <div
+            key={e.key}
+            style={{
+              width: `${e.pct}%`,
+              height: `40px`,
+              margin: `1px`,
+              border: `1px solid #696969`,
+              borderRadius: `4px`,
+              backgroundColor: `aliceblue`,
+              display: `flex`,
+              justifyContent: `center`,
+              alignItems: `center`,
+            }}
+          >
+            {e.pct}%
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+
+ResponsiveChartTemplate.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 
 export default ResponsiveChartTemplate;
