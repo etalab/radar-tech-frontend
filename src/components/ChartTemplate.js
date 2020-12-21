@@ -19,14 +19,15 @@ const useResizeObserver = ref => {
   return dimensions;
 };
 
-function ChartTemplate() {
+function ResponsiveChartTemplate() {
   const svgRef = useRef();
+  const markerRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
 
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    console.log(dimensions);
+    const marker = d3.select(markerRef.current);
 
     if (!dimensions) return;
 
@@ -34,7 +35,9 @@ function ChartTemplate() {
       .attr('width', `${dimensions.width - 10}px`)
       .attr('height', '100px')
       .style('transform', `translateX(5px)`)
-      .style('background-color', 'steelblue');
+      .style('border', '1px solid steelblue');
+
+    marker.text(`dimensions: ${dimensions.width}, ${dimensions.height}`);
   }, [dimensions]);
 
   return (
@@ -46,9 +49,11 @@ function ChartTemplate() {
       }}
       className="chartTemplate"
     >
-      <svg ref={svgRef} style={{ backgroundColor: `aliceblue` }}></svg>
+      <svg ref={svgRef}>
+        <text ref={markerRef} transform={`translate(10,40)`}></text>
+      </svg>
     </div>
   );
 }
 
-export default ChartTemplate;
+export default ResponsiveChartTemplate;

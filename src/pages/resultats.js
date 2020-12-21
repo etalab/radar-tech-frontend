@@ -1,7 +1,8 @@
 import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import ChartTemplate from '../components/ChartTemplate';
+import SemioticPieChart from '../components/PieChart';
+import ResponsiveChartTemplate from '../components/ChartTemplate';
 
 import { useStaticQuery, graphql } from 'gatsby';
 const d3 = Object.assign({}, require('d3-collection'));
@@ -11,10 +12,21 @@ const groupBy = (arr, key) =>
     .nest()
     .key(d => d[key])
     .rollup(d => {
-      return { n: d.length, pct: ((100 * d.length) / arr.length).toFixed(1) };
+      return {
+        n: d.length,
+        pct: parseFloat(((100 * d.length) / arr.length).toFixed(1)),
+      };
     })
     .entries(arr)
-    .sort((a, b) => b.value.n - a.value.n);
+    .sort((a, b) => b.value.n - a.value.n)
+    .map(e => {
+      // console.log(e);
+      return {
+        key: e.key,
+        n: e.value.n,
+        pct: e.value.pct,
+      };
+    });
 
 const ResultatsPage = () => {
   const { radarTechTest } = useStaticQuery(graphql`
@@ -40,9 +52,27 @@ const ResultatsPage = () => {
         <b>{data.length}</b> résultats dans la DB.
       </p>
 
-      <ChartTemplate />
+      <h4>Gender breakdown</h4>
+      <ul>
+        {gender_keyed.map((e, i) => (
+          <li
+            style={{
+              height: `13px`,
+            }}
+            key={i}
+          >
+            <b>{e.n}</b> identifiant comme {e.key}s ({e.pct}%)
+          </li>
+        ))}
+      </ul>
 
-      <h4>Gender</h4>
+      <h4>Responsive chart template type Basile</h4>
+      <ResponsiveChartTemplate />
+
+      <h4>Pie chart type Semiotic</h4>
+      <SemioticPieChart data={gender_keyed} dynamicColumnWidth={'pct'} />
+
+      {/* <h4>Gender</h4>
       <ul>
         {gender_keyed.map((e, i) => (
           <li key={i}>
@@ -58,7 +88,7 @@ const ResultatsPage = () => {
             {e.value.n} entre {e.key} ans ({e.value.pct}%)
           </li>
         ))}
-      </ul>
+      </ul> */}
     </Layout>
   );
 };
