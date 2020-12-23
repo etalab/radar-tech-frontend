@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Métiers techniques de l'État: sondage`,
-    description: ``,
+    description: `hello hello`,
     author: ``,
   },
   plugins: [

@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ESNext",
-     "jsx": "react",
-     "rootDir": "src",
+    "jsx": "react",
+    "target": "ES2015",
+    "module": "commonjs",
     "strict": true,
-    "noImplicitAny": false,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false
   },
-  "exclude": ["node_modules", "build", "scripts"]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended"
 }

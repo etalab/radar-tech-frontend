@@ -1,28 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Header from './design-systeme/components/Header.tsx';
+import Header from "./design-systeme/components/Header.tsx";
 
 // inclut le design systeme de l'Etat
 // https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476
-import './design-systeme/css/all.min.css';
-import './layout.css';
+import "./design-systeme/css/all.min.css";
+import "./layout.css";
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <>
-      <Header siteTitle={1} />
+      <Header />
       <div
         style={{
           margin: `0 auto`,
