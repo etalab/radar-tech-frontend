@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 
-import Header from "./design-systeme/components/Header.tsx";
+import Header from "./design-systeme/components/Header";
 
 // inclut le design systeme de l'Etat
 // https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476
