@@ -1,5 +1,5 @@
-import * as React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import * as React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 
 interface HeaderData {
   site: {
@@ -52,14 +52,6 @@ const Header = () => {
           <div className="rf-header__tools">
             <div className="rf-shortcuts">
               <ul className="rf-shortcuts__list">
-                <li className="rf-shortcuts__item">
-                  <Link
-                    to="/page-2/"
-                    className="rf-link rf-fi-lock-line rf-link--icon-left"
-                  >
-                    Page 2
-                  </Link>
-                </li>
                 <li className="rf-shortcuts__item">
                   <Link
                     to="/using-typescript/"
