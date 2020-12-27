@@ -1,0 +1,12 @@
+// les checkboxes héritent bizarrement de
+// droles de propriétés
+.sv_q_checkbox_control_item {
+    opacity: 1 !important;
+    position: relative !important;
+}
+
+// les dropdowns sont légèrement coupés sur
+// le coté gauche
+.sv_q_dropdown_control {
+    margin-left: 2px;
+}

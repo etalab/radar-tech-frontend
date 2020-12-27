@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Survey from 'survey-react';
+import './css/survey.scss';
 
 import { schema } from './utils/validators.js';
 
@@ -106,10 +107,6 @@ class SurveyComponent extends React.Component {
     showQuestionNumbers: 'off',
   };
 
-  // componentWillMount() {
-  //   Survey.StylesManager.applyTheme('bootstrap')
-  // }
-
   // cette fonction est appellée à la fin du questionnaire,
   // mais avant que les résultats composés par le lecteur valident.
   // pour éviter de changer la structure du questionnaire-test,
@@ -129,7 +126,26 @@ class SurveyComponent extends React.Component {
   }
 
   onComplete(survey, options) {
-    console.log(survey.data);
+    console.log(`Data a POSTer: `, survey.data);
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(survey.data),
+    };
+
+    fetch('https://reqbin.com/echo/post/json', requestOptions)
+      .then(async response => {
+        const data = await response.json();
+
+        if (!response.ok) {
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
   }
 
   onUpdatePanelCssClasses = (survey, options) => {

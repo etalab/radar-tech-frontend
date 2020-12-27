@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Métiers techniques de l'État: sondage`,
-    description: `hello hello`,
+    description: `tagline tagline`,
     author: ``,
   },
   plugins: [
@@ -35,6 +35,14 @@ module.exports = {
         isTSX: true, // defaults to false
         jsxPragma: `jsx`, // defaults to "React"
         allExtensions: true, // defaults to false
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'radarTechTest',
+        fieldName: 'radarTechTest',
+        url: 'http://fast-snow-hulu.app.etalab.studio/graphql',
       },
     },
   ],
