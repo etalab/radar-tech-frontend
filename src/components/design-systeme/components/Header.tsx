@@ -1,42 +1,57 @@
-import React from 'react';
-import { useSiteMetadata } from '../../utils/use-site-metadata';
-import { Link } from 'gatsby';
+import * as React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+
+interface HeaderData {
+  site: {
+    siteMetadata: {
+      readonly title: string;
+      readonly description: string;
+    };
+  };
+}
 
 const Header = () => {
-  const { title, description } = useSiteMetadata();
+  const data: HeaderData = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `);
+
   return (
     <header className="rf-header">
       <div className="rf-container">
         <div className="rf-header__body">
           <div className="rf-header__brand">
-            <Link className="rf-logo" to="/" title="République française">
+            <div className="rf-logo" title="République française">
               <span className="rf-logo__title">
                 République
                 <br />
                 française
               </span>
-            </Link>
+            </div>
           </div>
           <div className="rf-header__navbar">
             <div className="rf-service">
-              <Link className="rf-service__title" to="/" title={title}>
-                {title}
-              </Link>
-              <p className="rf-service__tagline">{description}</p>
+              <div
+                className="rf-service__title"
+                title={data.site.siteMetadata.title}
+              >
+                {data.site.siteMetadata.title}
+              </div>
+              <p className="rf-service__tagline">
+                {data.site.siteMetadata.description}
+              </p>
             </div>
           </div>
 
           <div className="rf-header__tools">
             <div className="rf-shortcuts">
               <ul className="rf-shortcuts__list">
-                <li className="rf-shortcuts__item">
-                  <Link
-                    to="/resultats/"
-                    className="rf-link rf-fi-lock-line rf-link--icon-left"
-                  >
-                    Résultats
-                  </Link>
-                </li>
                 <li className="rf-shortcuts__item">
                   <Link
                     to="/using-typescript/"
