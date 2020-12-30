@@ -47,30 +47,31 @@ const ResultatsPage = () => {
   return (
     <Layout>
       <SEO title="Résultats" />
-      <h1>page des résultats</h1>
       <p>
         <b>{gender_data.length}</b> résultats dans la DB.
       </p>
 
-      <h4>Gender breakdown</h4>
-      <ul>
-        {gender_flat.map((e, i) => (
-          <li
-            style={{
-              height: `13px`,
-            }}
-            key={i}
-          >
-            <b>{e.n}</b> identifiant comme {e.key}s ({e.pct}%)
-          </li>
-        ))}
-      </ul>
+      <section>
+        <h3 style={{ marginBottom: `0.7rem` }}>Démographie</h3>
+        <ul style={{ height: `100px` }}>
+          {gender_flat.map((e, i) => (
+            <li
+              style={{
+                height: `13px`,
+              }}
+              key={i}
+            >
+              <b>{e.n}</b> identifiant comme {e.key}s ({e.pct}%)
+            </li>
+          ))}
+        </ul>
 
-      <h4>Responsive chart template type Basile</h4>
-      <ResponsiveChartTemplate data={gender_flat} />
+        <h4>Responsive chart template type Basile</h4>
+        <ResponsiveChartTemplate data={gender_flat} />
 
-      <h4>Pie chart type Semiotic</h4>
-      <SemioticPieChart data={gender_flat} dynamicColumnWidth={'pct'} />
+        <h4>Pie chart type Semiotic</h4>
+        <SemioticPieChart data={gender_flat} dynamicColumnWidth={'pct'} />
+      </section>
     </Layout>
   );
 };

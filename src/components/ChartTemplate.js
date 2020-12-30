@@ -1,29 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as selection from 'd3-selection';
+import { useResizeObserver } from './utils/resizeObserver.js';
 const d3 = { ...selection };
 
-const useResizeObserver = ref => {
-  const [dimensions, setDimensions] = useState(null);
-  useEffect(() => {
-    const observeTarget = ref.current;
-    const resizeObserver = new ResizeObserver(entries => {
-      entries.forEach(entry => {
-        setDimensions(entry.contentRect);
-      });
-    });
-    resizeObserver.observe(observeTarget);
-    return () => {
-      resizeObserver.unobserve(observeTarget);
-    };
-  }, [ref]);
-  return dimensions;
-};
-
 function ResponsiveChartTemplate(props) {
-  const svgRef = useRef();
-  const markerRef = useRef();
-  const wrapperRef = useRef();
+  const svgRef = useRef(null);
+  const markerRef = useRef(null);
+  const wrapperRef = useRef(null);
   const dimensions = useResizeObserver(wrapperRef);
 
   useEffect(() => {
@@ -46,34 +30,13 @@ function ResponsiveChartTemplate(props) {
       ref={wrapperRef}
       style={{
         width: `100%`,
-        height: `200px`,
+        height: `100px`,
       }}
       className="chartTemplate"
     >
       <svg ref={svgRef}>
         <text ref={markerRef} transform={`translate(10,40)`}></text>
       </svg>
-
-      <div style={{ display: `flex`, flexDirection: `row` }}>
-        {props.data.map(e => (
-          <div
-            key={e.key}
-            style={{
-              width: `${e.pct}%`,
-              height: `40px`,
-              margin: `1px`,
-              border: `1px solid #696969`,
-              borderRadius: `4px`,
-              backgroundColor: `aliceblue`,
-              display: `flex`,
-              justifyContent: `center`,
-              alignItems: `center`,
-            }}
-          >
-            {e.pct}%
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
