@@ -155,7 +155,7 @@ class SurveyComponent extends React.Component {
       }
     `;
 
-    const data = await graphQLClient
+    await graphQLClient
       .request(mutation, survey.data)
       .catch(error => console.log(error));
   }
