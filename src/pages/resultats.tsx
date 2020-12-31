@@ -7,27 +7,35 @@ import ResponsiveChartTemplate from '../components/ChartTemplate';
 import { useStaticQuery, graphql } from 'gatsby';
 const d3 = Object.assign({}, require('d3-collection'));
 
-import { GraphQLResults } from '../components/utils/types';
+import {
+  GraphQLResults,
+  KeyedResult,
+  FlatResult,
+} from '../components/utils/types';
 
-const groupBy = (arr, key) =>
+// compte les uniques dans une array. par exemple:
+//      [{nom: "basile"}, {nom: "basile"}, {nom: "lapin"}]
+// retourne:
+//      [{key: "basile", values: Array(2)},
+//       {key: "lapin", values: Array(1)}]
+const groupBy = (arr: [], key: string): KeyedResult[] =>
   d3
     .nest()
     .key(d => d[key])
-    .rollup((d: any) => ({
-      n: d.length,
-      yo: 'foo',
-      pct: parseFloat(((100 * d.length) / arr.length).toFixed(1)),
-    }))
-    .entries(arr)
-    .sort((a, b) => b.value.n - a.value.n);
+    .entries(arr);
 
-const flatten = arr =>
-  arr.map(e => ({
-    key: e.key,
-    foo: 'bar',
-    n: e.value.n,
-    pct: e.value.pct,
-  }));
+// on utiliserait classiquement `.rollup()` de `d3.nest()`, mais ça
+// nous pose des problèmes d'inférence de types.
+const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
+  arr
+    .map(d => {
+      return {
+        key: d.key,
+        n: d.values.length,
+        pct: parseFloat(((100 * d.values.length) / totalLength).toFixed(1)),
+      };
+    })
+    .sort((a, b) => b.n - a.n);
 
 const ResultatsPage = () => {
   const gender_results: GraphQLResults = useStaticQuery(graphql`
@@ -40,9 +48,9 @@ const ResultatsPage = () => {
     }
   `);
 
-  const gender_data = gender_results.radarTechTest.answer;
-  const gender_keyed = groupBy(gender_data, 'demo_genre');
-  const gender_flat = flatten(gender_keyed);
+  const gender_data: [] = gender_results.radarTechTest.answer;
+  const gender_keyed: KeyedResult[] = groupBy(gender_data, 'demo_genre');
+  const gender_flat: FlatResult[] = flatten(gender_keyed, gender_data.length);
 
   return (
     <Layout>

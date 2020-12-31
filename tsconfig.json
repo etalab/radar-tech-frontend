@@ -9,7 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-  },
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Recommended"
+    "types": ["d3", "node"]
+  }
 }
