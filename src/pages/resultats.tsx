@@ -4,6 +4,8 @@ import SEO from '../components/seo';
 import SemioticPieChart from '../components/PieChart';
 import ResponsiveChartTemplate from '../components/ChartTemplate';
 
+import ChartWithDimensions from '../components/TestChart';
+
 import { useStaticQuery, graphql } from 'gatsby';
 const d3 = Object.assign({}, require('d3-collection'));
 
@@ -73,6 +75,9 @@ const ResultatsPage = () => {
             </li>
           ))}
         </ul>
+
+        <h4>Test other wrapper</h4>
+        <ChartWithDimensions />
 
         <h4>Responsive chart template type Basile</h4>
         <ResponsiveChartTemplate data={gender_flat} />
