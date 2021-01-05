@@ -49,7 +49,8 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "heroku-postbuild": "gatsby build"
+    "heroku-postbuild": "gatsby build",
+    "build": "gatsby build"
   },
   "repository": {
     "type": "git",
