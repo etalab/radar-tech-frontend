@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ResponsiveOrdinalFrame = typeof window !== `undefined` ? require("semiotic/lib/ResponsiveOrdinalFrame") : <div></div>;
+const ResponsiveOrdinalFrame = require("semiotic/lib/ResponsiveOrdinalFrame");
 
 const frameProps = {
   size: [300, 300],
