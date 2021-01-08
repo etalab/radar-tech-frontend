@@ -12,7 +12,7 @@ const Axis = ({ domain = [0, 100], range = [0, 100] }) => {
       value,
       xOffset: xScale(value),
     }));
-  }, [domain.join('-'), range.join('-')]);
+  }, [domain, range]);
 
   return (
     <svg>

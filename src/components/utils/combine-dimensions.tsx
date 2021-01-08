@@ -14,10 +14,10 @@ type Dimensions = {
 export const combineChartDimensions = (dimensions: Dimensions): Dimensions => {
   const parsedDimensions: Dimensions = {
     ...dimensions,
-    marginTop: dimensions.marginTop || 10,
-    marginRight: dimensions.marginRight || 10,
-    marginBottom: dimensions.marginBottom || 40,
-    marginLeft: dimensions.marginLeft || 75,
+    marginTop: dimensions.marginTop || 20,
+    marginRight: dimensions.marginRight || 20,
+    marginBottom: dimensions.marginBottom || 20,
+    marginLeft: dimensions.marginLeft || 20,
   };
 
   const boundedHeight =
@@ -43,7 +43,6 @@ export const combineChartDimensions = (dimensions: Dimensions): Dimensions => {
           0
         )
       : 0;
-
   return {
     ...parsedDimensions,
     boundedHeight,

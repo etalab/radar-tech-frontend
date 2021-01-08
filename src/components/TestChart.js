@@ -9,8 +9,8 @@ import Axis from './Axis';
 const d3 = { ...scale, ...array };
 
 const chartSettings = {
-  marginLeft: 75,
-  marginRight: 75,
+  marginLeft: 0,
+  marginRight: 0,
 };
 
 const TestChart = () => {
@@ -19,7 +19,7 @@ const TestChart = () => {
   [ref, dimensions] = calculateChartDimensions(chartSettings, ref);
   const xScale = useMemo(
     () => d3.scaleLinear().domain([0, 100]).range([0, dimensions.boundedWidth]),
-    [dimensions.boundedWidth]
+    [dimensions]
   );
   return (
     <div className="Chart__wrapper" ref={ref} style={{ height: '200px' }}>
