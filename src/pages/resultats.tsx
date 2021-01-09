@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import TestChart from '../components/TestChart';
+import WeePeopleBar from '../components/WeePeopleBar.js';
 
 import { useStaticQuery, graphql } from 'gatsby';
 const d3 = Object.assign({}, require('d3-collection'));
@@ -76,6 +77,7 @@ const ResultatsPage = () => {
 
         <h4>Test other wrapper</h4>
         <TestChart />
+        <WeePeopleBar data={gender_flat} />
       </section>
     </Layout>
   );
