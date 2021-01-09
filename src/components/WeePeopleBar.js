@@ -11,6 +11,7 @@ const d3 = { ...scale, ...array, ...scaleChromatic };
 const chartSettings = {
   marginLeft: 0,
   marginRight: 0,
+  marginBottom: 10,
 };
 
 const WeePeopleBar = props => {
@@ -38,14 +39,14 @@ const WeePeopleBar = props => {
     >
       <svg
         width={dimensions.width}
-        height={dimensions.height}
+        height={dimensions.boundedHeight}
         style={{ border: `1px solid red` }}
       >
         <g
           transform={`translate(${dimensions.marginLeft}, ${dimensions.marginTop})`}
         ></g>
       </svg>
-      <HTMLBarChart data={gender_flat} color={color} />
+      <HTMLBarChart data={data} color={color} />
     </div>
   );
 };

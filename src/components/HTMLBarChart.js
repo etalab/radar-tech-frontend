@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default HTMLBarChart = props => (
+const HTMLBarChart = props => (
   <div
     style={{
       display: `flex`,
       flexDirection: `row`,
+      marginBottom: `50px`,
     }}
   >
     {props.data.map((e, i) => (
@@ -17,7 +18,21 @@ export default HTMLBarChart = props => (
           border: `1px solid #fff`,
           borderRadius: `4px`,
         }}
-      ></div>
+      >
+        <span
+          style={{
+            color: `${props.color(e.key)}`,
+            transform: `translate(0,20px)`,
+            display: `flex`,
+            alignItems: `center`,
+            justifyContent: `center`,
+          }}
+        >
+          {e.pct}%
+        </span>
+      </div>
     ))}
   </div>
 );
+
+export default HTMLBarChart;
