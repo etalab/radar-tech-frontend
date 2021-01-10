@@ -29,14 +29,13 @@ const groupBy = (arr: [], key: string): KeyedResult[] =>
 // nous pose des problèmes d'inférence de types.
 const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
   arr
-    .map(d => {
-      return {
-        key: d.key,
-        n: d.values.length,
-        pct: parseFloat(((100 * d.values.length) / totalLength).toFixed(1)),
-      };
-    })
-    .sort((a, b) => b.n - a.n);
+    .map(d => ({
+      key: d.key,
+      n: d.values.length,
+      pct: parseFloat(((100 * d.values.length) / totalLength).toFixed(1)),
+    }))
+    .sort((a, b) => b.n - a.n)
+    .filter(d => d.key !== 'null');
 
 const ResultatsPage = () => {
   const gender_results: GraphQLResults = useStaticQuery(graphql`
@@ -62,22 +61,13 @@ const ResultatsPage = () => {
 
       <section>
         <h3 style={{ marginBottom: `0.7rem` }}>Démographie</h3>
-        <ul style={{ height: `100px` }}>
-          {gender_flat.map((e, i) => (
-            <li
-              style={{
-                height: `13px`,
-              }}
-              key={i}
-            >
-              <b>{e.n}</b> identifiant comme {e.key}s ({e.pct}%)
-            </li>
-          ))}
-        </ul>
-
-        <h4>Test other wrapper</h4>
-        <TestChart />
         <WeePeopleBar data={gender_flat} />
+        <p>
+          Note:{' '}
+          {gender_data.length -
+            gender_flat.map(e => e.n).reduce((a, b) => a + b)}
+          réponse(s) exclue(s) car invalide (null)
+        </p>
       </section>
     </Layout>
   );

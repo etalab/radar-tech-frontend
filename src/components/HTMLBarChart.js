@@ -21,6 +21,7 @@ const HTMLBarChart = props => (
       >
         <span
           style={{
+            textAlign: `center`,
             color: `${props.color(e.key)}`,
             transform: `translate(0,20px)`,
             display: `flex`,
@@ -28,7 +29,8 @@ const HTMLBarChart = props => (
             justifyContent: `center`,
           }}
         >
-          {e.pct}%
+          {e.pct}%<br />
+          {e.key}
         </span>
       </div>
     ))}
