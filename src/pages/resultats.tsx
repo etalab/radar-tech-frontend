@@ -38,25 +38,36 @@ const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
     .filter(d => d.key !== 'null');
 
 const ResultatsPage = () => {
-  const gender_results: GraphQLResults = useStaticQuery(graphql`
+  const results_data: GraphQLResults = useStaticQuery(graphql`
     query myQuery {
       radarTechTest {
         answer {
           demo_genre
+          demo_age
         }
       }
     }
   `);
 
-  const gender_data: [] = gender_results.radarTechTest.answer;
-  const gender_keyed: KeyedResult[] = groupBy(gender_data, 'demo_genre');
-  const gender_flat: FlatResult[] = flatten(gender_keyed, gender_data.length);
+  const results: [] = results_data.radarTechTest.answer;
+
+  // gender data
+  const gender_keyed: KeyedResult[] = groupBy(results, 'demo_genre');
+  const gender_flat: FlatResult[] = flatten(gender_keyed, results.length);
+
+  // age data
+  const age_keyed: KeyedResult[] = groupBy(results, 'demo_age');
+  const age_flat: FlatResult[] = flatten(
+    age_keyed,
+    results.length
+  ).sort((a, b) => a.key.localeCompare(b.key));
+  console.log(age_keyed);
 
   return (
     <Layout>
       <SEO title="Résultats" />
       <p>
-        <b>{gender_data.length}</b> résultats dans la DB.
+        <b>{results.length}</b> résultats dans la DB.
       </p>
 
       <section>
@@ -64,8 +75,16 @@ const ResultatsPage = () => {
         <WeePeopleBar data={gender_flat} />
         <p>
           Note:{' '}
-          {gender_data.length -
-            gender_flat.map(e => e.n).reduce((a, b) => a + b)}
+          {results.length - gender_flat.map(e => e.n).reduce((a, b) => a + b)}
+          réponse(s) exclue(s) car invalide (null)
+        </p>
+      </section>
+      <section>
+        <h3 style={{ marginBottom: `0.7rem` }}>Age</h3>
+        <WeePeopleBar data={age_flat} />
+        <p>
+          Note:{' '}
+          {results.length - age_flat.map(e => e.n).reduce((a, b) => a + b)}
           réponse(s) exclue(s) car invalide (null)
         </p>
       </section>
