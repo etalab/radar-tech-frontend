@@ -9,6 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "types": ["d3", "node"]
+    "types": ["d3", "node", "react"]
   }
 }
