@@ -135,28 +135,14 @@ class SurveyComponent extends React.Component {
 
     const endpoint = 'http://fast-snow-hulu.app.etalab.studio/graphql';
     const graphQLClient = new GraphQLClient(endpoint, {});
-    const mutation = gql`
-      mutation CreateAnswer(
-        $email: String!
-        $demo_age: String
-        $demo_genre: String
-        $education_formation: String
-      ) {
-        createAnswer(
-          email: $email
-          demo_age: $demo_age
-          demo_genre: $demo_genre
-          education_formation: $education_formation
-        ) {
-          email
-          demo_age
-          demo_genre
-        }
+    const mutation = gql`mutation CreateAnswer ($answer: AnswerInput) {
+      createAnswer(answer: $answer) {
+        email
       }
-    `;
+    }`;
 
     await graphQLClient
-      .request(mutation, survey.data)
+      .request(mutation, {"answer": survey.data})
       .catch(error => console.log(error));
   }
 
