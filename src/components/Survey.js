@@ -30,7 +30,6 @@ class SurveyComponent extends React.Component {
   }
 
   // dans cette fonction async, on ré-initialise un client GraphQL
-  // (@TODO: en parler avec Audrey)
   // et l'on re-créée la mutation depuis le modèle dans
   // github.com/etalab/radar-tech-backend/src/app.js
   async onComplete(survey, options) {
@@ -63,12 +62,6 @@ class SurveyComponent extends React.Component {
     //   .catch(error => console.log(error));
   }
 
-  // onUpdateQuestionCssClasses = (survey, options) => {
-  //   options.cssClasses.header =
-  //     options.cssClasses.titleLeftRoot + ' mono rf-text--lead';
-  //   options.cssClasses.title = options.cssClasses.title + ' rf-text';
-  // };
-
   render() {
     const model = new Survey.Model(this.survey);
 
@@ -93,7 +86,7 @@ class SurveyComponent extends React.Component {
           model={model}
           css={myCss}
           onComplete={this.onComplete}
-          /* onServerValidateQuestions={this.onServerValidateQuestions} */
+          onServerValidateQuestions={this.onServerValidateQuestions}
           onUpdatePanelCssClasses={this.onUpdatePanelCssClasses}
           onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />

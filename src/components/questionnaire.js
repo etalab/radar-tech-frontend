@@ -378,7 +378,7 @@ const questionnaire = {
         },
         {
           type: 'checkbox',
-          name: 'connaissance_db',
+          name: 'connaissance_db_expert',
           title:
             'Dans quels systèmes de gestion de bases de données vous considérez-vous expert·e ?',
           choices: [
