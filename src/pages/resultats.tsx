@@ -82,15 +82,6 @@ const ResultatsPage = () => {
         </p>
       </section>
       <section>
-        <h3 style={{ marginBottom: `0.7rem` }}>Age</h3>
-        <WeePeopleBar data={age_flat} />
-        <p>
-          Note:{' '}
-          {results.length - age_flat.map(e => e.n).reduce((a, b) => a + b)}
-          réponse(s) exclue(s) car invalide (null)
-        </p>
-      </section>
-      <section>
         <h3 style={{ marginBottom: `0.7rem` }}>Age (côte-à-côte)</h3>
         <div className="sideBySide" style={{ display: `flex` }}>
           <div className="child" style={{ alignSelf: 'center' }}>
