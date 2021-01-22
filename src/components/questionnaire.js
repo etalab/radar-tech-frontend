@@ -7,6 +7,17 @@ const questionnaire = {
       title: 'Qui sont ces informaticien·ne·s ?',
       elements: [
         {
+          type: 'text',
+          name: 'email',
+          title: 'Entrez votre email',
+          isRequired: true,
+          validators: [
+            {
+              type: 'email',
+            },
+          ],
+        },
+        {
           type: 'radiogroup',
           name: 'demo_genre',
           title: 'À quel genre vous identifiez-vous ?',
@@ -125,8 +136,8 @@ const questionnaire = {
           colCount: 2,
         },
       ],
-    },
-    {
+    }
+    /*{
       name: 'page2',
       title: 'Quelle est leur formation ?',
       elements: [
@@ -558,7 +569,7 @@ const questionnaire = {
           colCount: 2,
         },
       ],
-    },
+    }*/,
     // {
     //   name: 'page3',
     //   elements: [

@@ -37,7 +37,7 @@ const schema = yup
     recherches_info_texte: yup.array().of(yup.string()),
     satisfaction: yup.number(),
     taille_structure: yup.string(),
-    travail_activite: yup.array().of(yup.string()),
+    travail_activite: yup.string(),
     travail_activite_autre: yup.array().of(yup.string()),
     travail_bureau_domicile: yup.string(),
     demo_genre: yup.string(),
