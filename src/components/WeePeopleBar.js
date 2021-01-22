@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef } from 'react';
 import HTMLBarChart from './HTMLBarChart.js';
 import { calculateChartDimensions } from './utils/use-dimensions';
 import './css/weepeople.css';
@@ -27,7 +27,8 @@ const WeePeopleBar = props => {
   const color = d3
     .scaleOrdinal()
     .domain(data.map(e => e.key))
-    .range(d3.schemeSet2);
+    //.range(d3.schemeSet2);
+    .range(['#5770be', '#ff6f4c', '#00ac8c', '#ff9940']);
 
   const config = {
     cell: { width: 10, height: 70 },

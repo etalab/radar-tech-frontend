@@ -17,7 +17,7 @@ const Axis = ({ domain = [0, 100], range = [0, 100], axisType, axisPath }) => {
         xOffset: xScale(value),
       }));
     }
-  }, [domain, range]);
+  }, [domain, range, axisType]);
 
   return (
     <g>

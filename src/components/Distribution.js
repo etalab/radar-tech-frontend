@@ -26,7 +26,7 @@ const Distribution = props => {
         .scaleBand()
         .domain(data.map(e => e.key))
         .rangeRound([0, dimensions.boundedWidth]),
-    [dimensions]
+    [dimensions, data]
   );
 
   const yScale = useMemo(
@@ -35,17 +35,9 @@ const Distribution = props => {
         .scaleLinear()
         .domain([0, d3.max(data.map(d => d.pct))])
         .range([dimensions.boundedHeight, 0]),
-    [dimensions]
+    [dimensions, data]
   );
 
-  console.log(
-    'data',
-    props.data,
-    dimensions,
-    yScale.domain(),
-    yScale.range(),
-    yScale(4)
-  );
   return (
     <div className="Chart__wrapper" ref={ref} style={{ height: '200px' }}>
       <svg
@@ -75,9 +67,10 @@ const Distribution = props => {
                 key={i}
                 x={xScale(d.key) - xScale.bandwidth() / 2}
                 y={yScale(d.pct)}
+                rx={3}
                 width={xScale.bandwidth() - 1}
                 height={dimensions.boundedHeight - yScale(d.pct)}
-                fill={`steelblue`}
+                fill={`#5770be`}
               ></rect>
             ))}
           </g>
@@ -85,7 +78,7 @@ const Distribution = props => {
             {data.map((d, i) => {
               if (
                 dimensions.boundedHeight - yScale(d.pct) > 15 &&
-                xScale.bandwidth() > 33
+                xScale.bandwidth() > 30
               ) {
                 return (
                   <text
@@ -101,7 +94,7 @@ const Distribution = props => {
                     {d.pct}%
                   </text>
                 );
-              }
+              } else return null;
             })}
           </g>
         </g>
