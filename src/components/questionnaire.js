@@ -559,22 +559,22 @@ const questionnaire = {
         },
       ],
     },
-    // {
-    //   name: 'page3',
-    //   elements: [
-    //     {
-    //       type: 'text',
-    //       name: 'email',
-    //       title: 'Please enter your e-mail',
-    //       isRequired: true,
-    //       validators: [
-    //         {
-    //           type: 'email',
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
+    {
+      name: 'page7',
+      elements: [
+        {
+          type: 'text',
+          name: 'email',
+          title: 'Please enter your e-mail',
+          isRequired: true,
+          validators: [
+            {
+              type: 'email',
+            },
+          ],
+        },
+      ],
+    },
   ],
   showQuestionNumbers: 'off',
 };
