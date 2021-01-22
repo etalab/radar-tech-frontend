@@ -8,3 +8,19 @@ h5 {
 .sv_row {
     padding: 0 20px;
 }
+
+.sideBySide {
+    display: flex;
+    flex-direction: row;
+}
+.child { width: 50%; }
+
+@media screen and (max-width: 767px) {
+    .sideBySide {
+	flex-direction: column;
+    }
+    .child:first-of-type {
+	margin-bottom: 50px;
+    }
+    .child { width: 100%; }
+}
