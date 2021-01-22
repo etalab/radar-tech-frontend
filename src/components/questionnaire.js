@@ -131,7 +131,7 @@ const questionnaire = {
       title: 'Quelle est leur formation ?',
       elements: [
         {
-          type: 'checkbox',
+          type: 'radiogroup',
           name: 'demo_etudiant',
           title: 'Êtes-vous encore étudiant·e ?',
           choices: ['Oui', 'Non'],
@@ -189,7 +189,7 @@ const questionnaire = {
         },
         {
           type: 'matrixdropdown',
-          name: 'education_formation',
+          name: 'education_formation_autres',
           title:
             'Avez-vous bénéficié d’autres types de formations ou d’expérience ?',
           horizontalScroll: true,
