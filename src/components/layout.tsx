@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './design-systeme/components/Header';
+import Footer from './design-systeme/components/Footer';
 
 // inclut le design systeme de l'Etat
 // https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476
@@ -20,16 +21,8 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
       </div>
+      <Footer />
     </>
   );
 };
