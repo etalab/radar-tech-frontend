@@ -32,19 +32,21 @@ class SurveyComponent extends React.Component {
   // dans cette fonction async, on ré-initialise un client GraphQL
   // et l'on re-créée la mutation depuis le modèle dans
   // github.com/etalab/radar-tech-backend/src/app.js
-  async onComplete(survey, options) {
+  async onComplete(survey, options ) {
     console.log(`Data a POSTer: `, survey.data);
 
     const endpoint = 'http://fast-snow-hulu.app.etalab.studio/graphql';
     const graphQLClient = new GraphQLClient(endpoint, {});
-    const mutation = gql`mutation CreateAnswer ($answer: AnswerInput) {
-      createAnswer(answer: $answer) {
-        email
+    const mutation = gql`
+      mutation CreateAnswer($answer: AnswerInput) {
+        createAnswer(answer: $answer) {
+          email
+        }
       }
-    }`;
+    `;
 
     await graphQLClient
-      .request(mutation, {"answer": survey.data})
+      .request(mutation, { answer: survey.data })
       .catch(error => console.log(error));
   }
 
