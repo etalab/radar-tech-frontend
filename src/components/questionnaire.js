@@ -1,3 +1,7 @@
+import SuccessComponent from '../components/Success.tsx';
+
+const completedHtml = SuccessComponent();
+
 const questionnaire = {
   title: '',
   description: '',
@@ -141,14 +145,14 @@ const questionnaire = {
           type: 'matrixdropdown',
           name: 'education_formation',
           title: 'Quelle est votre formation ?',
-          horizontalScroll: true,
+          horizontalScroll: false,
           columnMinWidth: '50px',
           columns: [
             {
               name: 'selection',
               title: '',
               choices: ['Oui'],
-              cellType: 'radiogroup',
+              cellType: 'checkbox',
             },
             {
               name: 'filieres',
@@ -192,14 +196,14 @@ const questionnaire = {
           name: 'education_formation_autres',
           title:
             'Avez-vous bénéficié d’autres types de formations ou d’expérience ?',
-          horizontalScroll: true,
+          horizontalScroll: false,
           columnMinWidth: '50px',
           columns: [
             {
               name: 'selection',
               title: '',
               choices: ['Oui'],
-              cellType: 'radiogroup',
+              cellType: 'checkbox',
             },
             {
               name: 'autre_formation',
@@ -565,7 +569,7 @@ const questionnaire = {
         {
           type: 'text',
           name: 'email',
-          title: 'Please enter your e-mail',
+          title: 'Votre adresse email',
           isRequired: true,
           validators: [
             {
@@ -577,5 +581,7 @@ const questionnaire = {
     },
   ],
   showQuestionNumbers: 'off',
+  completedHtml: completedHtml,
 };
+
 export default questionnaire;
