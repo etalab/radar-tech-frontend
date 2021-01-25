@@ -439,7 +439,7 @@ const questionnaire = {
           choices: ['Oui', 'Non'],
           colCount: 2,
         },
-        {
+        /*{
           type: 'panel',
           name: 'panel2',
           innerIndent: 1,
@@ -454,7 +454,7 @@ const questionnaire = {
               colCount: 2,
             },
           ],
-        },
+        }*/,
 
         {
           type: 'checkbox',
