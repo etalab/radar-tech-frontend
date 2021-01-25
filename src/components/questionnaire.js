@@ -141,49 +141,49 @@ const questionnaire = {
           choices: ['Oui', 'Non'],
           colCount: 2,
         },
-        {
-          type: 'matrixdropdown',
-          name: 'education_formation',
-          title: 'Quelle est votre formation ?',
-          horizontalScroll: false,
-          columnMinWidth: '50px',
-          columns: [
-            {
-              name: 'selection',
-              title: '',
-              choices: ['Oui'],
-              cellType: 'checkbox',
-            },
-            {
-              name: 'filieres',
-              title: 'Filières à préciser',
-              cellType: 'text',
-            },
-          ],
-          rows: [
-            {
-              value: 'ecole_inge',
-              text: 'École d’ingénieur',
-            },
-            {
-              value: 'uni_info',
-              text: 'Formation universitaire en informatique',
-            },
-            {
-              value: 'uni_pro',
-              text: 'Formation professionnelle',
-            },
-            {
-              value: 'uni_autres',
-              text: 'Formation universitaire autre',
-            },
-            {
-              value: 'pas_uni',
-              text: 'Pas de formation universitaire',
-            },
-          ],
-          colCount: 2,
-        },
+        // {
+        //   type: 'matrixdropdown',
+        //   name: 'education_formation',
+        //   title: 'Quelle est votre formation ?',
+        //   horizontalScroll: false,
+        //   columnMinWidth: '50px',
+        //   columns: [
+        //     {
+        //       name: 'selection',
+        //       title: '',
+        //       choices: ['Oui'],
+        //       cellType: 'checkbox',
+        //     },
+        //     {
+        //       name: 'filieres',
+        //       title: 'Filières à préciser',
+        //       cellType: 'text',
+        //     },
+        //   ],
+        //   rows: [
+        //     {
+        //       value: 'ecole_inge',
+        //       text: 'École d’ingénieur',
+        //     },
+        //     {
+        //       value: 'uni_info',
+        //       text: 'Formation universitaire en informatique',
+        //     },
+        //     {
+        //       value: 'uni_pro',
+        //       text: 'Formation professionnelle',
+        //     },
+        //     {
+        //       value: 'uni_autres',
+        //       text: 'Formation universitaire autre',
+        //     },
+        //     {
+        //       value: 'pas_uni',
+        //       text: 'Pas de formation universitaire',
+        //     },
+        //   ],
+        //   colCount: 2,
+        // },
         {
           type: 'radiogroup',
           name: 'demo_plus_hautes_etudes',
@@ -191,54 +191,54 @@ const questionnaire = {
           choices: ['Brevet', 'Baccalauréat', 'Licence', 'Master', 'Doctorat'],
           colCount: 2,
         },
-        {
-          type: 'matrixdropdown',
-          name: 'education_formation_autres',
-          title:
-            'Avez-vous bénéficié d’autres types de formations ou d’expérience ?',
-          horizontalScroll: false,
-          columnMinWidth: '50px',
-          columns: [
-            {
-              name: 'selection',
-              title: '',
-              choices: ['Oui'],
-              cellType: 'checkbox',
-            },
-            {
-              name: 'autre_formation',
-              title: 'Précisez',
-              cellType: 'text',
-            },
-          ],
-          rows: [
-            {
-              value: 'bootcamp',
-              text: 'Bootcamp',
-            },
-            {
-              value: 'formation_pro_interne',
-              text: 'Formation professionnelle en interne',
-            },
-            {
-              value: 'hackathon',
-              text: 'Hackathon',
-            },
-            {
-              value: 'mooc',
-              text: 'MOOC',
-            },
-            {
-              value: 'open_source',
-              text: 'Participation au développement de projets open-source',
-            },
-            {
-              value: 'autodidacte',
-              text: 'Formation autodidacte',
-            },
-          ],
-          colCount: 2,
-        },
+        // {
+        //   type: 'matrixdropdown',
+        //   name: 'education_formation_autres',
+        //   title:
+        //     'Avez-vous bénéficié d’autres types de formations ou d’expérience ?',
+        //   horizontalScroll: false,
+        //   columnMinWidth: '50px',
+        //   columns: [
+        //     {
+        //       name: 'selection',
+        //       title: '',
+        //       choices: ['Oui'],
+        //       cellType: 'checkbox',
+        //     },
+        //     {
+        //       name: 'autre_formation',
+        //       title: 'Précisez',
+        //       cellType: 'text',
+        //     },
+        //   ],
+        //   rows: [
+        //     {
+        //       value: 'bootcamp',
+        //       text: 'Bootcamp',
+        //     },
+        //     {
+        //       value: 'formation_pro_interne',
+        //       text: 'Formation professionnelle en interne',
+        //     },
+        //     {
+        //       value: 'hackathon',
+        //       text: 'Hackathon',
+        //     },
+        //     {
+        //       value: 'mooc',
+        //       text: 'MOOC',
+        //     },
+        //     {
+        //       value: 'open_source',
+        //       text: 'Participation au développement de projets open-source',
+        //     },
+        //     {
+        //       value: 'autodidacte',
+        //       text: 'Formation autodidacte',
+        //     },
+        //   ],
+        //   colCount: 2,
+        // },
         {
           type: 'radiogroup',
           name: 'recherches_info',
@@ -439,23 +439,22 @@ const questionnaire = {
           choices: ['Oui', 'Non'],
           colCount: 2,
         },
-        {
-          type: 'panel',
-          name: 'panel2',
-          innerIndent: 1,
-          elements: [
-            {
-              type: 'checkbox',
-              name: 'containers_liste',
-              title: 'Précisez:',
-              visibleIf: "{containers_bool}= 'Oui'",
-              choices: ['Docker', 'What have you'],
-              hasOther: true,
-              colCount: 2,
-            },
-          ],
-        },
-
+        // {
+        //   type: 'panel',
+        //   name: 'panel2',
+        //   innerIndent: 1,
+        //   elements: [
+        //     {
+        //       type: 'checkbox',
+        //       name: 'containers_liste',
+        //       title: 'Précisez:',
+        //       visibleIf: "{containers_bool}= 'Oui'",
+        //       choices: ['Docker', 'What have you'],
+        //       hasOther: true,
+        //       colCount: 2,
+        //     },
+        //   ],
+        // },
         {
           type: 'checkbox',
           name: 'os_principal',
