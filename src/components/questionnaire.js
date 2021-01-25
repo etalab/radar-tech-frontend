@@ -454,7 +454,7 @@ const questionnaire = {
               colCount: 2,
             },
           ],
-        }*/,
+        },*/
 
         {
           type: 'checkbox',
