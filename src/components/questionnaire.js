@@ -141,7 +141,7 @@ const questionnaire = {
           choices: ['Oui', 'Non'],
           colCount: 2,
         },
-        {
+        /*{
           type: 'matrixdropdown',
           name: 'education_formation',
           title: 'Quelle est votre formation ?',
@@ -183,7 +183,7 @@ const questionnaire = {
             },
           ],
           colCount: 2,
-        },
+        },*/
         {
           type: 'radiogroup',
           name: 'demo_plus_hautes_etudes',
@@ -191,7 +191,7 @@ const questionnaire = {
           choices: ['Brevet', 'Baccalauréat', 'Licence', 'Master', 'Doctorat'],
           colCount: 2,
         },
-        {
+        /*{
           type: 'matrixdropdown',
           name: 'education_formation_autres',
           title:
@@ -238,7 +238,7 @@ const questionnaire = {
             },
           ],
           colCount: 2,
-        },
+        },*/
         {
           type: 'radiogroup',
           name: 'recherches_info',
