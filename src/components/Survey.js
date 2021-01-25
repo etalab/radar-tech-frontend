@@ -43,7 +43,7 @@ class SurveyComponent extends React.Component {
           email
         }
       }
-    `;
+    }`;
 
     await graphQLClient
       .request(mutation, { answer: survey.data })
