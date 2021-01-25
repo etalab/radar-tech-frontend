@@ -55,6 +55,11 @@ const Header = () => {
             <div className="rf-shortcuts">
               <ul className="rf-shortcuts__list">
                 <li className="rf-shortcuts__item">
+                  <Link to="/" className="rf-link">
+                    Sondage
+                  </Link>
+                </li>
+                <li className="rf-shortcuts__item">
                   <Link to="/resultats/" className="rf-link">
                     Résultats
                   </Link>

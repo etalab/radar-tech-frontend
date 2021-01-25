@@ -1,3 +1,7 @@
+import SuccessComponent from '../components/Success.tsx';
+
+const completedHtml = SuccessComponent();
+
 const questionnaire = {
   title: '',
   description: '',
@@ -6,17 +10,6 @@ const questionnaire = {
       name: 'page1',
       title: 'Qui sont ces informaticien·ne·s ?',
       elements: [
-        {
-          type: 'text',
-          name: 'email',
-          title: 'Entrez votre email',
-          isRequired: true,
-          validators: [
-            {
-              type: 'email',
-            },
-          ],
-        },
         {
           type: 'radiogroup',
           name: 'demo_genre',
@@ -136,13 +129,13 @@ const questionnaire = {
           colCount: 2,
         },
       ],
-    }
-    /*{
+    },
+    {
       name: 'page2',
       title: 'Quelle est leur formation ?',
       elements: [
         {
-          type: 'checkbox',
+          type: 'radiogroup',
           name: 'demo_etudiant',
           title: 'Êtes-vous encore étudiant·e ?',
           choices: ['Oui', 'Non'],
@@ -152,14 +145,14 @@ const questionnaire = {
           type: 'matrixdropdown',
           name: 'education_formation',
           title: 'Quelle est votre formation ?',
-          horizontalScroll: true,
+          horizontalScroll: false,
           columnMinWidth: '50px',
           columns: [
             {
               name: 'selection',
               title: '',
               choices: ['Oui'],
-              cellType: 'radiogroup',
+              cellType: 'checkbox',
             },
             {
               name: 'filieres',
@@ -200,17 +193,17 @@ const questionnaire = {
         },
         {
           type: 'matrixdropdown',
-          name: 'education_formation',
+          name: 'education_formation_autres',
           title:
             'Avez-vous bénéficié d’autres types de formations ou d’expérience ?',
-          horizontalScroll: true,
+          horizontalScroll: false,
           columnMinWidth: '50px',
           columns: [
             {
               name: 'selection',
               title: '',
               choices: ['Oui'],
-              cellType: 'radiogroup',
+              cellType: 'checkbox',
             },
             {
               name: 'autre_formation',
@@ -569,24 +562,26 @@ const questionnaire = {
           colCount: 2,
         },
       ],
-    }*/,
-    // {
-    //   name: 'page3',
-    //   elements: [
-    //     {
-    //       type: 'text',
-    //       name: 'email',
-    //       title: 'Please enter your e-mail',
-    //       isRequired: true,
-    //       validators: [
-    //         {
-    //           type: 'email',
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
+    },
+    {
+      name: 'page7',
+      elements: [
+        {
+          type: 'text',
+          name: 'email',
+          title: 'Votre adresse email',
+          isRequired: true,
+          validators: [
+            {
+              type: 'email',
+            },
+          ],
+        },
+      ],
+    },
   ],
   showQuestionNumbers: 'off',
+  completedHtml: completedHtml,
 };
+
 export default questionnaire;
