@@ -1,6 +1,7 @@
 import React from 'react';
-import ResponsiveOrdinalFrame from 'semiotic/lib/ResponsiveOrdinalFrame';
 import PropTypes from 'prop-types';
+
+const ResponsiveOrdinalFrame = require("semiotic/lib/ResponsiveOrdinalFrame");
 
 const frameProps = {
   size: [300, 300],
@@ -21,6 +22,7 @@ function SemioticPieChart(props) {
     ? props.dynamicColumnWidth
     : null;
   frameProps.data = props.data;
+  
   return (
     <div style={{ border: `1px solid steelblue` }}>
       <ResponsiveOrdinalFrame {...frameProps} />

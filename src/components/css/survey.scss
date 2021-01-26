@@ -1,12 +1,79 @@
 // les checkboxes héritent bizarrement de
 // droles de propriétés
 .sv_q_checkbox_control_item {
-    opacity: 1 !important;
-    position: relative !important;
+  opacity: 1 !important;
+  position: relative !important;
 }
 
 // les dropdowns sont légèrement coupés sur
 // le coté gauche
 .sv_q_dropdown_control {
-    margin-left: 2px;
+  margin-left: 2px;
+}
+
+.custom-rating {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .sv_q_rating_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border: 1px solid #696969;
+    border-radius: 3px;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+
+    &.active {
+      background-color: #ddd;
+    }
+
+    &:hover {
+      background-color: rgb(241, 241, 241);
+    }
+
+    .sv-visuallyhidden {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}
+
+.sv_nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+
+  .btn {
+    border: none;
+  }
+}
+
+.sv_qcbc {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .no-max-width {
+    max-width: none !important;
+  }
+}
+
+.sv_q_title {
+  font-size: 1.1rem;
+}
+
+.sv_page_title {
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 450px) {
+  .sv_q_dropdown_control {
+    margin-left: 0;
+    width: 100%;
+  }
 }
