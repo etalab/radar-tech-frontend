@@ -35,7 +35,7 @@ class SurveyComponent extends React.Component {
   async onComplete(survey, options) {
     console.log(`Data a POSTer: `, survey.data);
 
-    const endpoint = 'http://radar-tech-bach-preprod.app.etalab.studio/graphql';
+    const endpoint = 'http://radartech-backend-preprod.app.etalab.studio/graphql';
     const graphQLClient = new GraphQLClient(endpoint, {});
     const mutation = gql`
       mutation CreateAnswer($answer: AnswerInput) {

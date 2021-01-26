@@ -42,7 +42,7 @@ module.exports = {
       options: {
         typeName: 'radarTechTest',
         fieldName: 'radarTechTest',
-        url: 'http://radar-tech-bach-preprod.app.etalab.studio/graphql',
+        url: 'http://radartech-backend-preprod.app.etalab.studio/graphql',
       },
     },
   ],
