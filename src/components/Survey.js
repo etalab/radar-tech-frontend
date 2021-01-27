@@ -11,6 +11,21 @@ class SurveyComponent extends React.Component {
   // https://pad.incubateur.net/WWhTqSqxTAKMQVjYZRlcoQ#
   survey = questionnaire;
 
+  // amazingly, ces questions qui requièrent un nombre ne
+  // génèrent pas le meme type d'erreur que l'on catche avec
+  // `onErrorCustomText`
+  onValidateQuestion(survey, options) {
+    if (
+      options.name === 'premiere_ligne_code' ||
+      options.name === 'experience_programmation' ||
+      options.name === 'programmation_pro'
+    ) {
+      if (options.value && isNaN(options.value)) {
+        options.error = 'Merci de renseigner un nombre dans ce champ';
+      }
+    }
+  }
+
   // cette fonction est appellée à la fin du questionnaire,
   // mais avant que les résultatscomposés par le lecteur valident.
   // pour éviter de changer la structure du questionnaire-test,
@@ -29,13 +44,27 @@ class SurveyComponent extends React.Component {
       });
   }
 
+  // change le texte mis en exergue lors d'une erreur
+  // note: inclut une icone grace à sa classe CSS
+  onErrorCustomText(survey, options) {
+    switch (options.name) {
+      case 'required': // question requise non remplie par utilisateur
+        options.text = 'Merci de renseigner ce champ';
+        break;
+
+      default:
+        break;
+    }
+  }
+
   // dans cette fonction async, on ré-initialise un client GraphQL
   // et l'on re-créée la mutation depuis le modèle dans
   // github.com/etalab/radar-tech-backend/src/app.js
   async onComplete(survey, options) {
     console.log(`Data a POSTer: `, survey.data);
 
-    const endpoint = 'http://radartech-backend-preprod.app.etalab.studio/graphql';
+    const endpoint =
+      'http://radartech-backend-preprod.app.etalab.studio/graphql';
     const graphQLClient = new GraphQLClient(endpoint, {});
     const mutation = gql`
       mutation CreateAnswer($answer: AnswerInput) {
@@ -67,6 +96,7 @@ class SurveyComponent extends React.Component {
         column: 'no-max-width',
       },
       navigationButton: 'btn rf-btn btn-primary',
+      error: { item: 'error--red', icon: 'error--icon rf-fi-alert-line' },
     };
     return (
       <section>
@@ -74,8 +104,10 @@ class SurveyComponent extends React.Component {
           model={model}
           css={myCss}
           onComplete={this.onComplete}
-          onServerValidateQuestions={this.onServerValidateQuestions}
+          onErrorCustomText={this.onErrorCustomText}
+          onValidateQuestion={this.onValidateQuestion}
           onUpdatePanelCssClasses={this.onUpdatePanelCssClasses}
+          onServerValidateQuestions={this.onServerValidateQuestions}
           onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />
       </section>
