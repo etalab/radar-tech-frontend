@@ -2,7 +2,6 @@ module.exports = {
   siteMetadata: {
     title: `Métiers techniques de l'État: sondage`,
     description: `tagline tagline`,
-    author: ``,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
