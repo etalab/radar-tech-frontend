@@ -14,7 +14,7 @@ const questionnaire = {
           type: 'radiogroup',
           name: 'demo_genre',
           title: 'À quel genre vous identifiez-vous ?',
-          // isRequired: true,
+          isRequired: true,
           choices: [
             'Homme',
             'Femme',
@@ -271,7 +271,7 @@ const questionnaire = {
           name: 'premiere_ligne_code',
           title: 'Quand avez-vous écrit votre première ligne de code ?',
           description: 'par example: "20" pour 20 ans',
-          validators: [{ type: 'numeric' }],
+          validators: [{ type: 'numeric', minValue: 0, maxValue: 99 }],
           placeHolder: ' 20',
           maxWidth: '50',
           inputType: 'number',
@@ -281,7 +281,7 @@ const questionnaire = {
           name: 'experience_programmation',
           title: 'Combien d’années d’expérience avez-vous en programmation ?',
           description: 'par example: "5" pour 5 ans',
-          validators: [{ type: 'numeric' }],
+          validators: [{ type: 'numeric', minValue: 0, maxValue: 99 }],
           placeHolder: ' 50',
           maxWidth: '50',
           inputType: 'number',
@@ -292,7 +292,7 @@ const questionnaire = {
           title:
             'Depuis combien de temps programmez-vous professionnellement ?',
           description: 'par example: "5" pour 5 ans',
-          validators: [{ type: 'numeric' }],
+          validators: [{ type: 'numeric', minValue: 0, maxValue: 99 }],
           placeHolder: ' 50',
           maxWidth: '50',
           inputType: 'number',
@@ -521,12 +521,10 @@ const questionnaire = {
             '1000-4999',
             '> 5000',
           ],
-          colCount: 2,
         },
         {
           type: 'rating',
           name: 'profils_tech',
-          id: 'test',
           title:
             'Quel est le pourcentage de profils tech au sein de votre structure ?',
           rateValues: [
@@ -537,7 +535,6 @@ const questionnaire = {
             { value: 80, text: '60-80%' },
             { value: 100, text: '80-100%' },
           ],
-          colCount: 2,
         },
         {
           type: 'rating',
@@ -581,6 +578,7 @@ const questionnaire = {
   ],
   showQuestionNumbers: 'off',
   completedHtml: completedHtml,
+  checkErrorsMode: 'onValueChanging',
 };
 
 export default questionnaire;
