@@ -33,6 +33,7 @@ Le lien avec le backend est assuré à deux endroits:
 
 - Questions, ordre, pages: [`src/components/questionnaire.js`](https://github.com/etalab/radar-tech-frontend/blob/master/src/components/questionnaire.js)
 - Logique, style, validation: [`src/components/Survey.js`](https://github.com/etalab/radar-tech-frontend/blob/master/src/components/Survey.js)
+- Validation: [`src/components/utils/validators.js`](https://github.com/etalab/radar-tech-frontend/blob/master/src/components/utils/validators.js) (**Crucial de bien matcher les types retournés par le questionnaire**)
 
 Il est possible de jouer avec les options des questions dans une GUI sur [le site de SurveyJS](https://surveyjs.io/create-survey).
 
@@ -58,20 +59,20 @@ $ dokku apps:create <nom_app>
 ```
 4. Ajouter le remote
 
-Cette étape est nécessaire que si une application existante est utilisée
+Cette étape est nécessaire que si une application existante est utilisée  
 Sinon, le remote est automatiquement ajouté par Dokku
 ```
 $ git remote add dokku dokku@studio-01.infra.data.gouv.fr:<nom_app>
 $ git remote -v // pour vérifier
 ```
 
-5. pousser la branche locale sur le dépôt distant
+5. Pousser la branche locale sur le dépôt distant
 ```
 $ git push dokku <nom_branche>:master
 $ git push dokku master // équivaut à $ git push dokku master:master
 ```
 
-6. vérifier que l'application est déployée
+6. Vérifier que l'application est déployée
 
 A la fin de la trace de la commande précédente l'URL de l'application est affichée
 
