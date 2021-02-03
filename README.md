@@ -45,10 +45,12 @@ $ export DOKKU_HOST='studio-01.infra.data.gouv.fr'
 $ export DOKKU_PORT='22'
 $ export DOKKU_GIT_REMOTE='dokku'
 ```
+
 2. Vérifier les variables
 ```
 $ env | grep DOKKU
 ```
+
 3. Créer une application
 Cette étape n'est nécessaire que si l'application n'existe pas déjà
 ```
@@ -56,16 +58,19 @@ $ dokku apps:create <nom_app>
 ```
 4. Ajouter le remote 
 Cette étape est nécessaire que si une application existante est utilisée
+
 Sinon, le remote est automatiquement ajouté par Dokku
 ```
 $ git remote add dokku dokku@studio-01.infra.data.gouv.fr:<nom_app>
 $ git remote -v // pour vérifier
 ```
+
 5. pousser la branche locale sur le dépôt distant
 ```
 $ git push dokku <nom_branche>:master
 $ git push dokku master // équivaut à $ git push dokku master:master
 ```
+
 6. vérifier que l'application est déployée
 A la fin de la trace de la commande précédente l'URL de l'application est affichée
 Exemple : http://<nom_app>.app.etalab.studio
