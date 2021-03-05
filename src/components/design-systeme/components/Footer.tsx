@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="rf-container">
         <div className="rf-footer__body">
           <div className="rf-footer__brand">
-            <div className="rf-logo" href="#" title="république française">
+            <div className="rf-logo" title="république française">
               <span className="rf-logo__title">
                 république
                 <br />

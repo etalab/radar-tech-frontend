@@ -1,46 +1,15 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Card from '../././components/design-systeme/components/Card';
 
-import designerPic from '../images/icon-designers.svg';
-
-type CardProps = {
-  label: string;
-  datesSondage: string;
-};
-
-const Card = ({ label, datesSondage }: CardProps) => (
-  <div className="rf-card" style={{ marginRight: '1rem' }}>
-    <div className="rf-card__img">
-      <img
-        src={designerPic}
-        alt={`Icône décrivant la profession de ${label}`}
-      />
-    </div>
-    <div className="rf-card__body">
-      {/* <p className="rf-card__detail">Détail</p> */}
-      <h4 className="rf-card__title">
-        <Link to="#" className="rf-card__link">
-          {label}
-        </Link>
-      </h4>
-      <p className="rf-card__desc">
-        Description texte body small regular consectetur adipisicing elit, sed
-        do eiusmod tempor incididunt ut labore et dolore…
-      </p>
-      <h5>
-        <span className="rf-fi-calendar-line"></span> {datesSondage}
-      </h5>
-    </div>
-  </div>
-);
+const designerPic = require('../images/icon-designers.svg') as string;
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1 style={{ marginBottom: `0.7rem` }}>Métiers techniques de l'Etat</h1>
+    <h1 style={{ marginBottom: `0.7rem` }}>Participer au sondage</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem natus quam
       excepturi? Repudiandae corrupti accusantium, vero soluta nostrum quam rem
@@ -65,7 +34,11 @@ const IndexPage = () => (
         justifyContent: 'space-between',
       }}
     >
-      <Card label={'Designers'} datesSondage={'Juin-Juillet 2021'} />
+      <Card
+        label={'Designers'}
+        datesSondage={'Juin-Juillet 2021'}
+        picture={designerPic}
+      />
       <Card label={'Data scientists'} datesSondage={'Juillet-Août 2021'} />
     </div>
 
