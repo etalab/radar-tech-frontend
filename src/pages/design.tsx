@@ -5,12 +5,15 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import { SurveyComponent } from '../components/Survey';
+
 import buildSurveys from '../components/utils/assembleSurveys';
 
-const IndexPage = () => {
+const DesignersPage = () => {
   const questionnaireQuery = useStaticQuery(graphql`
-    query QuestionsCommunes {
-      allContentJson(filter: { key: { eq: "questions communes" } }) {
+    query QuestionsDesign {
+      allContentJson(
+        filter: { key: { in: ["questions communes", "designers"] } }
+      ) {
         nodes {
           key
           pages {
@@ -40,8 +43,12 @@ const IndexPage = () => {
 
   const questionnaireData = buildSurveys(
     questionnaireQuery.allContentJson.nodes,
-    'questions communes'
+    'questions communes',
+    'designers'
   );
+
+  console.log(questionnaireData);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -50,4 +57,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default DesignersPage;

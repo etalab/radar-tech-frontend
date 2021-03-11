@@ -5,11 +5,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `content`,
-        path: `${__dirname}/src/content`,
+        name: `questionnaires`,
+        path: `${__dirname}/src/content/`,
       },
     },
     `gatsby-transformer-sharp`,
