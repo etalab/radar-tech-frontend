@@ -4,16 +4,20 @@ import './css/survey.scss';
 import { GraphQLClient, gql } from 'graphql-request';
 
 import { schema } from './utils/validators.js';
-import questionnaire from './questionnaire.js';
+//import questionnaire from './questionnaire.js';
+//import { isConstructorDeclaration } from 'typescript';
+
+import SuccessComponent from './Success';
+const completedHtml = SuccessComponent();
 
 type SurveyProps = {
-  questionnaire_url: string;
+  questionnaireData: {};
 };
 
 class SurveyComponent extends React.Component<SurveyProps> {
   // questions
   // https://pad.incubateur.net/WWhTqSqxTAKMQVjYZRlcoQ#
-  survey = questionnaire;
+  //survey = questionnaire;
 
   // amazingly, ces questions qui requièrent un nombre ne
   // génèrent pas le meme type d'erreur que l'on catche avec
@@ -84,8 +88,13 @@ class SurveyComponent extends React.Component<SurveyProps> {
   }
 
   render() {
-    console.log('survey url', this.props.questionnaire_url);
-    const model = new Survey.Model(this.survey);
+    // importe le questionnaire directement depuis le file system
+    // danger zone: mutation pas jolie pour customiser le texte
+    // de succès annoncé à la fin du questionnaire
+    const surveyData = this.props.questionnaireData;
+    surveyData['completedHtml'] = completedHtml;
+
+    const model = new Survey.Model(surveyData);
 
     // classes CSS à éplucher ici:
     // https://surveyjs.io/Examples/Library/?id=survey-customcss&platform=Reactjs#content-docs

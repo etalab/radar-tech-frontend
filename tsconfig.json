@@ -9,6 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "types": ["d3", "node", "react"]
+    "types": ["d3", "node", "react"],
+    "resolveJsonModule": true
   }
 }

@@ -2,15 +2,14 @@ module.exports = {
   siteMetadata: {
     title: `Métiers techniques de l'État: sondage`,
     description: `tagline tagline`,
-    questionnaire_url: `https://basilesimon.fr/json`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `content`,
+        path: `${__dirname}/src/content`,
       },
     },
     `gatsby-transformer-sharp`,
