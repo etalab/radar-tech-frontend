@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Card from '../././components/design-systeme/components/Card';
+import SubscribeBar from '../././components/design-systeme/components/SubscribeBar';
 
 const designerPic = require('../images/icon-designers.svg') as string;
 
@@ -38,22 +39,7 @@ const IndexPage = () => (
       s'adressant à vos communautés, ainsi que des résultats. Abonnez-vous à
       notre lettre d'information ci-dessous:
     </p>
-    <div className="rf-search-bar rf-search-bar--lg">
-      <label className="rf-label">Label de la barre de recherche</label>
-      <input
-        className="rf-input"
-        placeholder="prénom.nom@gouv.fr"
-        type="search"
-        name="input--lg-input"
-      />
-      <button
-        className="rf-btn rf-btn--lg"
-        title="S'abonner"
-        style={{ content: 'F12C' }}
-      >
-        S'abonner
-      </button>
-    </div>
+    <SubscribeBar />
 
     <h3 style={{ marginBottom: `0.7rem` }}>Questionnaires en cours</h3>
     <div
@@ -72,7 +58,7 @@ const IndexPage = () => (
     </div>
 
     <h4 style={{ marginBottom: `0.7rem` }}>
-      <span className="rf-fi-calendar-line"></span> Calendrier des
+      <span className="rf-fi-calendar-line"></span> Calendrier à venir des
       questionnaires-communautés
     </h4>
     <ul>
