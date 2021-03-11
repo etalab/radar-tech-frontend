@@ -6,7 +6,11 @@ import { GraphQLClient, gql } from 'graphql-request';
 import { schema } from './utils/validators.js';
 import questionnaire from './questionnaire.js';
 
-class SurveyComponent extends React.Component {
+type SurveyProps = {
+  questionnaire_url: string;
+};
+
+class SurveyComponent extends React.Component<SurveyProps> {
   // questions
   // https://pad.incubateur.net/WWhTqSqxTAKMQVjYZRlcoQ#
   survey = questionnaire;
@@ -80,6 +84,7 @@ class SurveyComponent extends React.Component {
   }
 
   render() {
+    console.log('survey url', this.props.questionnaire_url);
     const model = new Survey.Model(this.survey);
 
     // classes CSS à éplucher ici:
