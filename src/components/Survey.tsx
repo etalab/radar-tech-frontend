@@ -106,9 +106,7 @@ class SurveyComponent extends React.Component {
           onComplete={this.onComplete}
           onErrorCustomText={this.onErrorCustomText}
           onValidateQuestion={this.onValidateQuestion}
-          onUpdatePanelCssClasses={this.onUpdatePanelCssClasses}
           onServerValidateQuestions={this.onServerValidateQuestions}
-          onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />
       </section>
     );
