@@ -47,8 +47,6 @@ const DesignersPage = () => {
     'designers'
   );
 
-  console.log(questionnaireData);
-
   return (
     <Layout>
       <SEO title="Home" />
