@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -8,41 +8,9 @@ import { SurveyComponent } from '../components/Survey';
 
 import buildSurveys from '../components/utils/assembleSurveys';
 
-const DesignersPage = () => {
-  const questionnaireQuery = useStaticQuery(graphql`
-    query QuestionsDesign {
-      allContentJson(
-        filter: { key: { in: ["questions communes", "designers"] } }
-      ) {
-        nodes {
-          key
-          pages {
-            name
-            title
-            elements {
-              type
-              name
-              title
-              isRequired
-              colCount
-              visibleIf
-              hasOther
-              choices
-              validators {
-                type
-              }
-            }
-          }
-          showQuestionNumbers
-          title
-          completedHtml
-        }
-      }
-    }
-  `);
-
+function DesignersPage({ data }) {
   const questionnaireData = buildSurveys(
-    questionnaireQuery.allContentJson.nodes,
+    data.allContentJson.nodes,
     'questions communes',
     'designers'
   );
@@ -53,6 +21,38 @@ const DesignersPage = () => {
       <SurveyComponent questionnaireData={questionnaireData} />
     </Layout>
   );
-};
+}
 
 export default DesignersPage;
+
+export const query = graphql`
+  query QuestionsDesign {
+    allContentJson(
+      filter: { key: { in: ["questions communes", "designers"] } }
+    ) {
+      nodes {
+        key
+        pages {
+          name
+          title
+          elements {
+            type
+            name
+            title
+            isRequired
+            colCount
+            visibleIf
+            hasOther
+            choices
+            validators {
+              type
+            }
+          }
+        }
+        showQuestionNumbers
+        title
+        completedHtml
+      }
+    }
+  }
+`;
