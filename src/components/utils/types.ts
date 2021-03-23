@@ -7,3 +7,12 @@ export type FlatResult = {
   n: number;
   pct: number;
 };
+
+export type Metier = {
+  meta: { id: number };
+  metier: string;
+  description: string;
+  questionnaire?: {
+    title: string;
+  };
+};
