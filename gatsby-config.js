@@ -5,7 +5,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -43,6 +42,29 @@ module.exports = {
         typeName: 'radarTechTest',
         fieldName: 'radarTechTest',
         url: 'http://radartech-backend-preprod.app.etalab.studio/graphql',
+      },
+    },
+    {
+      // sourcer /pages-metiers nous permet d'accéder à `pages-metiers.json`,
+      // une array d'objects dont chaque item sera une de nos routes
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages-metiers`,
+        path: `${__dirname}/pages-metiers/`,
+      },
+    },
+    {
+      // rendre chaque item dans l'array d'objects contenue dans
+      // `pages-metiers.json` disponible sous la key `PageMetier`
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: ({ node }) => {
+          const name = node.sourceInstanceName;
+          if (name === `pages-metiers`) {
+            return `PageMetier`;
+          }
+          return name;
+        },
       },
     },
   ],
