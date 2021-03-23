@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Layout from '../components/layout';
+import { SurveyComponent } from '../components/Survey';
 import { Link } from 'gatsby';
 
 import type { Metier } from '../components/utils/types';
@@ -20,10 +21,10 @@ const SondageView = ({ metier }: { metier: Metier }) => (
           <p>{metier.description}.</p>
 
           {metier.questionnaire ? (
-            <p style={{ color: `orange` }}>
-              Questionnaire titre: {metier.questionnaire.title}!
-            </p>
-          ) : null}
+            <SurveyComponent questionnaireData={metier.questionnaire} />
+          ) : (
+            <p style={{ color: `orange` }}>Pas de questionnaire...</p>
+          )}
         </main>
       )}
     </div>

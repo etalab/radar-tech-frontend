@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import SondageView from '../Sondage-view';
+import SondageView from '../SondageView';
 
 import type { Metier } from '../../components/utils/types';
 
@@ -20,6 +20,8 @@ const PageMetier = (props: QueryPageMetier) => {
 
 export default PageMetier;
 
+// `Questionnaire` is a GraphQL Fragment typed in
+// utils/QuestionnaireFragment.tsx
 export const query = graphql`
   query($id: String!) {
     pageMetier(id: { eq: $id }) {
@@ -29,7 +31,7 @@ export const query = graphql`
         id
       }
       questionnaire {
-        title
+        ...Questionnaire
       }
     }
   }
