@@ -10,7 +10,7 @@ import SEO from '../components/seo';
 type QueryPageMetier = {
   data: {
     metier: {
-      nodes: [{ metier: string; nameSlug: string; meta: { id: number } }];
+      nodes: [{ metier: string; nameSlug: string; key: number }];
     };
   };
 };
@@ -24,7 +24,7 @@ const IndexPage = ({ data }: QueryPageMetier) => {
       <SEO title="Home" />
       <ul>
         {data.metier.nodes.map(e => (
-          <li key={e.meta.id}>
+          <li key={e.key}>
             <Link to={e.nameSlug}>{e.metier}</Link>
           </li>
         ))}
@@ -46,9 +46,7 @@ export const query = graphql`
       nodes {
         metier
         nameSlug: gatsbyPath(filePath: "/metiers/{PageMetier.metier}")
-        meta {
-          id
-        }
+        key
       }
     }
   }

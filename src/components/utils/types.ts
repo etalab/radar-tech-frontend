@@ -9,7 +9,7 @@ export type FlatResult = {
 };
 
 export type Metier = {
-  meta: { id: number };
+  key: number;
   metier: string;
   description: string;
   questionnaire?: {

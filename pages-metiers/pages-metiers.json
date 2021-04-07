@@ -1,8 +1,6 @@
 [
   {
-    "meta": {
-      "id": 1
-    },
+    "key": 1,
     "metier": "Designers",
     "description": "One who creates and often executes plans for a project or structure ; One that creates and manufactures a new product style or design especially : one who designs and manufactures high-fashion clothing ",
     "questionnaire": {
@@ -156,9 +154,7 @@
     }
   },
   {
-    "meta": {
-      "id": 2
-    },
+    "key": 2,
     "metier": "Data scientists",
     "description": "A person learned in science and especially natural science : a scientific investigator"
   }

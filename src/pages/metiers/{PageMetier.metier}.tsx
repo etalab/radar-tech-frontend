@@ -27,9 +27,8 @@ export const query = graphql`
     pageMetier(id: { eq: $id }) {
       metier
       description
-      meta {
-        id
-      }
+
+      key
       questionnaire {
         ...Questionnaire
       }
