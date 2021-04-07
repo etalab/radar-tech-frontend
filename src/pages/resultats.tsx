@@ -38,6 +38,10 @@ const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
     .sort((a, b) => b.n - a.n)
     .filter(d => d.key !== 'null');
 
+const ResultatsPage = () => <div>hello</div>;
+
+export default ResultatsPage;
+
 // const ResultatsPage = () => {
 //   const results_data: GraphQLResults = useStaticQuery(graphql`
 //     query myQuery {

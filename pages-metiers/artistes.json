@@ -1,0 +1,28 @@
+{
+  "key": 3,
+  "metier": "Artistes",
+  "description": "Will that show in our static queries",
+  "questionnaire": {
+    "title": "Questions profession designer",
+    "description": "",
+    "key": "designers",
+    "pages": [
+      {
+        "name": "page1",
+        "title": "Qui sont ces informaticien·ne·s ?",
+        "elements": [
+          {
+            "type": "radiogroup",
+            "name": "demo_genre",
+            "title": "À quel genre vous identifiez-vous ?",
+            "choices": [
+              "Homme",
+              "Femme",
+              "Non-binaire, genderqueer, ou gender non-conforming"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
