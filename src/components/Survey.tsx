@@ -11,6 +11,7 @@ import SuccessComponent from './Success';
 const completedHtml = SuccessComponent();
 
 type SurveyProps = {
+  metier: string;
   questionnaireData: {};
 };
 
@@ -18,7 +19,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // questions
   // https://pad.incubateur.net/WWhTqSqxTAKMQVjYZRlcoQ#
   //survey = questionnaire;
-
+  metier = this.props.metier;
   // amazingly, ces questions qui requièrent un nombre ne
   // génèrent pas le meme type d'erreur que l'on catche avec
   // `onErrorCustomText`
@@ -68,24 +69,25 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // dans cette fonction async, on ré-initialise un client GraphQL
   // et l'on re-créée la mutation depuis le modèle dans
   // github.com/etalab/radar-tech-backend/src/app.js
-  async onComplete(survey, options) {
+  // @TODO ajouter un parametre en plus qui est le métier
+  onComplete = (survey, options) => {
     console.log(`Data a POSTer: `, survey.data);
 
     const endpoint =
       'http://radartech-backend-preprod.app.etalab.studio/graphql';
     const graphQLClient = new GraphQLClient(endpoint, {});
     const mutation = gql`
-      mutation CreateAnswer($answer: AnswerInput) {
-        createAnswer(answer: $answer) {
-          email
-        }
+    mutation CreateAnswer($answer: ${this.props.metier}Input) {
+      ${this.props.metier}(answer: $answer) {
+        email
       }
+    }
     `;
 
-    await graphQLClient
+    graphQLClient
       .request(mutation, { answer: survey.data })
       .catch(error => console.log(error));
-  }
+  };
 
   render() {
     // importe le questionnaire directement depuis le file system

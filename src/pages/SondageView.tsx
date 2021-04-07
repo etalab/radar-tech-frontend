@@ -21,7 +21,10 @@ const SondageView = ({ metier }: { metier: Metier }) => (
           <p>{metier.description}.</p>
 
           {metier.questionnaire ? (
-            <SurveyComponent questionnaireData={metier.questionnaire} />
+            <SurveyComponent
+              metier={metier.metier}
+              questionnaireData={metier.questionnaire}
+            />
           ) : (
             <p style={{ color: `orange` }}>Pas de questionnaire...</p>
           )}
