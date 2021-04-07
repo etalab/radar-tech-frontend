@@ -29,14 +29,14 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'radarTechTest',
-        fieldName: 'radarTechTest',
-        url: 'http://radartech-backend-preprod.app.etalab.studio/graphql',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'radarTechTest',
+    //     fieldName: 'radarTechTest',
+    //     url: 'http://radartech-backend-preprod.app.etalab.studio/graphql',
+    //   },
+    // },
     {
       // sourcer /pages-metiers nous permet d'accéder à `pages-metiers.json`,
       // une array d'objects dont chaque item sera une de nos routes
