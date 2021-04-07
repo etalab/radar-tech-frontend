@@ -17,7 +17,7 @@ const SondageView = ({ metier }: { metier: Metier }) => (
 
       {metier && (
         <main>
-          <h1>{metier.metier}</h1>
+          <h1>{metier.metier_str}</h1>
           <p>{metier.description}.</p>
 
           {metier.questionnaire ? (

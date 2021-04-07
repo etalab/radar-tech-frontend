@@ -26,6 +26,7 @@ export const query = graphql`
   query($id: String!) {
     pageMetier(id: { eq: $id }) {
       metier
+      metier_str
       description
       key
       questionnaire {

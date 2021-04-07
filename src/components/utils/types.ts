@@ -11,6 +11,7 @@ export type FlatResult = {
 export type Metier = {
   key: number;
   metier: string;
+  metier_str: string;
   description: string;
   questionnaire?: {
     title: string;
