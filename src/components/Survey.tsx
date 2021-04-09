@@ -72,10 +72,17 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
     console.log(`Data a POSTer: `, survey.data);
+    // move TOKEN en env variable
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZyb250ZW5kIiwicGFzc3dvcmQiOiIxYTBhMmUwZjg2NDRhMGNmNzA0Mzc2MDM1NGUwYjc0ODk5N2QwZTI0MjAwYTc5OTRiNTA3YjFlNTE0MjEzNjVmIiwiaWQiOiI2MDZmNTBmNThlZGIyNzRlMTllNTZhMjAiLCJpYXQiOjE2MTc5MDg4Mzl9.kdlAFKM0ufDGGJNJljfu5N53IZKN7tl17XbF9eadAl0'
 
+    // move endpoint in env variable
     const endpoint =
-      'http://radartech-backend-preprod.app.etalab.studio/graphql';
-    const graphQLClient = new GraphQLClient(endpoint, {});
+      'http://test-rt.app.etalab.studio/graphql';
+    const graphQLClient = new GraphQLClient(endpoint, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
     const mutation = gql`
     mutation CreateAnswer($answer: ${this.props.metier}Input) {
       ${this.props.metier}(answer: $answer) {
