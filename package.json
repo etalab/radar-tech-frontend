@@ -2,7 +2,7 @@
   "name": "radar-tech-frontend",
   "private": true,
   "description": "Une simple page pour passer un sondage, utilisant Gatsby, React, et SurveyJS",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Basile Simon <basile.simon@data.gouv.fr>",
   "dependencies": {
     "@gouvfr/header": "^0.3.1",
