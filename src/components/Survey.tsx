@@ -84,7 +84,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
         },
       });
     const mutation = gql`
-    mutation CreateAnswer($answer: ${this.props.metier}Input) {
+    mutation ${this.props.metier}($answer: ${this.props.metier}Input) {
       ${this.props.metier}(answer: $answer) {
         email
       }
