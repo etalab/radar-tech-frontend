@@ -77,7 +77,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
 
     // move endpoint in env variable
     const endpoint =
-      'http://test-rt.app.etalab.studio/graphql';
+      'http://radartech-backend-test.app.etalab.studio/graphql';
     const graphQLClient = new GraphQLClient(endpoint, {
         headers: {
           authorization: `Bearer ${token}`,
