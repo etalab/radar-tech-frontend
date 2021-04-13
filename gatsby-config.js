@@ -36,13 +36,5 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'radarTechTest',
-        fieldName: 'radarTechTest',
-        url: 'http://radartech-backend-preprod.app.etalab.studio/graphql',
-      },
-    },
   ],
 };
