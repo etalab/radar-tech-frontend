@@ -41,9 +41,9 @@ module.exports = {
         typeName: 'radarTechTest',
         fieldName: 'radarTechTest',
         headers: {
-          Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
+          Authorization: `Bearer ${process.env.API_TOKEN}`,
         },
-        url: process.env.GATSBY_API_URL,
+        url: process.env.API_URL,
       },
     },
     {
