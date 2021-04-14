@@ -9,9 +9,14 @@ import { schema } from './utils/validators.js';
 
 const activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
-require("dotenv").config({
-  path: `../.env.${activeEnv}`,
-})
+  if(activeEnv === 'development') {
+    require("dotenv").config({
+      path: `../.env.${activeEnv}`,
+    })
+  } else {
+    console.log(process.env)
+    console.log(process.env.GATSBY_API_URL)
+  }
 
 import SuccessComponent from './Success';
 const completedHtml = SuccessComponent();
