@@ -54,7 +54,7 @@ typings/
 # dotenv environment variable files
 .env
 .env.*
-/env/production.js
+env/production.js
 
 # gatsby files
 .cache/
