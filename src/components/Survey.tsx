@@ -73,7 +73,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
   onComplete = (survey, options) => {
     console.log(`Data a POSTer: `, survey.data);
     // move TOKEN en env variable
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZyb250ZW5kIiwicGFzc3dvcmQiOiIxYTBhMmUwZjg2NDRhMGNmNzA0Mzc2MDM1NGUwYjc0ODk5N2QwZTI0MjAwYTc5OTRiNTA3YjFlNTE0MjEzNjVmIiwiaWQiOiI2MDZmNTBmNThlZGIyNzRlMTllNTZhMjAiLCJpYXQiOjE2MTc5MDg4Mzl9.kdlAFKM0ufDGGJNJljfu5N53IZKN7tl17XbF9eadAl0'
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZyb250ZW5kIiwicGFzc3dvcmQiOiIzMDVlY2FmMmY3MWM3ZmQ3MDU2YmRlZDQ4MDNmMDhlY2JiYzcyOWQ5Yjk2NTJmMDhiMDcxM2I2YjI1MTFhNmRjIiwiaWQiOiI2MDc2OTgyMDk3ODg2MGJlMzAyNGM2ZDYiLCJpYXQiOjE2MTgzODUwNTB9.J_FBCXONuyCZ-JZxw9KV5JuTY8N7vHa5i2UBo6zj-Iw'
 
     // move endpoint in env variable
     const endpoint =
