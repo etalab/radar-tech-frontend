@@ -7,17 +7,6 @@ import { schema } from './utils/validators.js';
 //import questionnaire from './questionnaire.js';
 //import { isConstructorDeclaration } from 'typescript';
 
-const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
-  if(activeEnv === 'development') {
-    require("dotenv").config({
-      path: `../.env.${activeEnv}`,
-    })
-  } else {
-    console.log(process.env)
-    console.log(process.env.GATSBY_API_URL)
-  }
-
 import SuccessComponent from './Success';
 const completedHtml = SuccessComponent();
 
@@ -82,6 +71,8 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // github.com/etalab/radar-tech-backend/src/app.js
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
+    console.log(process.env)
+    console.log(process.env.GATSBY_API_URL)
     const API_URL = process.env.API_URL !== undefined ? process.env.API_URL : 'http://localhost:3001/graphql';
     console.log(API_URL)
     console.log(`Data a POSTer: `, survey.data);
