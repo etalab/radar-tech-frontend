@@ -2,7 +2,7 @@ import React from 'react';
 import * as Survey from 'survey-react';
 import './css/survey.scss';
 import { GraphQLClient, gql } from 'graphql-request';
-import { API_URL } from 'gatsby-env-variables';
+import { API_URL, API_TOKEN } from 'gatsby-env-variables';
 
 import { schema } from './utils/validators.js';
 //import questionnaire from './questionnaire.js';
@@ -77,9 +77,9 @@ class SurveyComponent extends React.Component<SurveyProps> {
     //const API_URL = process.env.API_URL || 'http://localhost:3001/graphql';
     console.log(API_URL)
     console.log(`Data a POSTer: `, survey.data);
-    const graphQLClient = new GraphQLClient('http://radartech-backend-preprod.app.etalab.studio/graphql', {
+    const graphQLClient = new GraphQLClient(API_URL, {
         headers: {
-          authorization: `Bearer ${process.env.API_TOKEN}`,
+          authorization: `Bearer ${API_TOKEN}`,
         },
       });
     const mutation = gql`
