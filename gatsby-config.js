@@ -9,6 +9,7 @@ module.exports = {
     description: `tagline tagline`,
   },
   plugins: [
+    `gatsby-env-variables`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

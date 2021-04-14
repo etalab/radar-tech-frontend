@@ -2,17 +2,11 @@ import React from 'react';
 import * as Survey from 'survey-react';
 import './css/survey.scss';
 import { GraphQLClient, gql } from 'graphql-request';
+import { API_URL } from "gatsby-env-variables";
 
 import { schema } from './utils/validators.js';
 //import questionnaire from './questionnaire.js';
 //import { isConstructorDeclaration } from 'typescript';
-
-const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
-console.log(activeEnv)
-require("dotenv").config({
-  path: `../../.env.${activeEnv}`,
-})
 
 import SuccessComponent from './Success';
 const completedHtml = SuccessComponent();
@@ -78,10 +72,10 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // github.com/etalab/radar-tech-backend/src/app.js
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
-    console.log(process.env)
-    console.log(process.env.GATSBY_API_URL)
-    const API_URL = process.env.API_URL !== undefined ? process.env.API_URL : 'http://localhost:3001/graphql';
-    console.log(API_URL)
+    //console.log(process.env)
+    //console.log(process.env.GATSBY_API_URL)
+    //const API_URL = process.env.API_URL || 'http://localhost:3001/graphql';
+    //console.log(API_URL)
     console.log(`Data a POSTer: `, survey.data);
     const graphQLClient = new GraphQLClient(API_URL, {
         headers: {
