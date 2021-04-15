@@ -73,10 +73,10 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
     //console.log(process.env)
-    console.log(process.env.GATSBY_API_URL)
-    console.log(process.env.GATSBY_API_TOKEN)
-    const API_URL = process.env.GATSBY_API_URL || 'http://localhost:3001/graphql';
-    const API_TOKEN = process.env.GATSBY_API_TOKEN || '';
+    console.log(process.env.API_URL)
+    console.log(process.env.API_TOKEN)
+    const API_URL = process.env.API_URL || 'http://localhost:3001/graphql';
+    const API_TOKEN = process.env.API_TOKEN || '';
     console.log(`Data a POSTer: `, survey.data);
     const graphQLClient = new GraphQLClient(API_URL, {
         headers: {

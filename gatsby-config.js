@@ -1,5 +1,5 @@
-/*const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+/*if (process.env.NODE_ENV === undefined || process.env.NODE_ENV === "development"
 require("dotenv").config({
   path: `.env.${activeEnv}`,
 })*/
@@ -40,9 +40,9 @@ module.exports = {
         typeName: 'radarTechTest',
         fieldName: 'radarTechTest',
         headers: {
-          Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
+          Authorization: `Bearer ${process.env.API_TOKEN}`,
         },
-        url: process.env.GATSBY_API_URL,
+        url: process.env.API_URL,
       },
     },
     {
