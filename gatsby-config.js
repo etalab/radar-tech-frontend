@@ -5,6 +5,7 @@ const env = process.env.NODE_ENV || "development";
 const path = `.env.${env}`
 try {
   if (fs.existsSync(path)) {
+    console.log("load env file")
     require("dotenv").config({path})
   }
   // if there is no .env file, env variables should be OS variable
@@ -49,9 +50,9 @@ module.exports = {
         typeName: 'radarTechTest',
         fieldName: 'radarTechTest',
         headers: {
-          Authorization: `Bearer ${process.env.API_TOKEN}`,
+          Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
         },
-        url: process.env.API_URL,
+        url: process.env.GATSBY_API_URL,
       },
     },
     {

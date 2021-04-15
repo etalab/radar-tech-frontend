@@ -72,9 +72,6 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // github.com/etalab/radar-tech-backend/src/app.js
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
-    //console.log(process.env)
-    console.log(process.env.GATSBY_API_URL)
-    console.log(process.env.GATSBY_API_TOKEN)
     const API_URL = process.env.GATSBY_API_URL || 'http://localhost:3001/graphql';
     const API_TOKEN = process.env.GATSBY_API_TOKEN || '';
     console.log(`Data a POSTer: `, survey.data);
