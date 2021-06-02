@@ -1,12 +1,12 @@
 {
   "key": 2,
   "metier": "ingenieur",
-  "metier_str": "Ingénieurs",
-  "description": "A person learned in science and especially natural science : a scientific investigator",
+  "metier_str": "Ingénieur",
+  "description": "Une description pour les ingénieurs",
   "questionnaire": {
-    "title": "Questions profession ingénieur",
+    "title": "Questions profession ingénieurs",
     "description": "",
-    "key": "ingenieurs",
+    "key": "ingenieur",
     "pages": [
       {
         "name": "page1",
