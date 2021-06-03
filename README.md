@@ -13,8 +13,16 @@ Le présent projet est le **frontend** de l'application. Le backend, se [trouve 
 ```
 $ git clone git@github.com:etalab/radar-tech-frontend.git
 $ npm install
-$ gatsby develop
 ```
+
+Deux variables d'environnement sont nécéssaires, dont un token s'obtenant [coté backend](https://github.com/etalab/radar-tech-backend/blob/master/HOW_TO_DEPLOY.md#creer-un-token). Renommez `.env_example` en `.env.development`, puis renseignez:
+
+```
+GATSBY_API_URL=http://radartech-api.app.etalab.studio/graphql
+GATSBY_API_TOKEN=<>
+```
+
+Enfin, `$ gatbsy develop` démarre le kit de dev.
 
 Rendez-vous à [https://localhost:8000](https://localhost:8000) pour visualiser le frontend.
 
