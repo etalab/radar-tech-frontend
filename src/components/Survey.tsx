@@ -2,15 +2,25 @@ import React from 'react';
 import * as Survey from 'survey-react';
 import './css/survey.scss';
 import { GraphQLClient, gql } from 'graphql-request';
+//import { API_URL, API_TOKEN } from 'gatsby-env-variables';
 
 import { schema } from './utils/validators.js';
-import questionnaire from './questionnaire.js';
+//import questionnaire from './questionnaire.js';
+//import { isConstructorDeclaration } from 'typescript';
 
-class SurveyComponent extends React.Component {
+import SuccessComponent from './Success';
+const completedHtml = SuccessComponent();
+
+type SurveyProps = {
+  metier: string;
+  questionnaireData: {};
+};
+
+class SurveyComponent extends React.Component<SurveyProps> {
   // questions
   // https://pad.incubateur.net/WWhTqSqxTAKMQVjYZRlcoQ#
-  survey = questionnaire;
-
+  //survey = questionnaire;
+  metier = this.props.metier;
   // amazingly, ces questions qui requièrent un nombre ne
   // génèrent pas le meme type d'erreur que l'on catche avec
   // `onErrorCustomText`
@@ -60,27 +70,37 @@ class SurveyComponent extends React.Component {
   // dans cette fonction async, on ré-initialise un client GraphQL
   // et l'on re-créée la mutation depuis le modèle dans
   // github.com/etalab/radar-tech-backend/src/app.js
-  async onComplete(survey, options) {
+  // @TODO ajouter un parametre en plus qui est le métier
+  onComplete = (survey, options) => {
+    const API_URL = process.env.GATSBY_API_URL || 'http://localhost:3001/graphql';
+    const API_TOKEN = process.env.GATSBY_API_TOKEN || '';
     console.log(`Data a POSTer: `, survey.data);
-
-    const endpoint =
-      'http://radartech-backend-preprod.app.etalab.studio/graphql';
-    const graphQLClient = new GraphQLClient(endpoint, {});
+    const graphQLClient = new GraphQLClient(API_URL, {
+        headers: {
+          authorization: `Bearer ${API_TOKEN}`,
+        },
+      });
     const mutation = gql`
-      mutation CreateAnswer($answer: AnswerInput) {
-        createAnswer(answer: $answer) {
-          email
-        }
+    mutation ${this.props.metier}($answer: ${this.props.metier}Input) {
+      ${this.props.metier}(answer: $answer) {
+        email
       }
+    }
     `;
 
-    await graphQLClient
+    graphQLClient
       .request(mutation, { answer: survey.data })
       .catch(error => console.log(error));
-  }
+  };
 
   render() {
-    const model = new Survey.Model(this.survey);
+    // importe le questionnaire directement depuis le file system
+    // danger zone: mutation pas jolie pour customiser le texte
+    // de succès annoncé à la fin du questionnaire
+    const surveyData = this.props.questionnaireData;
+    surveyData['completedHtml'] = completedHtml;
+
+    const model = new Survey.Model(surveyData);
 
     // classes CSS à éplucher ici:
     // https://surveyjs.io/Examples/Library/?id=survey-customcss&platform=Reactjs#content-docs
@@ -106,9 +126,7 @@ class SurveyComponent extends React.Component {
           onComplete={this.onComplete}
           onErrorCustomText={this.onErrorCustomText}
           onValidateQuestion={this.onValidateQuestion}
-          onUpdatePanelCssClasses={this.onUpdatePanelCssClasses}
           onServerValidateQuestions={this.onServerValidateQuestions}
-          onUpdateQuestionCssClasses={this.onUpdateQuestionCssClasses}
         />
       </section>
     );

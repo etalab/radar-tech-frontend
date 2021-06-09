@@ -1,7 +1,3 @@
-import SuccessComponent from '../components/Success.tsx';
-
-const completedHtml = SuccessComponent();
-
 const questionnaire = {
   title: '',
   description: '',

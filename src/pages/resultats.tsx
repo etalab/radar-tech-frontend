@@ -38,19 +38,20 @@ const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
     .sort((a, b) => b.n - a.n)
     .filter(d => d.key !== 'null');
 
-const ResultatsPage = () => {
-  const results_data: GraphQLResults = useStaticQuery(graphql`
-    query myQuery {
-      radarTechTest {
-        answer {
-          demo_genre
-          demo_age
-        }
-      }
-    }
-  `);
-
-  const results: [] = results_data.radarTechTest.answer;
+  const ResultatsPage = () => {
+    const results_data = useStaticQuery(graphql`
+          query myQuery {
+            radarTechTest {
+              designer {
+                demo_genre
+                demo_age
+              }
+            }
+          }
+        `);
+    
+      // replace designer by 'metier'
+      const results: [] = results_data.radarTechTest.designer;
 
   // gender data
   const gender_keyed: KeyedResult[] = groupBy(results, 'demo_genre');

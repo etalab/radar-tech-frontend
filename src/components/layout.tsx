@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
           maxWidth: 960,
         }}
       >
-        <main>{children}</main>
+        <main style={{ padding: `0 2rem` }}>{children}</main>
       </div>
       <Footer />
     </>

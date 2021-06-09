@@ -1,3 +1,17 @@
+const fs = require('fs');
+
+const env = process.env.NODE_ENV || 'development';
+const path = `.env.${env}`;
+try {
+  if (fs.existsSync(path)) {
+    console.log('load env file');
+    require('dotenv').config({ path });
+  }
+  // if there is no .env file, env variables should be OS variable
+} catch (err) {
+  console.error(err);
+}
+
 module.exports = {
   siteMetadata: {
     title: `Métiers techniques de l'État: sondage`,
@@ -5,13 +19,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -34,6 +41,40 @@ module.exports = {
         isTSX: true, // defaults to false
         jsxPragma: `jsx`, // defaults to "React"
         allExtensions: true, // defaults to false
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'radarTechTest',
+        fieldName: 'radarTechTest',
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
+        },
+        url: process.env.GATSBY_API_URL,
+      },
+    },
+    {
+      // sourcer /pages-metiers nous permet d'accéder à `pages-metiers.json`,
+      // une array d'objects dont chaque item sera une de nos routes
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages-metiers`,
+        path: `${__dirname}/pages-metiers/`,
+      },
+    },
+    {
+      // rendre chaque item dans l'array d'objects contenue dans
+      // `pages-metiers.json` disponible sous la key `PageMetier`
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: ({ node }) => {
+          const name = node.sourceInstanceName;
+          if (name === `pages-metiers`) {
+            return `PageMetier`;
+          }
+          return name;
+        },
       },
     },
   ],
