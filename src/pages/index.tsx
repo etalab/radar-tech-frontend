@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import './css/home.scss';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -69,13 +70,7 @@ const IndexPage = ({ data }: QueryPageMetier) => {
       <SubscribeBar />
 
       <h3 style={{ marginBottom: `0.7rem` }}>Questionnaires en cours</h3>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className="questionnairesCaroussel">
         {data.metier.nodes.map(e => (
           <Link to={e.nameSlug}>
             <Card

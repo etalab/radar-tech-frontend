@@ -1,0 +1,19 @@
+.questionnairesCaroussel {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
+  @media screen and (min-width: 451px) {
+    flex-direction: row;
+  }
+
+  // odd box-shadow inherited from Gatsby's <Link />
+  a {
+    box-shadow: none !important;
+    @media screen and (max-width: 450px) {
+      margin-bottom: 1rem;
+    }
+  }
+}
