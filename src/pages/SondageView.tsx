@@ -18,7 +18,7 @@ const SondageView = ({ metier }: { metier: Metier }) => (
       {metier && (
         <main>
           <h1>{metier.metier_str}</h1>
-          <p>{metier.description}.</p>
+          <p>{metier.description}</p>
 
           {metier.questionnaire ? (
             <SurveyComponent

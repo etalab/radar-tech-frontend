@@ -5,7 +5,7 @@
   "metier_icon": "icon-design.jpeg",
   "description": "One who creates and often executes plans for a project or structure ; One that creates and manufactures a new product style or design especially : one who designs and manufactures high-fashion clothing ",
   "questionnaire": {
-    "title": "Questions profession designer",
+    "title": "",
     "description": "",
     "key": "designers",
     "pages": [
@@ -47,26 +47,16 @@
             "name": "demo_titre",
             "title": "Quels termes décrivent le mieux votre position au sein de l'administration ?",
             "choices": [
-              "Ingénieur informatique",
-              "Développeur informatique",
+              "Designer",
               "Développeur web",
               "Développeur front-end",
-              "Développeur back-end",
               "Développeur mobile",
-              "Designer",
-              "Datascientist",
-              "Technicien de maintenance",
               "Chef·fe de projet",
               "Chef de produit",
               "Manager",
               "Cadre",
-              "DevOps",
-              "SRE",
-              "Administrateur",
-              "Expert en sécurité informatique",
               "Consultant",
               "Scrum-master",
-              "Commerciale",
               "Directeur"
             ]
           },
