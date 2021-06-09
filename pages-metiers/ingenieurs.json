@@ -1,7 +1,8 @@
 {
   "key": 2,
   "metier": "ingenieur",
-  "metier_str": "Ingénieur",
+  "metier_str": "Ingénieurs",
+  "metier_icon": "icon-dev.jpeg",
   "description": "Une description pour les ingénieurs",
   "questionnaire": {
     "title": "Questions profession ingénieurs",

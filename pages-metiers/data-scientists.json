@@ -2,6 +2,7 @@
   "key": 3,
   "metier": "data-scientist",
   "metier_str": "Data scientists",
+  "metier_icon": "icon-datascience.jpeg",
   "description": "Will that show in our static queries",
   "questionnaire": {
     "title": "Questions profession designer",

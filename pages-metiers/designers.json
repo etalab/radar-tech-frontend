@@ -2,6 +2,7 @@
   "key": 1,
   "metier": "designer",
   "metier_str": "Designers",
+  "metier_icon": "icon-design.jpeg",
   "description": "One who creates and often executes plans for a project or structure ; One that creates and manufactures a new product style or design especially : one who designs and manufactures high-fashion clothing ",
   "questionnaire": {
     "title": "Questions profession designer",
