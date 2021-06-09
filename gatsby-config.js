@@ -1,16 +1,15 @@
+const fs = require('fs');
 
-const fs = require("fs");
-
-const env = process.env.NODE_ENV || "development";
-const path = `.env.${env}`
+const env = process.env.NODE_ENV || 'development';
+const path = `.env.${env}`;
 try {
   if (fs.existsSync(path)) {
-    console.log("load env file")
-    require("dotenv").config({path})
+    console.log('load env file');
+    require('dotenv').config({ path });
   }
   // if there is no .env file, env variables should be OS variable
-} catch(err) {
-  console.error(err)
+} catch (err) {
+  console.error(err);
 }
 
 module.exports = {
@@ -52,7 +51,7 @@ module.exports = {
         headers: {
           Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
         },
-        url: process.env.GATSBY_API_URL,
+        url: 'http://radartech-api.app.etalab.studio/graphql',
       },
     },
     {
