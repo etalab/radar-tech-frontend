@@ -51,7 +51,7 @@ module.exports = {
         headers: {
           Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
         },
-        url: 'http://radartech-api.app.etalab.studio/graphql',
+        url: process.env.GATSBY_API_URL,
       },
     },
     {
