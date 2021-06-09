@@ -1,3 +1,17 @@
+const fs = require('fs');
+
+const env = process.env.NODE_ENV || 'development';
+const path = `.env.${env}`;
+try {
+  if (fs.existsSync(path)) {
+    console.log('load env file');
+    require('dotenv').config({ path });
+  }
+  // if there is no .env file, env variables should be OS variable
+} catch (err) {
+  console.error(err);
+}
+
 module.exports = {
   siteMetadata: {
     title: `Métiers techniques de l'État: sondage`,
@@ -29,14 +43,17 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
-    // {
-    //   resolve: 'gatsby-source-graphql',
-    //   options: {
-    //     typeName: 'radarTechTest',
-    //     fieldName: 'radarTechTest',
-    //     url: 'http://radartech-backend-preprod.app.etalab.studio/graphql',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'radarTechTest',
+        fieldName: 'radarTechTest',
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_API_TOKEN}`,
+        },
+        url: process.env.GATSBY_API_URL,
+      },
+    },
     {
       // sourcer /pages-metiers nous permet d'accéder à `pages-metiers.json`,
       // une array d'objects dont chaque item sera une de nos routes

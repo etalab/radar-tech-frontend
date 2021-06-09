@@ -25,6 +25,7 @@ const IndexPage = ({ data }: QueryPageMetier) => {
   return (
     <Layout>
       <SEO title="Home" />
+      <h3>testing un déploiement</h3>
       <ul>
         {data.metier.nodes.map(e => (
           <li key={e.key}>

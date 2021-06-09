@@ -4,8 +4,11 @@
   "description": "Une simple page pour passer un sondage, utilisant Gatsby, React, et SurveyJS",
   "version": "0.1.0",
   "author": "Basile Simon <basile.simon@data.gouv.fr>",
+  "engines": {
+    "node": "14.17"
+  },
   "dependencies": {
-    "@gouvfr/header": "^0.3.1",
+    "@gouvfr/dsfr": "^1.0.0-rc1.0",
     "@juggle/resize-observer": "^3.2.0",
     "@types/d3": "^6.2.0",
     "@types/node": "^14.14.16",

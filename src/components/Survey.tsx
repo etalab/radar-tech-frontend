@@ -2,6 +2,7 @@ import React from 'react';
 import * as Survey from 'survey-react';
 import './css/survey.scss';
 import { GraphQLClient, gql } from 'graphql-request';
+//import { API_URL, API_TOKEN } from 'gatsby-env-variables';
 
 import { schema } from './utils/validators.js';
 //import questionnaire from './questionnaire.js';
@@ -71,13 +72,16 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // github.com/etalab/radar-tech-backend/src/app.js
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
+    const API_URL = process.env.GATSBY_API_URL || 'http://localhost:3001/graphql';
+    const API_TOKEN = process.env.GATSBY_API_TOKEN || '';
     console.log(`Data a POSTer: `, survey.data);
-
-    const endpoint =
-      'http://radartech-backend-preprod.app.etalab.studio/graphql';
-    const graphQLClient = new GraphQLClient(endpoint, {});
+    const graphQLClient = new GraphQLClient(API_URL, {
+        headers: {
+          authorization: `Bearer ${API_TOKEN}`,
+        },
+      });
     const mutation = gql`
-    mutation CreateAnswer($answer: ${this.props.metier}Input) {
+    mutation ${this.props.metier}($answer: ${this.props.metier}Input) {
       ${this.props.metier}(answer: $answer) {
         email
       }
