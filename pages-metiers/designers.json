@@ -113,14 +113,6 @@
             "colCount": 2
           },
           {
-            "type": "checkbox",
-            "name": "travail_activite_autre",
-            "title": "Précisez:",
-            "visibleIf": "{travail_activite}= 'Oui'",
-            "choices": ["Freelance", "CDI", "CDD"],
-            "hasOther": true
-          },
-          {
             "type": "radiogroup",
             "name": "demo_entree_admin",
             "title": "Comment avez-vous obtenu votre poste au sein de l’administration ?",
