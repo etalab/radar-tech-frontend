@@ -1,26 +1,44 @@
 h3 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 h5 {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .sv_row {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 .sideBySide {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
-.child { width: 50%; }
+.child {
+  width: 50%;
+}
 
 @media screen and (max-width: 767px) {
-    .sideBySide {
-	flex-direction: column;
-    }
-    .child:first-of-type {
-	margin-bottom: 50px;
-    }
-    .child { width: 100%; }
+  .sideBySide {
+    flex-direction: column;
+  }
+  .child:first-of-type {
+    margin-bottom: 50px;
+  }
+  .child {
+    width: 100%;
+  }
+}
+
+.rf-search-bar > button::before {
+  content: '\F12C' !important;
+}
+
+.rf-search-bar {
+  width: 50%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .rf-search-bar {
+    width: 100%;
+  }
 }

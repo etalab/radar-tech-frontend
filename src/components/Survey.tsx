@@ -87,7 +87,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
       }
     }
     `;
-
+    
     graphQLClient
       .request(mutation, { answer: survey.data })
       .catch(error => console.log(error));
