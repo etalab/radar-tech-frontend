@@ -78,7 +78,7 @@ const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
         <WeePeopleBar data={gender_flat} />
         <p>
           Note:{' '}
-          {results.length - gender_flat.map(e => e.n).reduce((a, b) => a + b)}
+          {results.length - gender_flat.map(e => e.n).reduce((a, b) => { return a + b; }, 0)}
           réponse(s) exclue(s) car invalide (null)
         </p>
       </section>
