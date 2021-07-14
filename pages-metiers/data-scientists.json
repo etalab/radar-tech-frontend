@@ -99,7 +99,7 @@
           {
             "type": "radiogroup",
             "title": "Quelle est la perception globale des compétences de datascience dans votre service ?",
-            "name": "perception-competences",
+            "name": "competences-perception",
             "choices": [
               "Fortement valorisées",
               "Moyennement valorisées",
@@ -110,7 +110,7 @@
           {
             "type": "radiogroup",
             "title": "Selon vous, les compétences de datascience dans votre service sont",
-            "name": "exploitation-competences",
+            "name": "competences-exploitation",
             "choices": [
               "Mal ou sous-exploitées",
               "Bien exploitées",
