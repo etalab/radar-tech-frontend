@@ -7,119 +7,125 @@
   "questionnaire": {
     "title": "",
     "description": "",
-    "key": "designers",
+    "key": "",
     "pages": [
       {
         "name": "page1",
         "title": "Qui sont ces data scientists ?",
         "elements": [
           {
-            "type": "radiogroup",
-            "name": "demo_genre",
-            "title": "À quel genre vous identifiez-vous ?",
-            "isRequired": true,
+            "type": "text",
+            "name": "ecole-pertinente",
+            "title": "Quelle école ou formation fut la plus pertinente pour votre métier ?"
+          },
+          {
+            "type": "ranking",
+            "name": "technologies-principales",
+            "title": "Quelles sont les technologies sur lesquelles porte principalement votre expertise ?",
             "choices": [
-              "Homme",
-              "Femme",
-              "Non-binaire, genderqueer, ou gender non-conforming"
+              "TAL",
+              "Traitement du signal",
+              "Traitement des données temporelles",
+              "Computer vision",
+              "Statistiques et probabilités"
             ]
           },
           {
-            "type": "dropdown",
-            "name": "demo_age",
-            "title": "Dans quelle tranche d’âge vous situez vous ?",
+            "type": "checkbox",
+            "name": "methodes-et-algos",
+            "title": "Quelles sont vos méthodes et algorithmes ?",
             "choices": [
-              "15-19",
-              "20-24",
-              "25-29",
-              "30-34",
-              "35-39",
-              "40-44",
-              "45-49",
-              "50-54",
-              "55-59",
-              "60-64",
-              "65+"
-            ]
-          },
-          {
-            "type": "dropdown",
-            "name": "demo_titre",
-            "title": "Quels termes décrivent le mieux votre position au sein de l'administration ?",
-            "choices": [
-              "Data-scientist",
-              "Expert·e en analyse de données",
-              "Analyste",
-              "Manager données"
-            ]
-          },
-          {
-            "type": "dropdown",
-            "name": "demo_fonctions",
-            "title": "Quelles fonctions remplissez-vous dans votre administration ?",
-            "choices": [
-              "Développement informatique",
-              "Support informatique",
-              "Design de service",
-              "Web design",
-              "Maintenance",
-              "Administration réseau",
-              "Administration de base de données",
-              "Sécurité des réseaux"
-            ]
-          },
-          {
-            "type": "radiogroup",
-            "name": "demo_administration",
-            "title": "De quelle administration dépendez-vous ?",
-            "choices": ["Ministère", "Branche", "Administration"],
-            "colCount": 3
-          },
-          {
-            "type": "radiogroup",
-            "name": "demo_status",
-            "title": "Sous quel statut ?",
-            "choices": ["CDI", "CDD", "Freelance", "Autre"],
-            "colCount": 4
-          },
-          {
-            "type": "radiogroup",
-            "name": "demo_rythme",
-            "title": "À quel rythme ?",
-            "choices": ["À plein-temps", "À mi-temps"],
-            "colCount": 2
-          },
-          {
-            "type": "radiogroup",
-            "name": "travail_activite",
-            "title": "Avez-vous une autre activité en parallèle ?",
-            "choices": ["Oui", "Non"],
+              "Méthodes lineaires (regression logistique/lineaire)",
+              "Arbres de decision et forêts aléatoires",
+              "Méthodes d’ensemble (xgboost, etc)",
+              "Réseaux de neurones",
+              "Réseaux de neurones profonds (deep learning)",
+              "Méthodes bayesiennes"
+            ],
+            "hasOther": true,
             "colCount": 2
           },
           {
             "type": "checkbox",
-            "name": "travail_activite_autre",
-            "title": "Précisez:",
-            "visibleIf": "{travail_activite}= 'Oui'",
-            "choices": ["Freelance", "CDI", "CDD"],
-            "hasOther": true
+            "name": "frameworks",
+            "title": "Vos frameworks de _machine learning_",
+            "choices": [
+              "SAS",
+              "SPSS",
+              "Scikit-learn",
+              "TensorFlow",
+              "Keras",
+              "Xgboost",
+              "PyTorch",
+              "LightGBM",
+              "Caret",
+              "Catboost",
+              "Prophet",
+              "Fast.ai",
+              "Tidymodels"
+            ],
+            "hasOther": true,
+            "colCount": 3
+          },
+          {
+            "type": "ranking",
+            "name": "autres-competences",
+            "title": "Autres compétences utiles à vos missions",
+            "choices": [
+              "Développement web",
+              "Datavisualisation",
+              "Machine learning ops",
+              "Data engineering",
+              "Communication",
+              "Management"
+            ]
           },
           {
             "type": "radiogroup",
-            "name": "demo_entree_admin",
-            "title": "Comment avez-vous obtenu votre poste au sein de l’administration ?",
+            "name": "publient-codes-sources",
+            "title": "Publiez-vous vos codes sources ?",
             "choices": [
-              "Concours",
-              "Détachement",
-              "Candidature",
-              "Appel d'offre"
-            ],
-            "colCount": 2
+              "Oui, systématiquement",
+              "Oui, de temps en temps",
+              "Non"
+            ]
           }
         ]
       },
       {
         "name": "page2",
+        "title": "Votre vision du métier de datascientiste dans votre service",
+        "elements": [
+          {
+            "type": "radiogroup",
+            "title": "Quelle est la perception globale des compétences de datascience dans votre service ?",
+            "name": "perception-competences",
+            "choices": [
+              "Fortement valorisées",
+              "Moyennement valorisées",
+              "Faiblement valorisées",
+              "Pas valorisées du tout"
+            ]
+          },
+          {
+            "type": "radiogroup",
+            "title": "Selon vous, les compétences de datascience dans votre service sont",
+            "name": "exploitation-competences",
+            "choices": [
+              "Mal ou sous-exploitées",
+              "Bien exploitées",
+              "Pas d’avis"
+            ]
+          },
+          {
+            "type": "text",
+            "title": "Selon vous, quels autres besoins en datascience il y aurait-il dans votre service ?",
+            "name": "besoins"
+          }
+        ]
+      },
+      {
+        "name": "page3",
         "elements": [
           {
             "type": "text",

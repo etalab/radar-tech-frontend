@@ -15,10 +15,9 @@ export const QuestionnaireFragment = graphql`
         title
         name
         isRequired
-        choices
         colCount
+        choices
         hasOther
-        visibleIf
       }
       title
     }
