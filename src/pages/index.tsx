@@ -88,10 +88,10 @@ const IndexPage = ({ data }: QueryPageMetier) => {
       </h4>
       <ul>
         <li>
-          <b>Été 2021:</b> IT et systèmes
+          <b>Été 2021:</b> IT et développeurs
         </li>
         <li>
-          <b>Automne 2021:</b> Ingénieurs et architectes
+          <b>Automne 2021:</b> Gestionnaires de projets
         </li>
       </ul>
     </Layout>

@@ -64,6 +64,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `questions-communes`,
+        path: `${__dirname}/questions-communes/`,
+      },
+    },
+    {
       // rendre chaque item dans l'array d'objects contenue dans
       // `pages-metiers.json` disponible sous la key `PageMetier`
       resolve: `gatsby-transformer-json`,
@@ -72,6 +79,9 @@ module.exports = {
           const name = node.sourceInstanceName;
           if (name === `pages-metiers`) {
             return `PageMetier`;
+          }
+          if (name == `questions-communes`) {
+            return `QuestionsCommunes`;
           }
           return name;
         },

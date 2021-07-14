@@ -14,8 +14,8 @@ type QueryPageMetier = {
 // de query les données de la page métier en question en
 // matchant son `id`, et de passer ces données à une View
 const PageMetier = (props: QueryPageMetier) => {
-  const { pageMetier } = props.data;
-  return <SondageView metier={pageMetier} />;
+  const { pageMetier, troncCommun } = props.data;
+  return <SondageView metier={pageMetier} troncCommun={troncCommun} />;
 };
 
 export default PageMetier;
@@ -31,6 +31,11 @@ export const query = graphql`
       key
       questionnaire {
         ...Questionnaire
+      }
+    }
+    troncCommun: allQuestionsCommunes {
+      nodes {
+        ...TroncCommun
       }
     }
   }

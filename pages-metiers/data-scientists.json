@@ -118,7 +118,7 @@
             ]
           },
           {
-            "type": "text",
+            "type": "besoins",
             "title": "Selon vous, quels autres besoins en datascience il y aurait-il dans votre service ?",
             "name": "besoins"
           }
