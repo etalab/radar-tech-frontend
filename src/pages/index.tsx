@@ -61,14 +61,6 @@ const IndexPage = ({ data }: QueryPageMetier) => {
         s'échelonnent du printemps à l'automne 2021.
       </div>
 
-      <h3 style={{ marginBottom: `0.7rem` }}>Gardons le contact</h3>
-      <p>
-        Nous aimerions vous tenir informé de la publication du questionnaires
-        s'adressant à vos communautés, ainsi que des résultats. Abonnez-vous à
-        notre lettre d'information ci-dessous:
-      </p>
-      <SubscribeBar />
-
       <h3 style={{ marginBottom: `0.7rem` }}>Questionnaires en cours</h3>
       <div className="questionnairesCaroussel">
         {data.metier.nodes.map((e, i) => (
@@ -81,6 +73,14 @@ const IndexPage = ({ data }: QueryPageMetier) => {
           </Link>
         ))}
       </div>
+
+      <h3 style={{ marginBottom: `0.7rem` }}>Gardons le contact</h3>
+      <p>
+        Nous aimerions vous tenir informé de la publication du questionnaires
+        s'adressant à vos communautés, ainsi que des résultats. Abonnez-vous à
+        notre lettre d'information ci-dessous:
+      </p>
+      <SubscribeBar />
 
       <h4 style={{ marginBottom: `0.7rem` }}>
         <span className="rf-fi-calendar-line"></span> Calendrier à venir des

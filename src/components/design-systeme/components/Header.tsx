@@ -51,7 +51,7 @@ const Header = () => {
             </div>
           </Link>
 
-          <div className="rf-header__tools">
+          {/* <div className="rf-header__tools">
             <div className="rf-shortcuts">
               <ul className="rf-shortcuts__list">
                 <li className="rf-shortcuts__item">
@@ -66,7 +66,7 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
