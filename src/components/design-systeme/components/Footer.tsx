@@ -29,36 +29,36 @@ const Footer = () => {
             </p>
             <ul className="rf-footer__content-list">
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://legifrance.gouv.fr"
+                  href="https://legifrance.gouv.fr"
                 >
                   legifrance.gouv.fr
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://gouvernement.fr"
+                  href="https://gouvernement.fr"
                 >
                   gouvernement.fr
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://service-public.fr"
+                  href="https://service-public.fr"
                 >
                   service-public.fr
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://data.gouv.fr"
+                  href="https://data.gouv.fr"
                 >
                   data.gouv.fr
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

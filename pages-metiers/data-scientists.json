@@ -3,7 +3,7 @@
   "metier": "data-scientist",
   "metier_str": "Data scientists",
   "metier_icon": "icon-datascience.jpeg",
-  "description": "One who studies or works in data science (the use of scientific methods to obtain useful information from computer data)",
+  "description": "Questionnaire à destination des designers. Ouvert juin-juillet 2021.",
   "questionnaire": {
     "title": "",
     "description": "",
@@ -14,9 +14,10 @@
         "title": "Qui sont ces data scientists ?",
         "elements": [
           {
-            "type": "text",
+            "type": "comment",
             "name": "ecole-pertinente",
-            "title": "Quelle école ou formation fut la plus pertinente pour votre métier ?"
+            "title": "Quelle école ou formation fut la plus pertinente pour votre métier ?",
+            "placeHolder": "Ecole Nationale des Moyennes et Médians"
           },
           {
             "type": "ranking",

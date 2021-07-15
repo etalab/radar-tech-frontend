@@ -71,8 +71,8 @@ const IndexPage = ({ data }: QueryPageMetier) => {
 
       <h3 style={{ marginBottom: `0.7rem` }}>Questionnaires en cours</h3>
       <div className="questionnairesCaroussel">
-        {data.metier.nodes.map(e => (
-          <Link to={e.nameSlug}>
+        {data.metier.nodes.map((e, i) => (
+          <Link to={e.nameSlug} key={i}>
             <Card
               label={e.metier_str}
               datesSondage={'Juin-Juillet 2021'}
