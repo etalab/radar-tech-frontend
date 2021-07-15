@@ -19,7 +19,7 @@ const SondageView = ({ metier, troncCommun }: { metier: Metier }) => {
     <Layout>
       <div className="wrapper">
         <header>
-          <Link to="/">Go back to "Home"</Link>
+          <Link to="/">Retour à la page d'accueil</Link>
         </header>
 
         {metier && (

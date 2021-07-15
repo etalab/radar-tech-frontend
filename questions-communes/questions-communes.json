@@ -2,18 +2,21 @@
   "pages": [
     {
       "name": "",
-      "title": "Vous",
+      "title": "Vous:",
       "elements": [
         {
           "type": "radiogroup",
           "name": "genre",
-          "title": "Genre",
+          "title": "Votre genre",
           "choices": ["Masculin", "Féminin", "Ne préfère pas partager"]
         },
         {
           "type": "text",
           "name": "age",
-          "title": "Âge"
+          "title": "Votre âge",
+          "inputType": "number",
+          "min": "1",
+          "max": "99"
         },
         {
           "type": "checkbox",
@@ -26,13 +29,16 @@
             "CDD (catégorie B)",
             "Vacataire",
             "Stagiaire"
-          ]
+          ],
+          "colCount": 2
         },
         {
           "type": "checkbox",
           "name": "affiliation",
           "title": "À quelle administration êtes-vous rattaché·e ?",
-          "choices": ["voir", "avec", "TALENTS"]
+          "choices": ["voir", "avec", "TALENTS"],
+          "hasOther": true,
+          "otherText": "Autres (précisez)"
         }
       ]
     },
@@ -41,12 +47,15 @@
         {
           "type": "text",
           "name": "annees-experience",
-          "title": "Années d’expérience dans cette administration ?"
+          "title": "Combien d'années d’expérience avez-vous dans cette administration ?",
+          "inputType": "number",
+          "min": "1",
+          "max": "99"
         },
         {
           "type": "radiogroup",
           "name": "annees-experience-detail",
-          "title": "Années d’expérience dans ce métier ?",
+          "title": "Combien d'années d’expérience avez-vous dans ce métier ?",
           "choices": [
             "Étudiant",
             "Moins d’un an (Jeune diplômé)",
@@ -75,7 +84,7 @@
         {
           "type": "checkbox",
           "name": "dernier-diplome",
-          "title": "Quel est le dernier diplôme obtenu ?",
+          "title": "Quel est votre dernier diplôme obtenu ?",
           "choices": [
             "Brevet",
             "Baccalauréat général",

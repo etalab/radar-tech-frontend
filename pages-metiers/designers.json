@@ -3,7 +3,7 @@
   "metier": "designer",
   "metier_str": "Designers",
   "metier_icon": "icon-design.jpeg",
-  "description": "a person who imagines how something could be made and draws plans for it: ",
+  "description": "Questionnaire à destination des designers. Ouvert juin-juillet 2021.",
   "questionnaire": {
     "title": "",
     "description": "",
@@ -35,9 +35,10 @@
             "colCount": 2
           },
           {
-            "type": "text",
+            "type": "comment",
             "name": "intitule-fonction",
-            "title": "Quel est l’intitulé exact de votre fonction ?"
+            "title": "Quel est l’intitulé exact de votre fonction ?",
+            "placeHolder": "Chef designer de choses"
           }
         ]
       },
@@ -141,6 +142,12 @@
             "colCount": 2
           },
           {
+            "type": "comment",
+            "name": "travail-satisfaction-text",
+            "title": "Précisez",
+            "visibleIf": "{travail-satisfaction} = 'Non'"
+          },
+          {
             "type": "radiogroup",
             "name": "recherche-emploi",
             "title": "Êtes-vous à la recherche d’un nouvel emploi ?",
@@ -148,11 +155,23 @@
             "colCount": 2
           },
           {
+            "type": "comment",
+            "name": "recherche-emploi-text",
+            "title": "Précisez",
+            "visibleIf": "{recherche-emploi} = 'Oui'"
+          },
+          {
             "type": "radiogroup",
             "name": "besoin-nouvelles-competences",
             "title": "Auriez-vous besoin d’acquérir de nouvelles compétences ou de vous former ?",
             "choices": ["Oui", "Non"],
             "colCount": 2
+          },
+          {
+            "type": "text",
+            "name": "besoin-nouvelles-competences-text",
+            "title": "Précisez",
+            "visibleIf": "{besoin-nouvelles-competences} = 'Oui'"
           }
         ]
       },

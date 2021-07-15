@@ -11,6 +11,11 @@ export const TroncCommunQuestionnaireFragment = graphql`
         name
         choices
         colCount
+        inputType
+        min
+        max
+        hasOther
+        otherText
       }
     }
   }
@@ -35,6 +40,8 @@ export const QuestionnaireFragment = graphql`
         colCount
         choices
         hasOther
+        placeHolder
+        visibleIf
       }
     }
   }

@@ -14,8 +14,8 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: `Métiers techniques de l'État: sondage`,
-    description: `tagline tagline`,
+    title: `Qui sont les personnels techniques de l'État ?`,
+    description: ` `,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
