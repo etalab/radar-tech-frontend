@@ -43,8 +43,8 @@ const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
           query myQuery {
             radarTechTest {
               designer {
-                demo_genre
-                demo_age
+                genre
+                age
               }
             }
           }
@@ -54,13 +54,13 @@ const flatten = (arr: KeyedResult[], totalLength: number): FlatResult[] =>
       const results: [] = results_data.radarTechTest.designer;
 
   // gender data
-  const gender_keyed: KeyedResult[] = groupBy(results, 'demo_genre');
+  const gender_keyed: KeyedResult[] = groupBy(results, 'genre');
   const gender_flat: FlatResult[] = flatten(gender_keyed, results.length);
 
   // age data
   // on se permet de re-trier alphabétiquement
   // @TODO: bouger cette fonction de tri dans flatten()?
-  const age_keyed: KeyedResult[] = groupBy(results, 'demo_age');
+  const age_keyed: KeyedResult[] = groupBy(results, 'age');
   const age_flat: FlatResult[] = flatten(
     age_keyed,
     results.length
