@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "name": "",
+      "name": "page0",
       "title": "Vous:",
       "elements": [
         {
@@ -20,7 +20,7 @@
         },
         {
           "type": "checkbox",
-          "name": "sit-professionnelle",
+          "name": "sit_professionnelle",
           "title": "Quel est votre statut ?",
           "choices": [
             "Titulaire (catégorie A)",
@@ -46,7 +46,7 @@
       "elements": [
         {
           "type": "text",
-          "name": "annees-experience",
+          "name": "annees_experience",
           "title": "Combien d'années d’expérience avez-vous dans cette administration ?",
           "inputType": "number",
           "min": "1",
@@ -54,7 +54,7 @@
         },
         {
           "type": "radiogroup",
-          "name": "annees-experience-detail",
+          "name": "annees_experience_detail",
           "title": "Combien d'années d’expérience avez-vous dans ce métier ?",
           "choices": [
             "Étudiant",
@@ -83,7 +83,7 @@
         },
         {
           "type": "checkbox",
-          "name": "dernier-diplome",
+          "name": "dernier_diplome",
           "title": "Quel est votre dernier diplôme obtenu ?",
           "choices": [
             "Brevet",

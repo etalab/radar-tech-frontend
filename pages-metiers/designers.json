@@ -36,7 +36,7 @@
           },
           {
             "type": "comment",
-            "name": "intitule-fonction",
+            "name": "intitule_fonction",
             "title": "Quel est l’intitulé exact de votre fonction ?",
             "placeHolder": "Chef designer de choses"
           }
@@ -49,26 +49,26 @@
           {
             "type": "checkbox",
             "title": "Quelles sont les compétences métiers que vous utilisez au quotidien (3) ?",
-            "name": "",
-            "choices": []
+            "name": "competences_quotidiennes",
+              "choices": ["competence_1", "competence_2"]
           },
           {
             "type": "checkbox",
             "title": "Quelles sont vos autres compétences métiers (3) ?",
-            "name": "",
-            "choices": []
+            "name": "autres_competences",
+              "choices": ["competence_1", "competence_2"]
           },
           {
             "type": "checkbox",
             "title": "Autres compétences utiles à vos missions (3) ?",
-            "name": "",
-            "choices": []
+            "name": "competences_utiles",
+              "choices": ["competence_1", "competence_2"]
           },
           {
             "type": "checkbox",
             "title": "Quels outils utilisez-vous ?",
-            "name": "",
-            "choices": []
+            "name": "outils_utilises",
+              "choices": ["outil_1", "outil_2"]
           }
         ]
       },
@@ -77,7 +77,7 @@
         "elements": [
           {
             "type": "radiogroup",
-            "name": "travail-facon",
+            "name": "modes_de_travail",
             "title": "De quelle façon travaillez-vous ?",
             "choices": [
               "Un seul projet",
@@ -88,7 +88,7 @@
           },
           {
             "type": "radiogroup",
-            "name": "travail-en-equipe",
+            "name": "travail_en_equipe",
             "title": "Travaillez-vous en équipe ?",
             "choices": [
               "Travaille seul·e",
@@ -104,7 +104,7 @@
         "elements": [
           {
             "type": "radiogroup",
-            "name": "competences-perception",
+            "name": "competences_perception",
             "title": "Quelle est la perception globale des compétences de design dans votre service ?",
             "choices": [
               "Fortement valorisées",
@@ -115,7 +115,7 @@
           },
           {
             "type": "radiogroup",
-            "name": "competences-exploitation",
+            "name": "competences_exploitation",
             "title": "Selon vous, les compétences de design dans votre service sont",
             "choices": [
               "Mal ou sous-exploitées",
@@ -136,40 +136,40 @@
         "elements": [
           {
             "type": "radiogroup",
-            "name": "travail-satisfaction",
+            "name": "travail_satisfaction",
             "title": "Êtes-vous satisfait·e de votre travail ?",
             "choices": ["Oui", "Non"],
             "colCount": 2
           },
           {
             "type": "comment",
-            "name": "travail-satisfaction-text",
+            "name": "travail_satisfaction_text",
             "title": "Précisez",
             "visibleIf": "{travail-satisfaction} = 'Non'"
           },
           {
             "type": "radiogroup",
-            "name": "recherche-emploi",
+            "name": "recherche_emploi",
             "title": "Êtes-vous à la recherche d’un nouvel emploi ?",
             "choices": ["Oui", "Non"],
             "colCount": 2
           },
           {
             "type": "comment",
-            "name": "recherche-emploi-text",
+            "name": "recherche_emploi_text",
             "title": "Précisez",
             "visibleIf": "{recherche-emploi} = 'Oui'"
           },
           {
             "type": "radiogroup",
-            "name": "besoin-nouvelles-competences",
+            "name": "besoin_nouvelles_competences",
             "title": "Auriez-vous besoin d’acquérir de nouvelles compétences ou de vous former ?",
             "choices": ["Oui", "Non"],
             "colCount": 2
           },
           {
             "type": "text",
-            "name": "besoin-nouvelles-competences-text",
+            "name": "besoin_nouvelles_competences_text",
             "title": "Précisez",
             "visibleIf": "{besoin-nouvelles-competences} = 'Oui'"
           }

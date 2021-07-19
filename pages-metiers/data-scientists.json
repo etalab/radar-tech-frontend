@@ -15,13 +15,13 @@
         "elements": [
           {
             "type": "comment",
-            "name": "ecole-pertinente",
+            "name": "ecole_pertinente",
             "title": "Quelle école ou formation fut la plus pertinente pour votre métier ?",
             "placeHolder": "Ecole Nationale des Moyennes et Médians"
           },
           {
             "type": "ranking",
-            "name": "technologies-principales",
+            "name": "technologies_principales",
             "title": "Quelles sont les technologies sur lesquelles porte principalement votre expertise ?",
             "choices": [
               "TAL",
@@ -33,7 +33,7 @@
           },
           {
             "type": "checkbox",
-            "name": "methodes-et-algos",
+            "name": "methodes_et_algos",
             "title": "Quelles sont vos méthodes et algorithmes ?",
             "choices": [
               "Méthodes lineaires (regression logistique/lineaire)",
@@ -70,7 +70,7 @@
           },
           {
             "type": "ranking",
-            "name": "autres-competences",
+            "name": "autres_competences",
             "title": "Autres compétences utiles à vos missions",
             "choices": [
               "Développement web",
@@ -83,7 +83,7 @@
           },
           {
             "type": "radiogroup",
-            "name": "publient-codes-sources",
+            "name": "publient_codes_sources",
             "title": "Publiez-vous vos codes sources ?",
             "choices": [
               "Oui, systématiquement",
@@ -100,7 +100,7 @@
           {
             "type": "radiogroup",
             "title": "Quelle est la perception globale des compétences de datascience dans votre service ?",
-            "name": "competences-perception",
+            "name": "competences_perception",
             "choices": [
               "Fortement valorisées",
               "Moyennement valorisées",
@@ -111,17 +111,12 @@
           {
             "type": "radiogroup",
             "title": "Selon vous, les compétences de datascience dans votre service sont",
-            "name": "competences-exploitation",
+            "name": "competences_exploitation",
             "choices": [
               "Mal ou sous-exploitées",
               "Bien exploitées",
               "Pas d’avis"
             ]
-          },
-          {
-            "type": "besoins",
-            "title": "Selon vous, quels autres besoins en datascience il y aurait-il dans votre service ?",
-            "name": "besoins"
           }
         ]
       },
