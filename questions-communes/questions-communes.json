@@ -82,7 +82,7 @@
           "colCount": 2
         },
         {
-          "type": "checkbox",
+          "type": "radiogroup",
           "name": "dernier_diplome",
           "title": "Quel est votre dernier diplôme obtenu ?",
           "choices": [

@@ -5,8 +5,6 @@ import { GraphQLClient, gql } from 'graphql-request';
 //import { API_URL, API_TOKEN } from 'gatsby-env-variables';
 
 import { schema } from './utils/validators.js';
-//import questionnaire from './questionnaire.js';
-//import { isConstructorDeclaration } from 'typescript';
 
 import SuccessComponent from './Success';
 const completedHtml = SuccessComponent();
@@ -25,11 +23,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // génèrent pas le meme type d'erreur que l'on catche avec
   // `onErrorCustomText`
   onValidateQuestion(survey, options) {
-    if (
-      options.name === 'premiere_ligne_code' ||
-      options.name === 'experience_programmation' ||
-      options.name === 'programmation_pro'
-    ) {
+    if (options.name === 'age' || options.name === 'annees_experience') {
       if (options.value && isNaN(options.value)) {
         options.error = 'Merci de renseigner un nombre dans ce champ';
       }
@@ -72,14 +66,15 @@ class SurveyComponent extends React.Component<SurveyProps> {
   // github.com/etalab/radar-tech-backend/src/app.js
   // @TODO ajouter un parametre en plus qui est le métier
   onComplete = (survey, options) => {
-    const API_URL = process.env.GATSBY_API_URL || 'http://localhost:3001/graphql';
+    const API_URL =
+      process.env.GATSBY_API_URL || 'http://localhost:3001/graphql';
     const API_TOKEN = process.env.GATSBY_API_TOKEN || '';
     console.log(`Data a POSTer: `, survey.data);
     const graphQLClient = new GraphQLClient(API_URL, {
-        headers: {
-          authorization: `Bearer ${API_TOKEN}`,
-        },
-      });
+      headers: {
+        authorization: `Bearer ${API_TOKEN}`,
+      },
+    });
     const mutation = gql`
     mutation ${this.props.metier}($answer: ${this.props.metier}Input) {
       ${this.props.metier}(answer: $answer) {
@@ -87,7 +82,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
       }
     }
     `;
-    
+
     graphQLClient
       .request(mutation, { answer: survey.data })
       .catch(error => console.log(error));
@@ -121,6 +116,7 @@ class SurveyComponent extends React.Component<SurveyProps> {
     return (
       <section>
         <Survey.Survey
+          commentPrefix={`_autres`}
           model={model}
           css={myCss}
           onComplete={this.onComplete}
