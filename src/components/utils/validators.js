@@ -6,11 +6,11 @@ const schema = yup
   .object()
   .shape({
     genre: yup.string(),
-    age: yup.number(),
+    age: yup.string(),
     sit_professionnelle: yup.array().of(yup.string()),
     affiliation: yup.array().of(yup.string()),
     affiliation_autres: yup.string(),
-    annees_experience: yup.number(),
+    annees_experience: yup.string(),
     annees_experience_detail: yup.string(),
     email: yup.string(),
     // data scientists ci-dessous

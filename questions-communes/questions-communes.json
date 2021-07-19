@@ -14,7 +14,7 @@
           "type": "text",
           "name": "age",
           "title": "Votre âge",
-          "inputType": "number",
+          "inputType": "string",
           "min": "1",
           "max": "99"
         },
@@ -48,7 +48,7 @@
           "type": "text",
           "name": "annees_experience",
           "title": "Combien d'années d’expérience avez-vous dans cette administration ?",
-          "inputType": "number",
+          "inputType": "string",
           "min": "1",
           "max": "99"
         },
