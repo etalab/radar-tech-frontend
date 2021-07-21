@@ -30,7 +30,6 @@
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sass": "^2.6.0",
     "gatsby-plugin-sharp": "^2.8.0",
-    "gatsby-plugin-sitemap": "^4.5.0",
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-graphql": "^2.13.0",
     "gatsby-transformer-json": "^3.0.0",
