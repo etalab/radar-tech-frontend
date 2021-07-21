@@ -8,9 +8,10 @@ import type { Metier } from '../components/utils/types';
 // cette View est utilisée par chaque page métier
 // c'est probablement par ici que l'on retombera sur nos pattes
 // en termes de rendre le questionnaire lui-même
-const SondageView = ({ metier, troncCommun }: { metier: Metier }) => {
+const SondageView = ({ metier, questionsCommunes }) => {
+  console.log(metier, questionsCommunes);
   const questionsCommunesEtMetiers = [
-    ...troncCommun.nodes[0].pages,
+    ...questionsCommunes.pages,
     ...metier.questionnaire.pages,
   ];
   let questionnaireData = metier;
