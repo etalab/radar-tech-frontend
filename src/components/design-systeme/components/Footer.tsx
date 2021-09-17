@@ -29,36 +29,36 @@ const Footer = () => {
             </p>
             <ul className="rf-footer__content-list">
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://legifrance.gouv.fr"
+                  href="https://legifrance.gouv.fr"
                 >
                   legifrance.gouv.fr
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://gouvernement.fr"
+                  href="https://gouvernement.fr"
                 >
                   gouvernement.fr
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://service-public.fr"
+                  href="https://service-public.fr"
                 >
                   service-public.fr
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
+                <a
                   className="rf-footer__content-link"
-                  to="https://data.gouv.fr"
+                  href="https://data.gouv.fr"
                 >
                   data.gouv.fr
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -66,16 +66,16 @@ const Footer = () => {
         <div className="rf-footer__bottom">
           <ul className="rf-footer__bottom-list">
             <li className="rf-footer__bottom-item">
-              <a className="rf-footer__bottom-link" href="#">
+              <Link className="rf-footer__bottom-link" to="sitemap.xml">
                 Plan du site
-              </a>
+              </Link>
             </li>
             <li className="rf-footer__bottom-item">
               <a className="rf-footer__bottom-link" href="#">
                 Accessibilité: non/partiellement/totalement conforme
               </a>
             </li>
-            <li className="rf-footer__bottom-item">
+            {/* <li className="rf-footer__bottom-item">
               <a className="rf-footer__bottom-link" href="#">
                 Mentions légales
               </a>
@@ -89,7 +89,7 @@ const Footer = () => {
               <a className="rf-footer__bottom-link" href="#">
                 Gestion des cookies
               </a>
-            </li>
+            </li> */}
           </ul>
           <div className="rf-footer__bottom-copy">
             © République Française 2020

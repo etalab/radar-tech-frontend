@@ -61,18 +61,10 @@ const IndexPage = ({ data }: QueryPageMetier) => {
         s'échelonnent du printemps à l'automne 2021.
       </div>
 
-      <h3 style={{ marginBottom: `0.7rem` }}>Gardons le contact</h3>
-      <p>
-        Nous aimerions vous tenir informé de la publication du questionnaires
-        s'adressant à vos communautés, ainsi que des résultats. Abonnez-vous à
-        notre lettre d'information ci-dessous:
-      </p>
-      <SubscribeBar />
-
       <h3 style={{ marginBottom: `0.7rem` }}>Questionnaires en cours</h3>
       <div className="questionnairesCaroussel">
-        {data.metier.nodes.map(e => (
-          <Link to={e.nameSlug}>
+        {data.metier.nodes.map((e, i) => (
+          <Link to={e.nameSlug} key={i}>
             <Card
               label={e.metier_str}
               datesSondage={'Juin-Juillet 2021'}
@@ -82,16 +74,24 @@ const IndexPage = ({ data }: QueryPageMetier) => {
         ))}
       </div>
 
+      <h3 style={{ marginBottom: `0.7rem` }}>Gardons le contact</h3>
+      <p>
+        Nous aimerions vous tenir informé de la publication du questionnaires
+        s'adressant à vos communautés, ainsi que des résultats. Abonnez-vous à
+        notre lettre d'information ci-dessous:
+      </p>
+      <SubscribeBar />
+
       <h4 style={{ marginBottom: `0.7rem` }}>
         <span className="rf-fi-calendar-line"></span> Calendrier à venir des
         questionnaires-communautés
       </h4>
       <ul>
         <li>
-          <b>Été 2021:</b> IT et systèmes
+          <b>Été 2021:</b> IT et développeurs
         </li>
         <li>
-          <b>Automne 2021:</b> Ingénieurs et architectes
+          <b>Automne 2021:</b> Gestionnaires de projets
         </li>
       </ul>
     </Layout>

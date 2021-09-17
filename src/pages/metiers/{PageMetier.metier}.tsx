@@ -1,21 +1,24 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import SondageView from '../SondageView';
+import SondageView from '../../templates/SondageView';
 
 import type { Metier } from '../../components/utils/types';
 
 type QueryPageMetier = {
   data: {
     pageMetier: Metier;
+    questionsCommunes: { pages: {}[] };
   };
 };
 
 // une page métier est un Higher Order Component s'occupant
 // de query les données de la page métier en question en
 // matchant son `id`, et de passer ces données à une View
-const PageMetier = (props: QueryPageMetier) => {
-  const { pageMetier } = props.data;
-  return <SondageView metier={pageMetier} />;
+const PageMetier = ({ data }: QueryPageMetier) => {
+  const { pageMetier, questionsCommunes } = data;
+  return (
+    <SondageView metier={pageMetier} questionsCommunes={questionsCommunes} />
+  );
 };
 
 export default PageMetier;
@@ -32,6 +35,9 @@ export const query = graphql`
       questionnaire {
         ...Questionnaire
       }
+    }
+    questionsCommunes {
+      ...TroncCommun
     }
   }
 `;

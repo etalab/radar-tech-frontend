@@ -1,0 +1,101 @@
+{
+  "pages": [
+    {
+      "name": "page0",
+      "title": "Vous:",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "genre",
+          "title": "Votre genre",
+          "choices": ["Masculin", "Féminin", "Ne préfère pas partager"]
+        },
+        {
+          "type": "text",
+          "name": "age",
+          "title": "Votre âge",
+          "inputType": "string",
+          "min": "1",
+          "max": "99"
+        },
+        {
+          "type": "checkbox",
+          "name": "sit_professionnelle",
+          "title": "Quel est votre statut ?",
+          "choices": [
+            "Titulaire (catégorie A)",
+            "Titulaire (catégorie B)",
+            "CDD (catégorie A)",
+            "CDD (catégorie B)",
+            "Vacataire",
+            "Stagiaire"
+          ],
+          "colCount": 2
+        },
+        {
+          "type": "checkbox",
+          "name": "affiliation",
+          "title": "À quelle administration êtes-vous rattaché·e ?",
+          "choices": ["voir", "avec", "TALENTS"],
+          "hasOther": true,
+          "otherText": "Autres (précisez)"
+        }
+      ]
+    },
+    {
+      "elements": [
+        {
+          "type": "text",
+          "name": "annees_experience",
+          "title": "Combien d'années d’expérience avez-vous dans cette administration ?",
+          "inputType": "string",
+          "min": "1",
+          "max": "99"
+        },
+        {
+          "type": "radiogroup",
+          "name": "annees_experience_detail",
+          "title": "Combien d'années d’expérience avez-vous dans ce métier ?",
+          "choices": [
+            "Étudiant",
+            "Moins d’un an (Jeune diplômé)",
+            "Entre 1 et 3 ans (Junior)",
+            "Entre 4 et 10 ans (Confirmé)",
+            "10+ ans (Senior)"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "formation",
+          "title": "Quelle est votre formation ?",
+          "choices": [
+            "Formation universitaire ou en IUT",
+            "Formation professionnelle",
+            "École d’ingénieur",
+            "École de design",
+            "École du numérique",
+            "École d’art",
+            "École d’ingénieur",
+            "École de commerce",
+            "Pas de formation"
+          ],
+          "colCount": 2
+        },
+        {
+          "type": "radiogroup",
+          "name": "dernier_diplome",
+          "title": "Quel est votre dernier diplôme obtenu ?",
+          "choices": [
+            "Brevet",
+            "Baccalauréat général",
+            "Baccalauréat professionnel",
+            "Licence",
+            "Master",
+            "Doctorat"
+          ],
+          "colCount": 2
+        }
+      ]
+    }
+  ]
+}
