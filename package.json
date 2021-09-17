@@ -50,6 +50,7 @@
     "yup": "^0.31.0"
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.2",
     "prettier": "2.1.2"
   },
   "keywords": [

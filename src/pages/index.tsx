@@ -7,9 +7,6 @@ import SEO from '../components/seo';
 import Card from '../././components/design-systeme/components/Card';
 import SubscribeBar from '../././components/design-systeme/components/SubscribeBar';
 
-// import { SurveyComponent } from '../components/Survey';
-// import buildSurveys from '../components/utils/assembleSurveys';
-
 type QueryPageMetier = {
   data: {
     metier: {
@@ -32,7 +29,7 @@ type QueryPageMetier = {
 const IndexPage = ({ data }: QueryPageMetier) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Accueil" />
       <h1 style={{ marginBottom: `0.7rem` }}>RadarTech a besoin de vous</h1>
       <p>
         L'État compte dans ses rangs <b>20 000 personnels techniques</b>:
