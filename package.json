@@ -15,15 +15,7 @@
     "@types/react": "^17.0.0",
     "@types/resize-observer-browser": "^0.1.4",
     "bootstrap": "^4.5.3",
-    "d3": "^6.3.1",
-    "d3-array": "^2.9.1",
-    "d3-collection": "^1.0.7",
-    "d3-format": "^2.0.0",
-    "d3-jetpack": "^2.1.1",
-    "d3-scale": "^3.2.3",
-    "d3-scale-chromatic": "^2.0.0",
-    "d3-selection": "^2.0.0",
-    "gatsby": "^2.32.13",
+    "gatsby": "^3.4.0",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-offline": "^3.4.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
@@ -35,22 +27,22 @@
     "gatsby-transformer-sharp": "^2.6.0",
     "graphql-request": "^3.4.0",
     "install": "^0.13.0",
-    "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
-    "ramda": "^0.27.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "resize-observer-polyfill": "^1.5.1",
+    "sass": "^1.42.1",
     "semiotic": "^1.20.6",
     "survey-react": "^1.8.14",
     "template.data.gouv.fr": "^1.3.2",
-    "typescript": "^4.1.3",
-    "yup": "^0.31.0"
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.2",
-    "prettier": "2.1.2"
+    "prettier": "2.1.2",
+    "sass-loader": "^12.0.0",
+    "yup": "^0.31.0"
   },
   "keywords": [
     "gatsby"
