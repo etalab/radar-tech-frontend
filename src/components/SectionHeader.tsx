@@ -4,4 +4,6 @@ interface SectionHeaderProps {
   copy: string;
 }
 
-export const SectionHeader = ({ copy }: SectionHeaderProps) => <h1>{copy}</h1>;
+export const SectionHeader = ({ copy }: SectionHeaderProps) => (
+  <h1 style={{ marginBottom: '0.7rem' }}>{copy}</h1>
+);

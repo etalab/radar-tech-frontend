@@ -1,6 +1,7 @@
 import React from 'react';
 
-// import { Header } from './Header';
+import { SectionIndent } from '../components/SectionIndent';
+import { SectionHeader } from '../components/SectionHeader';
 import './page.css';
 
 interface PageProps {
@@ -20,6 +21,44 @@ export const Page = ({
     {/* <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} /> */}
 
     <section>
+      <SectionHeader copy={'Ceci est donc un header de section'} />
+      <p>
+        Nunc eleifend leo vitae magna. Aliquam erat volutpat. Nunc eleifend leo
+        vitae magna. In id erat non orci commodo lobortis. Proin neque massa,
+        cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent
+        fermentum tempor tellus. Nullam tempus. Mauris ac felis vel velit
+        tristique imperdiet. Donec at pede. Etiam vel neque nec dui dignissim
+        bibendum. Vivamus id enim.
+      </p>
+      <SectionIndent>
+        {{
+          copy: (
+            <p>
+              Nunc eleifend leo vitae magna. Aliquam erat volutpat. Nunc
+              eleifend leo vitae magna. In id erat non orci commodo lobortis.
+              Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.
+              Sed diam. Praesent fermentum tempor tellus. Nullam tempus. Mauris
+              ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel
+              neque nec dui dignissim bibendum. Vivamus id enim.
+            </p>
+          ),
+        }}
+      </SectionIndent>
+      <SectionIndent>
+        {{
+          header: "Celui ci est indenté",
+          copy: (
+            <p>
+              Nunc eleifend leo vitae magna. Aliquam erat volutpat. Nunc
+              eleifend leo vitae magna. In id erat non orci commodo lobortis.
+              Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.
+              Sed diam. Praesent fermentum tempor tellus. Nullam tempus. Mauris
+              ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel
+              neque nec dui dignissim bibendum. Vivamus id enim.
+            </p>
+          ),
+        }}
+      </SectionIndent>
       <h2>Pages in Storybook</h2>
       <p>
         We recommend building UIs with a{' '}
