@@ -19,14 +19,27 @@ const LoremIpsum = () => (
   </p>
 );
 
-export const SansHeader: ComponentStory<typeof SectionIndent>  = () => (
+export const GaucheSansHeader: ComponentStory<typeof SectionIndent>  = () => (
     <Layout noFurniture={true}>
-      <SectionIndent>{{ copy: <LoremIpsum /> }}</SectionIndent>
+      <SectionIndent direction={"left"}>{{ copy: <LoremIpsum /> }}</SectionIndent>
     </Layout>
 );
-export const AvecHeader: ComponentStory<typeof SectionIndent>  = () => (
+export const GaucheAvecHeader: ComponentStory<typeof SectionIndent>  = () => (
     <Layout noFurniture={true}>
-      <SectionIndent>
+      <SectionIndent direction={"left"}>
+        {{ header: 'Avec un header', copy: <LoremIpsum /> }}
+      </SectionIndent>
+    </Layout>
+);
+
+export const DroiteSansHeader: ComponentStory<typeof SectionIndent>  = () => (
+    <Layout noFurniture={true}>
+      <SectionIndent direction={"right"}>{{ copy: <LoremIpsum /> }}</SectionIndent>
+    </Layout>
+);
+export const DroiteAvecHeader: ComponentStory<typeof SectionIndent>  = () => (
+    <Layout noFurniture={true}>
+      <SectionIndent direction={"right"}>
         {{ header: 'Avec un header', copy: <LoremIpsum /> }}
       </SectionIndent>
     </Layout>
