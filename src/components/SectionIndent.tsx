@@ -21,7 +21,7 @@ export const SectionIndent = ({ children }: SectionIndentProps) => (
       borderRadius: '5px',
       boxShadow: shadow,
       padding: '2rem 4rem',
-      margin: '2rem 0',
+      margin: '4rem 0',
     }}
   >
     {children.header ? (
