@@ -8,6 +8,10 @@ Nous proposons de consolider un questionnaire et de le soumettre aux milliers d'
 
 Le présent projet est le **frontend** de l'application. Le backend, se [trouve dans cet autre dépôt](https://github.com/etalab/radar-tech-backend).
 
+## Présentation des résultats
+
+La seconde phase de ce projet est la dissémination des résultats collectés. Une collection de composants réutilisables est en cours de développement et [disponible sous forme de Storybook](https://etalab.github.io/radar-tech-frontend/?path=/story/example-page).
+
 ## Installation et développement
 
 ```
