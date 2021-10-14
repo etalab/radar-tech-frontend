@@ -9,10 +9,15 @@ import Footer from './design-systeme/components/Footer';
 import './design-systeme/css/all.min.css';
 import './css/layout.css';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: {};
+  noFurniture?: boolean;
+}
+
+const Layout = ({ children, noFurniture }: LayoutProps) => {
   return (
     <>
-      <Header />
+      {!noFurniture && <Header />}
       <div
         style={{
           margin: `0 auto`,
@@ -22,13 +27,9 @@ const Layout = ({ children }) => {
       >
         <main style={{ padding: `0 2rem` }}>{children}</main>
       </div>
-      <Footer />
+      {!noFurniture && <Footer />}
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
