@@ -2,22 +2,29 @@ import React, { useMemo } from 'react';
 import * as scale from 'd3-scale';
 const d3 = { ...scale };
 
-const Axis = ({ domain = [0, 100], range = [0, 100], axisType, axisPath }) => {
+interface AxisProps {
+  parentWidth: number;
+  domain: [number, number];
+  axisPath?: boolean;
+}
+
+export const AxisLinear = ({
+  parentWidth,
+  domain,
+  axisPath,
+}: AxisProps) => {
+  const range = [0, parentWidth];
   const ticks = useMemo(() => {
-    const xScale = d3.scaleBand().domain(domain).rangeRound(range);
+    const xScale = d3.scaleLinear().domain(domain).rangeRound(range);
     const width = range[1] - range[0];
     const pixelsPerTick = 30;
     const numberOfTicksTarget = Math.max(1, Math.floor(width / pixelsPerTick));
 
-    if (axisType === 'ordinal') {
-      return domain.map(value => ({ value, xOffset: xScale(value) }));
-    } else {
-      return xScale.ticks(numberOfTicksTarget).map(value => ({
-        value,
-        xOffset: xScale(value),
-      }));
-    }
-  }, [domain, range, axisType]);
+    return xScale.ticks(numberOfTicksTarget).map(value => ({
+      value,
+      xOffset: xScale(value),
+    }));
+  }, [domain, range]);
 
   return (
     <g>
@@ -46,5 +53,3 @@ const Axis = ({ domain = [0, 100], range = [0, 100], axisType, axisPath }) => {
     </g>
   );
 };
-
-export default Axis;
