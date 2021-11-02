@@ -2,6 +2,7 @@ import React from 'react';
 
 import { SectionIndent } from '../components/SectionIndent';
 import { SectionHeader } from '../components/SectionHeader';
+import { ChartTemplate } from '../components/charts/ChartTemplate';
 import './page.css';
 
 interface PageProps {}
@@ -32,6 +33,8 @@ export const Page = () => (
         copy: <LoremIpsum />,
       }}
     </SectionIndent>
+    <LoremIpsum />
+    <ChartTemplate />
     <LoremIpsum />
   </article>
 );
