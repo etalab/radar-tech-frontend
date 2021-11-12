@@ -49,7 +49,12 @@ export const Page = () => (
     <LoremIpsum />
     <h4>Ceci est un mini graphique SVG</h4>
     <svg style={{ width: '80%', height: '400px', margin: '0 auto' }}>
-      <ColumnChart data={dummyData} height={400} />
+      <ColumnChart
+        data={dummyData}
+        height={400}
+        ariaTitle={'Petit graphique'}
+        ariaDescription={'Simple description'}
+      />
     </svg>
     <LoremIpsum />
   </article>

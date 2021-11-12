@@ -8,9 +8,16 @@ import { Axis } from './Axis';
 interface ColumnChartProps {
   data: { id: any; value: number }[];
   height: number;
+  ariaTitle: string;
+  ariaDescription: string;
 }
 
-export const ColumnChart = ({ data, height }: ColumnChartProps) => {
+export const ColumnChart = ({
+  data,
+  height,
+  ariaTitle,
+  ariaDescription,
+}: ColumnChartProps) => {
   const [wrapperRef, dimensions] = useDims();
   const { width } = dimensions;
 
@@ -44,11 +51,15 @@ export const ColumnChart = ({ data, height }: ColumnChartProps) => {
 
   return (
     <svg
+      role={'img'}
+      aria-labelledby={'title desc'}
       ref={wrapperRef}
       width={'100%'}
       height={height}
       style={{ border: '1px dashed #ddd' }}
     >
+      <title id="title">{ariaTitle}</title>
+      <desc id="desc">{ariaDescription}</desc>
       {dimensions.width &&
         data.map((e, i) => (
           <rect

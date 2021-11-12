@@ -17,7 +17,12 @@ const dummyData = new Array(10).fill({}).map((e, i) => ({
 export const Défaut: ComponentStory<typeof ColumnChart> = () => (
   <Layout noFurniture={true}>
     <div style={{ width: '60%', height: '400px', margin: '0 auto' }}>
-      <ColumnChart data={dummyData} height={400} />
+      <ColumnChart
+        data={dummyData}
+        height={400}
+        ariaTitle={'Petit graphique'}
+        ariaDescription={'Simple description'}
+      />
     </div>
   </Layout>
 );
