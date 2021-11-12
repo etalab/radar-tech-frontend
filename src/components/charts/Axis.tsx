@@ -4,7 +4,11 @@ const d3 = { ...scale };
 
 interface AxisProps {
   domain: any[];
-  settings: { paddingLeft?: number; paddingRight?: number };
+  settings: {
+    paddingLeft?: number;
+    paddingRight?: number;
+    paddingBottom?: number;
+  };
   scaleType: 'linear' | 'categorical';
   axisPath?: boolean;
   dims: DOMRect;
@@ -37,7 +41,7 @@ const getTicks = (
 };
 
 const tickTransform = (scaleType: 'linear' | 'categorical') =>
-  `translate(-5px, 25px) ${scaleType === 'linear' ? 'rotate(-45deg)' : ''}`;
+  `translate(0px, 25px) ${scaleType === 'linear' ? 'rotate(-45deg)' : ''}`;
 
 const axisLine = (scaleType: 'linear' | 'categorical', range: number[]) => {
   const offset = scaleType === 'linear' ? 6 : 0;
@@ -52,12 +56,11 @@ export const Axis = ({
   axisPath,
   dims,
 }: AxisProps) => {
-  const { width } = dims;
+  const { width, height } = dims;
   const range = [
     settings.paddingLeft ? settings.paddingLeft : 0,
     settings.paddingRight ? width - settings.paddingRight : width,
   ];
-  console.log(range);
   const ticks = useMemo(() => {
     const xScale = pickScale(scaleType, range).domain(domain);
     const width = range[1] - range[0];
