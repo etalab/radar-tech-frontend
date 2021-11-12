@@ -49,40 +49,42 @@ export const ColumnChart = ({ data, height }: ColumnChartProps) => {
       height={height}
       style={{ border: '1px dashed #ddd' }}
     >
-      {data.map((e, i) => (
-        <rect
-          key={i}
-          x={xScale(e.id)}
-          y={yScale(e.value)}
-          width={xScale.bandwidth()}
-          height={height - yScale(e.value) - 40}
-          fill={'lavender'}
-          rx={4}
-        />
-      ))}
+      {dimensions.width &&
+        data.map((e, i) => (
+          <rect
+            key={i}
+            x={xScale(e.id)}
+            y={yScale(e.value)}
+            width={xScale.bandwidth()}
+            height={height - yScale(e.value) - 40}
+            fill={'lavender'}
+            rx={4}
+          />
+        ))}
       <g transform={`translate(0,${height - 40})`}>
         <Axis scale={xScale} axisPath={false} scaleType={'categorical'} />
       </g>
       <g className="overlays">
-        {data.map((e, i) => {
-          if (height - yScale(e.value) > 70 && xScale.bandwidth() > 30) {
-            return (
-              <text
-                key={i}
-                // @ts-expect-error
-                x={xScale(e.id) + xScale.bandwidth() / 2}
-                y={yScale(e.value) + 20}
-                style={{
-                  fontSize: `0.8rem`,
-                  fill: `white`,
-                  textAnchor: 'middle',
-                }}
-              >
-                {e.value}
-              </text>
-            );
-          } else return null;
-        })}
+        {dimensions.width &&
+          data.map((e, i) => {
+            if (height - yScale(e.value) > 70 && xScale.bandwidth() > 30) {
+              return (
+                <text
+                  key={i}
+                  // @ts-expect-error
+                  x={xScale(e.id) + xScale.bandwidth() / 2}
+                  y={yScale(e.value) + 20}
+                  style={{
+                    fontSize: `0.8rem`,
+                    fill: `white`,
+                    textAnchor: 'middle',
+                  }}
+                >
+                  {e.value}
+                </text>
+              );
+            } else return null;
+          })}
       </g>
     </svg>
   );

@@ -52,7 +52,7 @@ export const Axis = ({ scale, scaleType, axisPath }: AxisProps) => {
         />
       )}
       {ticks.map(({ value, xOffset }) => (
-        <g key={value} transform={`translate(${xOffset}, 0)`}>
+        <g key={value} transform={`translate(${xOffset ? xOffset : 0}, 0)`}>
           <line y2="6" stroke="currentColor" />
           <text
             key={value}
