@@ -1,8 +1,8 @@
-import { any } from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useDims } from 'react-dims';
 import * as scale from 'd3-scale';
-const d3 = { ...scale };
+import * as array from 'd3-array';
+const d3 = { ...scale, ...array };
 import { Axis } from './Axis';
 
 interface ColumnChartProps {
@@ -13,17 +13,34 @@ interface ColumnChartProps {
 export const ColumnChart = ({ data, height }: ColumnChartProps) => {
   const [wrapperRef, dimensions] = useDims();
   const { width } = dimensions;
-  const axisDomain = data.map(e => e.id);
-  const range = [0, width];
-  const xScale = d3
-    .scaleBand()
-    .domain(axisDomain)
-    .rangeRound(range)
-    .padding(0.1);
-  const yScale = d3
-    .scaleLinear()
-    .domain([0, 100])
-    .range([height - 40, 0]);
+
+  const settings = {
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingBottom: 40,
+  };
+
+  const xDomain = data.map(e => e.id);
+  const xRange = [0, width];
+  const xPadding = 0.1;
+  const xScale = useMemo(
+    () => d3.scaleBand().domain(xDomain).rangeRound(xRange).padding(xPadding),
+    [dimensions, data]
+  );
+
+  const yDomain = [0, d3.max(data.map(e => e.value))];
+  const yRange = [
+    height - (settings.paddingBottom ? settings.paddingBottom : 0),
+    3,
+  ];
+  const yScale = useMemo(
+    () =>
+      d3
+        .scaleLinear()
+        .domain(yDomain as [number, number])
+        .range(yRange),
+    [data, dimensions]
+  );
 
   return (
     <svg
@@ -39,26 +56,20 @@ export const ColumnChart = ({ data, height }: ColumnChartProps) => {
           y={yScale(e.value)}
           width={xScale.bandwidth()}
           height={height - yScale(e.value) - 40}
-          fill={'steelblue'}
+          fill={'lavender'}
           rx={4}
         />
       ))}
       <g transform={`translate(0,${height - 40})`}>
-        <Axis
-          settings={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 40 }}
-          domain={axisDomain}
-          dims={dimensions}
-          axisPath={false}
-          scaleType={'categorical'}
-        />
+        <Axis scale={xScale} axisPath={false} scaleType={'categorical'} />
       </g>
       <g className="overlays">
         {data.map((e, i) => {
-          console.log(e.value, height - yScale(e.value));
           if (height - yScale(e.value) > 70 && xScale.bandwidth() > 30) {
             return (
               <text
                 key={i}
+                // @ts-expect-error
                 x={xScale(e.id) + xScale.bandwidth() / 2}
                 y={yScale(e.value) + 20}
                 style={{
