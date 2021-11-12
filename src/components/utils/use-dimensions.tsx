@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ResizeObserver } from '@juggle/resize-observer';
 
-import { combineChartDimensions } from './combine-dimensions';
-
 type Dimensions = {
   marginLeft?: number;
   marginRight?: number;
@@ -14,6 +12,48 @@ type Dimensions = {
   width?: number;
 };
 
+// ajoute une floppée de propriétés par défaut à notre graphique,
+// si ces dernières ne sont pas définies
+const combineChartDimensions = (settings: Dimensions): Dimensions => {
+  console.log(settings);
+  const parsedDimensions: Dimensions = {
+    ...settings,
+    marginTop: settings.marginTop || 20,
+    marginRight: settings.marginRight || 20,
+    marginBottom: settings.marginBottom || 20,
+    marginLeft: settings.marginLeft || 20,
+  };
+
+  const boundedHeight =
+    parsedDimensions.height &&
+    parsedDimensions.marginTop &&
+    parsedDimensions.marginBottom
+      ? Math.max(
+          parsedDimensions.height -
+            parsedDimensions.marginTop -
+            parsedDimensions.marginBottom,
+          0
+        )
+      : 0;
+
+  const boundedWidth =
+    parsedDimensions.width &&
+    parsedDimensions.marginLeft &&
+    parsedDimensions.marginRight
+      ? Math.max(
+          parsedDimensions.width -
+            parsedDimensions.marginLeft -
+            parsedDimensions.marginRight,
+          0
+        )
+      : 0;
+  return {
+    ...parsedDimensions,
+    boundedHeight,
+    boundedWidth,
+  };
+};
+
 // calcule les dimensions utilisables par le graphique.
 // ce dernier est contenu dans cette <div> l'englobant (.Chart__wrapper),
 // dont la ref est passée à cette fonction.
@@ -22,7 +62,7 @@ type Dimensions = {
 export const calculateChartDimensions = (
   passedSettings: Dimensions,
   ref: React.MutableRefObject<HTMLDivElement>
-): [React.MutableRefObject<HTMLDivElement>, Dimensions] => {
+): Dimensions => {
   const dimensions = combineChartDimensions(passedSettings);
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -50,5 +90,5 @@ export const calculateChartDimensions = (
     width: dimensions.width || width,
     height: dimensions.height || height,
   });
-  return [ref, newSettings];
+  return newSettings;
 };

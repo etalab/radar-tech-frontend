@@ -1,27 +1,35 @@
 import React, { ReactNode } from 'react';
 
 interface SectionIndentProps {
+  direction: 'left' | 'right';
   children: {
     header?: ReactNode;
     copy: ReactNode;
   };
 }
 
-const shadow =
+const shadowLeft =
   '-2.8px 0 2.2px rgba(0, 0, 0, 0.034),\
    -6.7px 0 5.3px rgba(0, 0, 0, 0.048),\
    -12.5px 0 10px rgba(0, 0, 0, 0.06),\
    -22.3px 0 17.9px rgba(0, 0, 0, 0.072),\
    -41.8px 0 33.4px rgba(0, 0, 0, 0.086),\
    -100px 0 80px rgba(0, 0, 0, 0.12)';
+const shadowRight =
+  '2.8px 0 2.2px rgba(0, 0, 0, 0.034),\
+   6.7px 0 5.3px rgba(0, 0, 0, 0.048),\
+   12.5px 0 10px rgba(0, 0, 0, 0.06),\
+   22.3px 0 17.9px rgba(0, 0, 0, 0.072),\
+   41.8px 0 33.4px rgba(0, 0, 0, 0.086),\
+   100px 0 80px rgba(0, 0, 0, 0.12)';
 
-export const SectionIndent = ({ children }: SectionIndentProps) => (
+export const SectionIndent = ({ direction, children }: SectionIndentProps) => (
   <div
     style={{
       borderRadius: '5px',
-      boxShadow: shadow,
+      boxShadow: direction === 'left' ? shadowLeft : shadowRight,
       padding: '2rem 4rem',
-      margin: '2rem 0',
+      margin: '4rem 0',
     }}
   >
     {children.header ? (

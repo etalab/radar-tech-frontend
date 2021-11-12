@@ -5,7 +5,7 @@ import { SectionHeader } from './SectionHeader';
 import Layout from './layout';
 
 export default {
-  title: 'Example/SectionHeader',
+  title: 'Example/Header de section',
   component: SectionHeader,
 } as ComponentMeta<typeof SectionHeader>;
 
@@ -26,7 +26,7 @@ const Template: ComponentStory<typeof SectionHeader> = args => (
   </React.Fragment>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const ParDéfaut = Template.bind({});
+ParDéfaut.args = {
   copy: 'Header par défaut',
 };
