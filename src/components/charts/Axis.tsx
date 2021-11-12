@@ -1,23 +1,11 @@
 import React, { useMemo } from 'react';
 import * as scale from 'd3-scale';
-const d3 = { ...scale };
 
 interface AxisProps {
-  domain: any[];
-  settings: { paddingLeft?: number; paddingRight?: number };
+  scale: scale.ScaleBand<string> | scale.ScaleLinear<number, number>;
   scaleType: 'linear' | 'categorical';
   axisPath?: boolean;
-  dims: DOMRect;
 }
-
-const pickScale = (scaleType: 'linear' | 'categorical', range: any[]) => {
-  if (scaleType === 'linear') {
-    return d3.scaleLinear().range(range);
-  } else {
-    return d3.scaleBand().rangeRound(range);
-  }
-};
-
 const getTicks = (
   scale,
   scaleType: 'linear' | 'categorical',
@@ -37,7 +25,7 @@ const getTicks = (
 };
 
 const tickTransform = (scaleType: 'linear' | 'categorical') =>
-  `translate(-5px, 25px) ${scaleType === 'linear' ? 'rotate(-45deg)' : ''}`;
+  `translate(0px, 25px) ${scaleType === 'linear' ? 'rotate(-45deg)' : ''}`;
 
 const axisLine = (scaleType: 'linear' | 'categorical', range: number[]) => {
   const offset = scaleType === 'linear' ? 6 : 0;
@@ -45,26 +33,14 @@ const axisLine = (scaleType: 'linear' | 'categorical', range: number[]) => {
   return ['M', range[0], offset, 'v', -offset, 'H', range[1], 'v', offset].join(' ');
 };
 
-export const Axis = ({
-  domain,
-  settings,
-  scaleType,
-  axisPath,
-  dims,
-}: AxisProps) => {
-  const { width } = dims;
-  const range = [
-    settings.paddingLeft ? settings.paddingLeft : 0,
-    settings.paddingRight ? width - settings.paddingRight : width,
-  ];
-  console.log(range);
+export const Axis = ({ scale, scaleType, axisPath }: AxisProps) => {
+  const range = scale.range();
   const ticks = useMemo(() => {
-    const xScale = pickScale(scaleType, range).domain(domain);
     const width = range[1] - range[0];
     const pixelsPerTick = 30;
     const numberOfTicksTarget = Math.max(1, Math.floor(width / pixelsPerTick));
-    return getTicks(xScale, scaleType, numberOfTicksTarget);
-  }, [domain, range]);
+    return getTicks(scale, scaleType, numberOfTicksTarget);
+  }, [scale, range]);
 
   return (
     <g>
@@ -76,7 +52,7 @@ export const Axis = ({
         />
       )}
       {ticks.map(({ value, xOffset }) => (
-        <g key={value} transform={`translate(${xOffset}, 0)`}>
+        <g key={value} transform={`translate(${xOffset ? xOffset : 0}, 0)`}>
           <line y2="6" stroke="currentColor" />
           <text
             key={value}
