@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import * as scale from 'd3-scale';
 
 interface AxisProps {
-  scale: scale.ScaleBand<string>;
+  scale: scale.ScaleBand<string> | scale.ScaleLinear<number, number>;
   scaleType: 'linear' | 'categorical';
   axisPath?: boolean;
 }

@@ -13,7 +13,6 @@ const dummyData = new Array(10).fill({}).map((e, i) => ({
   id: i + 1,
   value: Math.round(Math.random() * 100),
 }));
-console.log(dummyData);
 
 export const Défaut: ComponentStory<typeof ColumnChart> = () => (
   <Layout noFurniture={true}>

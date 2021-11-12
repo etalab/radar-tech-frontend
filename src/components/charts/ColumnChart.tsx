@@ -73,7 +73,7 @@ export const ColumnChart = ({ data, height }: ColumnChartProps) => {
                 x={xScale(e.id) + xScale.bandwidth() / 2}
                 y={yScale(e.value) + 20}
                 style={{
-                  fontSize: `0.7rem`,
+                  fontSize: `0.8rem`,
                   fill: `white`,
                   textAnchor: 'middle',
                 }}
