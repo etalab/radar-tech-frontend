@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "author": "Basile Simon <basile.simon@data.gouv.fr>",
   "engines": {
-    "node": "14.17"
+    "node": "16.13"
   },
   "dependencies": {
     "@gouvfr/dsfr": "^1.0.0-rc1.0",
@@ -27,7 +27,6 @@
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-graphql": "^2.13.0",
     "gatsby-transformer-json": "^3.0.0",
-    "gatsby-transformer-sharp": "^2.6.0",
     "graphql-request": "^3.4.0",
     "install": "^0.13.0",
     "prop-types": "^15.7.2",
