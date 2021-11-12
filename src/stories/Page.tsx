@@ -1,8 +1,9 @@
 import React from 'react';
+import { useDims } from 'react-dims';
 
 import { SectionIndent } from '../components/SectionIndent';
 import { SectionHeader } from '../components/SectionHeader';
-import { ChartTemplate } from '../components/charts/ChartTemplate';
+import { Axis } from '../components/charts/Axis';
 import './page.css';
 
 interface PageProps {}
@@ -17,24 +18,36 @@ const LoremIpsum = () => (
   </p>
 );
 
-export const Page = () => (
-  <article style={{ width: '70%', margin: '0 auto' }}>
-    <SectionHeader copy={'Ceci est donc un header de section'} />
-    <LoremIpsum />
-    <SectionIndent direction={'left'}>
-      {{
-        copy: <LoremIpsum />,
-      }}
-    </SectionIndent>
-    <LoremIpsum />
-    <SectionIndent direction={'right'}>
-      {{
-        header: 'Celui ci est indenté',
-        copy: <LoremIpsum />,
-      }}
-    </SectionIndent>
-    <LoremIpsum />
-    <ChartTemplate />
-    <LoremIpsum />
-  </article>
-);
+export const Page = () => {
+  const [wrapperRef, dimensions] = useDims();
+  return (
+    <article style={{ width: '70%', margin: '0 auto' }}>
+      <SectionHeader copy={'Ceci est donc un header de section'} />
+      <LoremIpsum />
+      <SectionIndent direction={'left'}>
+        {{
+          copy: <LoremIpsum />,
+        }}
+      </SectionIndent>
+      <LoremIpsum />
+      <SectionIndent direction={'right'}>
+        {{
+          header: 'Celui ci est indenté',
+          copy: <LoremIpsum />,
+        }}
+      </SectionIndent>
+      <LoremIpsum />
+      <h4>Ceci est un mini axe SVG</h4>
+      <svg ref={wrapperRef} style={{ width: '100%', height: '40px' }}>
+        <Axis
+          dims={dimensions}
+          settings={{ paddingLeft: 10, paddingRight: 10 }}
+          domain={['Marié.e', 'Sans enfant', 'Sandwich', 'Mer Noire']}
+          axisPath={false}
+          scaleType={'categorical'}
+        />
+      </svg>
+      <LoremIpsum />
+    </article>
+  );
+};

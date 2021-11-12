@@ -3,10 +3,11 @@ import * as scale from 'd3-scale';
 const d3 = { ...scale };
 
 interface AxisProps {
-  parentWidth: number;
   domain: any[];
+  settings: { paddingLeft?: number; paddingRight?: number };
   scaleType: 'linear' | 'categorical';
   axisPath?: boolean;
+  dims: DOMRect;
 }
 
 const pickScale = (scaleType: 'linear' | 'categorical', range: any[]) => {
@@ -45,12 +46,18 @@ const axisLine = (scaleType: 'linear' | 'categorical', range: number[]) => {
 };
 
 export const Axis = ({
-  parentWidth,
   domain,
+  settings,
   scaleType,
   axisPath,
+  dims,
 }: AxisProps) => {
-  const range = [0, parentWidth];
+  const { width } = dims;
+  const range = [
+    settings.paddingLeft ? settings.paddingLeft : 0,
+    settings.paddingRight ? width - settings.paddingRight : width,
+  ];
+  console.log(range);
   const ticks = useMemo(() => {
     const xScale = pickScale(scaleType, range).domain(domain);
     const width = range[1] - range[0];
