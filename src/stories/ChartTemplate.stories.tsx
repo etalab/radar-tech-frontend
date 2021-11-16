@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ChartTemplate } from './ChartTemplate';
-import Layout from '../layout';
+import { ChartTemplate } from '../components/charts/ChartTemplate';
+import Layout from '../components/layout';
 
 export default {
   title: 'Graphiques/Simple conteneur',

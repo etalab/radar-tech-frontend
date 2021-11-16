@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Layout from '../layout';
-import { ColumnChart } from './ColumnChart';
+import Layout from '../components/layout';
+import { ColumnChart } from '../components/charts/ColumnChart';
 
 export default {
   title: 'Graphiques/Colonnes',

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { SectionHeader } from './SectionHeader';
-import Layout from './layout';
+import { SectionHeader } from '../components/SectionHeader';
+import Layout from '../components/layout';
 
 export default {
   title: 'Example/Header de section',

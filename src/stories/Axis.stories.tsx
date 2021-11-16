@@ -4,8 +4,8 @@ import { useDims } from 'react-dims';
 import * as scale from 'd3-scale';
 const d3 = { ...scale };
 
-import { Axis } from './Axis';
-import Layout from '../layout';
+import { Axis } from '../components/charts/Axis';
+import Layout from '../components/layout';
 
 export default {
   title: 'Graphiques/Axe',
