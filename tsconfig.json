@@ -10,6 +10,9 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "types": ["d3", "node", "react"],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": [
+      "es2019"
+    ]
   }
 }

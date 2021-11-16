@@ -1,6 +1,6 @@
 import React from 'react';
 import * as format from 'd3-format';
-import md5 from '../components/utils/md5.js';
+import * as md5 from 'md5';
 
 const d3 = { ...format };
 
@@ -9,9 +9,11 @@ const config = {
   person: { width: 10, height: 80 },
 };
 
+export type Person = { id: string; avatar: string; highlight: string };
+
 // Generate a random-ish person based on the seed
 // https://observablehq.com/@elibryan/covid-19-test-accuracy-simulator
-const generatePerson = seed => {
+const generatePerson = (seed: { id: number; color: string }): Person => {
   const avatarChoices = 'abcdefghijklmnopqrstuABCDEEFGHIJKLMNOPQRSTUVWXYZ';
   const id = 'person_' + d3.format('0>4')(seed.id);
   // Choose a letter for the avatar based on a hash of the ID
@@ -24,11 +26,15 @@ const generatePerson = seed => {
   };
 };
 
+interface WeePersonProps {
+  p: Person;
+}
+
 // Render a person as a weepeople character
 // https://observablehq.com/@elibryan/covid-19-test-accuracy-simulator
-const WeePerson = props => {
+const WeePerson = ({ p }: WeePersonProps) => {
   const personDims = config.person;
-  const { highlight } = props.p;
+  const { highlight } = p;
   const strokeColor = '#fff';
 
   // Render the stroke and body separately for cleaner outline
@@ -44,7 +50,7 @@ const WeePerson = props => {
         stroke={strokeColor}
         strokeWidth="3"
       >
-        {props.p.avatar}
+        {p.avatar}
       </text>
 
       <text
@@ -55,7 +61,7 @@ const WeePerson = props => {
         }}
         fill={highlight}
       >
-        {props.p.avatar}
+        {p.avatar}
       </text>
     </g>
   );
