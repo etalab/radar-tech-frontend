@@ -1,16 +1,16 @@
 import * as React from 'react';
 
 const SubscribeBar = () => (
-  <div className="rf-search-bar rf-search-bar--lg">
-    <label className="rf-label">Label de la barre d'abonnement</label>
+  <div className="fr-search-bar fr-search-bar--lg">
+    <label className="fr-label">Label de la barre d'abonnement</label>
     <input
-      className="rf-input"
+      className="fr-input"
       placeholder="prénom.nom@gouv.fr"
       type="search"
       name="input--lg-input"
     />
     <button
-      className="rf-btn rf-btn--lg"
+      className="fr-btn fr-btn--lg"
       title="S'abonner"
       style={{ content: 'F12C' }}
     >
