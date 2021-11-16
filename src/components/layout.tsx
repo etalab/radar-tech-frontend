@@ -6,7 +6,8 @@ import Footer from './design-systeme/components/Footer';
 
 // inclut le design systeme de l'Etat
 // https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476
-import './design-systeme/css/all.min.css';
+// import './design-systeme/css/all.min.css';
+import '@gouvfr/dsfr/dist/css/dsfr.min.css';
 import './css/layout.css';
 
 interface LayoutProps {
