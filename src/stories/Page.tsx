@@ -84,5 +84,37 @@ export const Page = () => (
         </p>
       </div>
     </div>
+    <LoremIpsum />
+    <SectionIndent direction={'right'}>
+      {{
+        copy: (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row-reverse',
+              width: '100%',
+            }}
+          >
+            <LabelledPie
+              height={150}
+              percentage={55}
+              ariaTitle={''}
+              ariaDescription={''}
+            />
+            <div style={{ flexDirection: 'column' }}>
+              <h5 style={{ color: '#000091' }}>
+                Plus de la moitié voudrait en parler.
+              </h5>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
+                nemo eligendi consectetur error, nulla eum modi qui illo placeat
+                ex dignissimos eveniet cupiditate, id libero! Libero quo
+                repellat numquam magni.
+              </p>
+            </div>
+          </div>
+        ),
+      }}
+    </SectionIndent>
   </article>
 );
