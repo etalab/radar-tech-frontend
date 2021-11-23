@@ -46,6 +46,7 @@ export const LabelledPie = ({
         {arcs.map((e, i) => (
           <path
             key={i}
+            // @ts-expect-error
             d={arc(e)}
             fill={i === 0 ? '#000091' : '#0002'}
             stroke={'#fff'}

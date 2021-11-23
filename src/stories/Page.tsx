@@ -3,6 +3,7 @@ import React from 'react';
 import { SectionIndent } from '../components/SectionIndent';
 import { SectionHeader } from '../components/SectionHeader';
 import { ColumnChart } from '../components/charts/ColumnChart';
+import { LabelledPie } from '../components/charts/LabelledPie';
 import './page.css';
 
 interface PageProps {}
@@ -48,14 +49,23 @@ export const Page = () => (
     </SectionIndent>
     <LoremIpsum />
     <h4>Ceci est un mini graphique SVG</h4>
-    <svg style={{ width: '80%', height: '400px', margin: '0 auto' }}>
+    <div style={{ width: '80%', height: '400px', margin: '0 auto' }}>
       <ColumnChart
         data={dummyData}
         height={400}
         ariaTitle={'Petit graphique'}
         ariaDescription={'Simple description'}
       />
-    </svg>
+    </div>
     <LoremIpsum />
+    <h4>Attention, voici un camembert</h4>
+    <div style={{ width: '80%', height: '400px', margin: '0 auto' }}>
+      <LabelledPie
+        height={150}
+        percentage={65}
+        ariaTitle={'Petit camembert'}
+        ariaDescription={'Simple description'}
+      />
+    </div>
   </article>
 );

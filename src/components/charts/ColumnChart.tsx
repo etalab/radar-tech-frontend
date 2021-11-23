@@ -56,7 +56,6 @@ export const ColumnChart = ({
       ref={wrapperRef}
       width={'100%'}
       height={height}
-      style={{ border: '1px dashed #ddd' }}
     >
       <title id="title">{ariaTitle}</title>
       <desc id="desc">{ariaDescription}</desc>
