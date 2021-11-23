@@ -58,14 +58,31 @@ export const Page = () => (
       />
     </div>
     <LoremIpsum />
-    <h4>Attention, voici un camembert</h4>
-    <div style={{ width: '80%', height: '400px', margin: '0 auto' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        marginTop: '2rem',
+      }}
+    >
       <LabelledPie
         height={150}
-        percentage={65}
-        ariaTitle={'Petit camembert'}
-        ariaDescription={'Simple description'}
+        percentage={25}
+        ariaTitle={''}
+        ariaDescription={''}
       />
+      <div style={{ flexDirection: 'column' }}>
+        <h5 style={{ color: '#000091' }}>
+          Un quart des choses sont importantes.
+        </h5>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nemo
+          eligendi consectetur error, nulla eum modi qui illo placeat ex
+          dignissimos eveniet cupiditate, id libero! Libero quo repellat numquam
+          magni.
+        </p>
+      </div>
     </div>
   </article>
 );
