@@ -3,6 +3,7 @@ import React from 'react';
 import { SectionIndent } from '../components/SectionIndent';
 import { SectionHeader } from '../components/SectionHeader';
 import { ColumnChart } from '../components/charts/ColumnChart';
+import { LabelledPie } from '../components/charts/LabelledPie';
 import './page.css';
 
 interface PageProps {}
@@ -48,14 +49,72 @@ export const Page = () => (
     </SectionIndent>
     <LoremIpsum />
     <h4>Ceci est un mini graphique SVG</h4>
-    <svg style={{ width: '80%', height: '400px', margin: '0 auto' }}>
+    <div style={{ width: '80%', height: '400px', margin: '0 auto' }}>
       <ColumnChart
         data={dummyData}
         height={400}
         ariaTitle={'Petit graphique'}
         ariaDescription={'Simple description'}
       />
-    </svg>
+    </div>
     <LoremIpsum />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        marginTop: '2rem',
+      }}
+    >
+      <LabelledPie
+        height={150}
+        percentage={25}
+        ariaTitle={''}
+        ariaDescription={''}
+      />
+      <div style={{ flexDirection: 'column' }}>
+        <h5 style={{ color: '#000091' }}>
+          Un quart des choses sont importantes.
+        </h5>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque nemo
+          eligendi consectetur error, nulla eum modi qui illo placeat ex
+          dignissimos eveniet cupiditate, id libero! Libero quo repellat numquam
+          magni.
+        </p>
+      </div>
+    </div>
+    <LoremIpsum />
+    <SectionIndent direction={'right'}>
+      {{
+        copy: (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row-reverse',
+              width: '100%',
+            }}
+          >
+            <LabelledPie
+              height={150}
+              percentage={55}
+              ariaTitle={''}
+              ariaDescription={''}
+            />
+            <div style={{ flexDirection: 'column' }}>
+              <h5 style={{ color: '#000091' }}>
+                Plus de la moitié voudrait en parler.
+              </h5>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
+                nemo eligendi consectetur error, nulla eum modi qui illo placeat
+                ex dignissimos eveniet cupiditate, id libero! Libero quo
+                repellat numquam magni.
+              </p>
+            </div>
+          </div>
+        ),
+      }}
+    </SectionIndent>
   </article>
 );
